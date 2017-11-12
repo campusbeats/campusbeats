@@ -1,12 +1,31 @@
 <template name="Home_Page">
   {{#if Template.subscriptionsReady}}
-    <img class="ui fluid image" src="/images/userhome.jpg">
-    <h1 style="position: absolute; top: 30%; left: 2%; height: auto; color: #72EBFF; text-align: center; font-size: 70px">The Place To Find Compatible Musicians</h1>
-    <button style="position: absolute; top: 67%; left: 44%; height: auto; color: white;"
-            class="ui massive teal button">Browse
-    </button>
-    <div style="margin-top: 10px" class="ui container">
-      Hello
+    <div class="image-background">
+      <img style="background-repeat: repeat; position: absolute; height: 500px;" class="ui fluid image" src="/images/userhomebackground.png">
+    </div>
+
+    <div class="ui segments">
+      <div class="ui center aligned segment">
+        <h3>Look for people with musical interests like you here!</h3>
+        <div class="button row">
+          <button class="ui medium teal button">Browse</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="ui container">
+      <div style="margin-top: 10px" class="ui centered grid">
+        <div style="background-color: #fffaa2;" class="fourteen wide column">
+          <h2>Favorites</h2>
+          {{> Filter_Page_Directory profiles=profiles }}
+        </div>
+      </div>
+      <div style="margin-top: 30px" class="ui centered grid">
+        <div style="background-color: #dc465f; color: white;" class="fourteen wide column">
+          <h2>People who're interested in you</h2>
+          {{> Filter_Page_Directory profiles=profiles }}
+        </div>
+      </div>
     </div>
   {{/if}}
 </template>
