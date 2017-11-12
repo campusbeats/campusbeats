@@ -9,14 +9,23 @@
     <form class="ui equal width form profile-data-form {{ successClass }} {{ errorClass }}">
 
       <div class="fields">
-        {{> Text_Form_Control label="First" placeholder="Philip" value=profile.firstName errorMessage=(fieldError "firstName")}}
-        {{> Text_Form_Control label="Last" placeholder="Johnson" value=profile.lastName errorMessage=(fieldError "lastName")}}
+        {{> Text_Form_Control label="First" placeholder="Blaine" value=profile.firstName errorMessage=(fieldError "firstName")}}
+        {{> Text_Form_Control label="Last" placeholder="Wataru" value=profile.lastName errorMessage=(fieldError "lastName")}}
+      </div>
 
+      <div class="fields">
+        {{> Text_Form_Control label="Phone" placeholder="808-555-1234" value=profile.phone errorMessage=(fieldError "phone")}}
+        {{> Text_Form_Control label="Email" placeholder="bdubs@chadchaddington.com" value=profile.email errorMessage=(fieldError "email")}}
       </div>
 
       <div class="field">
-        {{> Text_Form_Control label="Title" placeholder="Student" value=profile.title errorMessage=(fieldError "title")}}
+        {{> Text_Form_Control label="Address" placeholder="123 Sesame St." value=profile.address errorMessage=(fieldError "address")}}
+        {{> Text_Form_Control label="Phone" placeholder="Student" value=profile.title errorMessage=(fieldError "title")}}
         {{> Text_Form_Control label="Picture" placeholder="http://foo.com/shot.jpg" value=profile.picture errorMessage=(fieldError "picture")}}
+      </div>
+
+      <div class="field">
+        {{> }}
       </div>
 
       <div class="field">
