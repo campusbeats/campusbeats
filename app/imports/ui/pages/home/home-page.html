@@ -1,9 +1,9 @@
 <template name="Home_Page">
   {{#if Template.subscriptionsReady}}
-    <div class="image-background">
-      <img style="background-repeat: repeat-y;position: absolute;" class="ui fluid image"
-           src="/images/userhomebackground.png">
-    </div>
+    <img style="position: absolute;" class="ui fluid image"
+         src="/images/userhomebackground.png">
+    <img style="position: absolute;" class="ui fluid image"
+         src="/images/userhomebackground.jpg">
 
     <div class="ui segments">
       <div class="ui center aligned segment">
@@ -15,17 +15,13 @@
     </div>
 
     <div class="ui container">
-      <div style="margin-top: 10px" class="ui centered equal width grid">
-        <div style="background-color: #59c5e2;" class="fourteen wide column">
-          <p style="font-size: 2em; font-weight:bold; color: white;">Your Favorites <i class="yellow star icon"></i></p>
-          {{> Filter_Page_Directory profiles=profiles }}
-        </div>
+      <div style="margin-right: 75px;" class="ui inverted orange segment">
+        <p style="font-size: 2em; font-weight:bold;">Your Favorites <i class="yellow star icon"></i></p>
+        {{> Filter_Page_Directory profiles=profiles }}
       </div>
-      <div style="margin-top: 30px" class="ui centered equal width grid">
-        <div style="background-color: rgb(164,122,255); color: white;" class="fourteen wide column">
-          <p style="font-size: 2em; font-weight:bold; color: white">People who're interested in you</p>
-          {{> Filter_Page_Directory profiles=profiles }}
-        </div>
+      <div style="margin-right: 75px" class="ui blue segment">
+        <p style="font-size: 2em; font-weight:bold;">People who're interested in you</p>
+        {{> Filter_Page_Directory profiles=profiles }}
       </div>
     </div>
   {{/if}}

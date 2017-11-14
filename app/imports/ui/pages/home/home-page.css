@@ -1,12 +1,3 @@
-.image-background {
-  background-size: 10000px;
-  background-position-y: 100px;
-}
-
-.ui.segments {
-  margin-top: 0;
-}
-
 .ui.medium.teal.button {
   color: white;
 }
