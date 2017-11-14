@@ -1,7 +1,8 @@
 <template name="Home_Page">
   {{#if Template.subscriptionsReady}}
     <div class="image-background">
-      <img style="background-repeat: repeat; position: absolute; height: 500px;" class="ui fluid image" src="/images/userhomebackground.png">
+      <img style="background-repeat: repeat-y;position: absolute;" class="ui fluid image"
+           src="/images/userhomebackground.png">
     </div>
 
     <div class="ui segments">
@@ -14,15 +15,15 @@
     </div>
 
     <div class="ui container">
-      <div style="margin-top: 10px" class="ui centered grid">
-        <div style="background-color: #fffaa2;" class="fourteen wide column">
-          <h2>Favorites</h2>
+      <div style="margin-top: 10px" class="ui centered equal width grid">
+        <div style="background-color: #59c5e2;" class="fourteen wide column">
+          <p style="font-size: 2em; font-weight:bold; color: white;">Your Favorites <i class="yellow star icon"></i></p>
           {{> Filter_Page_Directory profiles=profiles }}
         </div>
       </div>
-      <div style="margin-top: 30px" class="ui centered grid">
-        <div style="background-color: #dc465f; color: white;" class="fourteen wide column">
-          <h2>People who're interested in you</h2>
+      <div style="margin-top: 30px" class="ui centered equal width grid">
+        <div style="background-color: rgb(164,122,255); color: white;" class="fourteen wide column">
+          <p style="font-size: 2em; font-weight:bold; color: white">People who're interested in you</p>
           {{> Filter_Page_Directory profiles=profiles }}
         </div>
       </div>
