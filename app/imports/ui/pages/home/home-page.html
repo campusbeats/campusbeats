@@ -12,13 +12,21 @@
 
     <div class="ui container">
 
-      <div style="margin-right: 75px;" class="ui inverted orange segment">
-        <p style="font-size: 2em; font-weight: bold; text-align: center;">Your Favorites <i
+      <div
+          style="margin-right: 50px; margin-left: 30px; background: url('/images/segmentbackground.jpg'); background-size: contain; color: #ffffff; border: groove #000000 2px;"
+          class="ui segment">
+        <p style="font-size: 2em; font-weight: bold; text-align: center; margin-bottom: 17px;">Your Favorites <i
             class="yellow star icon"></i></p>
+        <hr style="margin: 0 15px 15px 65px;">
         {{> Filter_Page_Directory profiles=profiles }}
       </div>
-      <div style="margin-right: 75px" class="ui inverted blue segment">
-        <p style="font-size: 2em; font-weight: bold; text-align: center;">People who're interested in you</p>
+
+      <div
+          style="margin-right: 50px; margin-left: 30px; margin-bottom: 20px; background: url('/images/segmentbackground9.jpg') 70px 80px; background-size: contain;  color: #ffffff; border: groove #000000 2px"
+          class="ui segment">
+        <p style="font-size: 2em; font-weight: bold; text-align: center; margin-bottom: 17px;">People who're interested
+          in you</p>
+        <hr style="margin: 0 15px 15px 65px;">
         {{> Filter_Page_Directory profiles=profiles }}
       </div>
     </div>

@@ -1,3 +1,7 @@
+.home-page-body {
+  background-image: url("/images/userhomebackground3.jpg");
+}
+
 .ui.medium.teal.button {
   color: white;
 }
