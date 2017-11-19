@@ -11,53 +11,111 @@
       </div>
       <div class="row">
         <div class="ui center aligned sixteen wide column">
-          <h1 class="landing-section-1-welcome">Welcome to BowFolios</h1>
-          <h3 class="landing-section-1-tagline">Professional portfolios and networking for the University of Hawaii community</h3>
+          <h1 class="landing-section-1-welcome">Welcome to Campus Beats!</h1>
+          <h3 class="landing-section-1-tagline">Listening to the different beats of UH Manoa</h3>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="landing-section-2">
-    <div class="ui grid">
+  <!--<div class="landing-section-2">
+    <div class="ui centered grid">
       <div class="ui eight wide column">
         <img class="ui centered medium image" src="/images/profile.png">
       </div>
-      <div class="ui eight wide middle aligned column">
-        <h1 class="landing-section-header">Create your portfolio.</h1>
-        <h1 class="landing-section-header">Specify your interests.</h1>
-      </div>
-    </div>
-  </div>
 
-  <div class="landing-section-3">
-    <div class="ui grid">
-      <div class="ui eight wide middle aligned column">
-        <h1 class="landing-section-header">Publish your portfolio in the BowFolio directory.</h1>
-      </div>
-      <div class="ui eight wide column">
-        <img class="ui centered medium image" src="/images/directory.png">
-      </div>
     </div>
-  </div>
+  </div>-->
 
   <div class="landing-section-2">
-    <div class="ui grid">
-      <div class="ui eight wide column">
-        <img class="ui centered medium image" src="/images/filter.png">
-      </div>
+    <div class="ui centered grid">
       <div class="ui eight wide middle aligned column">
-        <h1 class="landing-section-header">Find UH community members with similar interests.</h1>
+        <!--<h1 class="landing-section-header">Combine your beats and play together</h1>-->
+
+      <div class="ui eight wide column">
+        <!--<img class="ui centered medium image" src="/images/directory.png">-->
+        <!--<img src="/images/landing_pic1.jpg" style="width:100%">-->
+        <div class="slideshow-container">
+          <div class="mySlides fade">
+            <div class="numbertext">1 / 4</div>
+            <img src="/images/landing_pic1.jpg" style="width:100%">
+            <div class="text">Find Fellow Musicians</div>
+          </div>
+
+          <div class="mySlides fade">
+            <div class="numbertext">2 / 4</div>
+            <img src="/images/landing_pic2.jpg" style="width:100%">
+            <div class="text">Show off your skills</div>
+          </div>
+
+          <div class="mySlides fade">
+            <div class="numbertext">3 / 4</div>
+            <img src="/images/landing_pic3.jpg" style="width:100%">
+            <div class="text">Play together</div>
+          </div>
+
+          <div class="mySlides fade">
+            <div class="numbertext">4 / 4</div>
+            <img src="/images/landing_pic4.jpg" style="width:100%">
+            <div class="text">Make Friends</div>
+          </div>
+
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+
+
+        <div style="text-align:center">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+          <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
       </div>
+
+      <!--Manually putting in javascript to make carasoul work -->
+      <script>
+      var slideIndex = 1;
+      showSlides(slideIndex);
+
+      function plusSlides(n) {
+      showSlides(slideIndex += n);
+      }
+
+      function currentSlide(n) {
+      showSlides(slideIndex = n);
+      }
+
+      function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+      }
+      </script>
     </div>
+  </div>
   </div>
 
-  <div class="landing-section-5">
-    <div class="ui grid">
-      <div class="ui center aligned sixteen wide column">
-        {{> Cas_Login size="large"}}
-      </div>
+  <footer>
+    <div style="padding-top: 15px" class="ui center aligned container">
+      <hr>
+      <a href="http://campusbeats.github.io">Campus Beats</a><br>
+      Created by:<br>
+      Blaine| Innika | Lancen <br />
+      University of Hawaii<br />
+      ICS 314 killers
     </div>
-  </div>
+  </footer>
+
 
 </template>
