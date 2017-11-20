@@ -4,10 +4,25 @@
 
       <form class="ui equal width form filter-data-form">
         <div class="field">
-          {{> Select_Form_Control label="Interests" options=interests multiple=true }}
+          {{> Select_Form_Control label="Goals" options=interests multiple=true }}
         </div>
+
+        <div class="field">
+          {{> Select_Form_Control label="Abilities" options=interests multiple=true }}
+        </div>
+
+        <div class="field">
+          {{> Select_Form_Control label="Experience" options=interests multiple=true }}
+        </div>
+
+        <div class="field">
+          {{> Select_Form_Control label="Style" options=interests multiple=true }}
+        </div>
+
         <button class="ui teal button" type="submit">Filter</button>
       </form>
+
+
 
       {{> Filter_Page_Directory profiles=profiles }}
 

@@ -83,6 +83,91 @@
       ]
     },
     {
+      "name": "GoalsCollection",
+      "contents": [
+        {
+          "name": "Band ",
+          "description": "Meet with people to play music together in a band"
+        },
+        {
+          "name": "Learn",
+          "description": "Meet with people to learn how to play an instrument"
+        },
+        {
+          "name": "Project",
+          "description": "can create music or needs help creating music"
+        },
+        {
+          "name": "Compose",
+          "description": "Creates music"
+        }
+      ]
+    },
+    {
+      "name": "AbilitiesCollection",
+      "contents": [
+        {
+          "name": "Guitar ",
+          "description": "Can play guitar"
+        },
+        {
+          "name": "Bass",
+          "description": "Can play the bass"
+        },
+        {
+          "name": "Drums",
+          "description": "can play drums"
+        },
+        {
+          "name": "vocal_chords",
+          "description": "Can sing"
+        }
+      ]
+    },
+    {
+      "name": "ExperienceCollection",
+      "contents": [
+        {
+          "name": "1-6 months",
+          "description": "Can play guitar"
+        },
+        {
+          "name": "7-12 months",
+          "description": "Can play the bass"
+        },
+        {
+          "name": "1-3 years",
+          "description": "can play drums"
+        },
+        {
+          "name": "5-10 years",
+          "description": "Can sing"
+        }
+      ]
+    },
+
+    {
+      "name": "StyleCollection",
+      "contents": [
+        {
+          "name": "Rock",
+          "description": "Can play guitar"
+        },
+        {
+          "name": "Jazz",
+          "description": "Can play the bass"
+        },
+        {
+          "name": "Rap",
+          "description": "can play drums"
+        },
+        {
+          "name": "Videogame",
+          "description": "Can sing"
+        }
+      ]
+    },
+    {
       "name": "ProfileCollection",
       "contents": [
         {
