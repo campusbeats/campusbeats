@@ -84,6 +84,15 @@ userRoutes.route('/filter', {
   },
 });
 
+/*                        BEATS ROUTES                       */
+export const beatsPageRouteName = 'Beats_Page';
+userRoutes.route('/beats', {
+  name: beatsPageRouteName,
+  action() {
+    BlazeLayout.render('User_Layout', { main: beatsPageRouteName });
+  },
+});
+
 /*                        MISC ROUTES                       */
 FlowRouter.notFound = {
   action() {
