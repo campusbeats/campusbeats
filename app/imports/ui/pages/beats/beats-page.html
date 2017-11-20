@@ -8,30 +8,24 @@
     </div>
     <form class="ui equal width form profile-data-form {{ successClass }} {{ errorClass }}">
 
-      <div class="fields">
-        {{> Text_Form_Control label="First" placeholder="Philip" value=profile.firstName errorMessage=(fieldError "firstName")}}
-        {{> Text_Form_Control label="Last" placeholder="Johnson" value=profile.lastName errorMessage=(fieldError "lastName")}}
 
+      <div class="field">
+        {{> Select_Form_Control label="Goals" options=interests errorMessage=(fieldError "interests") multiple=true }}
       </div>
 
       <div class="field">
-        {{> Text_Form_Control label="Title" placeholder="Student" value=profile.title errorMessage=(fieldError "title")}}
-        {{> Text_Form_Control label="Picture" placeholder="http://foo.com/shot.jpg" value=profile.picture errorMessage=(fieldError "picture")}}
+        {{> Select_Form_Control label="Abilities" options=interests errorMessage=(fieldError "interests") multiple=true }}
       </div>
 
       <div class="field">
-        {{> Select_Form_Control label="Interests" options=interests errorMessage=(fieldError "interests") multiple=true }}
+        {{> Select_Form_Control label="Experience" options=interests errorMessage=(fieldError "interests") multiple=true }}
       </div>
 
-      <div class="fields">
-
-        {{> Social_Network_Form_Control label="Github" icon="github" placeholder="pmjohnson" value=profile.github errorMessage=(fieldError "github")}}
-        {{> Social_Network_Form_Control label="Facebook" icon="facebook" placeholder="pmjohnson" value=profile.facebook errorMessage=(fieldError "facebook")}}
-        {{> Social_Network_Form_Control label="Instagram" icon="instagram" placeholder="pmjohnson" value=profile.instagram errorMessage=(fieldError "instagram")}}
-
+      <div class="field">
+        {{> Select_Form_Control label="Style" options=interests errorMessage=(fieldError "interests") multiple=true }}
       </div>
 
-      {{> TextArea_Form_Control label="Bio" value=profile.bio placeholder="Short bio statement here" errorMessage=(fieldError "bio")}}
+
 
 
       <button class="ui primary button" type="submit">Submit</button>
@@ -41,7 +35,20 @@
       </div>
       {{/if}}
     </form>
+    {{> Filter_Page_Directory profiles=profiles }}
   </div>
+
+  <div class="ui container">
+  <div style="margin-right: 50px; margin-left: 30px; margin-bottom: 20px; background: url('/images/segmentbackground9.jpg') 70px 80px; background-size: contain;  color: #ffffff; border: groove #000000 2px"
+       class="ui segment">
+    <p style="font-size: 2em; font-weight: bold; text-align: center; margin-bottom: 17px;">People who're interested
+      in you</p>
+    <hr style="margin: 0 15px 15px 65px;">
+    {{> Filter_Page_Directory profiles=profiles }}
+  </div>
+  </div>
+
+
 
   {{/if}}
 
