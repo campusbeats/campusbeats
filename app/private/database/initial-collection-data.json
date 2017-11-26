@@ -224,7 +224,7 @@
           "firstName": "Lee",
           "lastName": "Altenberg",
           "username": "altenber",
-          "favorite": "Favorite",
+          "favorites": "Favorite",
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
           "interests": [
             "Evolutionary Computation"
@@ -236,7 +236,7 @@
           "firstName": "Edo",
           "lastName": "Biagioni",
           "username": "esb",
-          "favorite": "Favorite",
+          "favorites": "Favorite",
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
           "interests": [
             "Mobile Networks",
