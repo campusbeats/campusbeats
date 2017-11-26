@@ -4,13 +4,10 @@
     <div class="content">
       <img class="right floated mini ui image" src="{{ favorites.picture }}">
       <div class="header">
-        {{ favorites.firstName }} {{ favorites.lastName }}
+        {{ favorites.firstName }} {{ favorites.lastName }} <i class="yellow star icon"></i>
       </div>
       <div class="meta">
         {{ favorites.title }}
-      </div>
-      <div class="meta">
-        {{ favorites.favorites }}
       </div>
       <div class="description">
         {{ favorites.bio }}
@@ -26,13 +23,16 @@
       <div class="ui equal width center aligned grid">
         <div class="column"><a href="mailto:{{ favorites.username}}@hawaii.edu"><i class="big mail icon"></i></a></div>
         {{#if favorites.github }}
-          <div class="column"><a href="https://github.com/{{ favorites.github}}"><i class="big github icon"></i></a></div>
+          <div class="column"><a href="https://github.com/{{ favorites.github}}"><i class="big github icon"></i></a>
+          </div>
         {{/if}}
         {{#if favorites.facebook }}
-          <div class="column"><a href="https://facebook.com/{{ favorites.facebook}}"><i class="big facebook icon"></i></a></div>
+          <div class="column"><a href="https://facebook.com/{{ favorites.facebook}}"><i
+              class="big facebook icon"></i></a></div>
         {{/if}}
         {{#if favorites.instagram }}
-          <div class="column"><a href="https://instagram.com/{{ favorites.instagram}}"><i class="big instagram icon"></i></a></div>
+          <div class="column"><a href="https://instagram.com/{{ favorites.instagram}}"><i
+              class="big instagram icon"></i></a></div>
         {{/if}}
       </div>
     </div>

@@ -1,10 +1,12 @@
 import { Template } from 'meteor/templating';
 import { Profiles } from '/imports/api/profile/ProfileCollection';
 import { Favorites } from '/imports/api/favorites/FavoritesCollection';
+import { PeopleInterested } from '/imports/api/people-interested/PeopleInterestedCollection';
 
 Template.Directory_Page.onCreated(function onCreated() {
   this.subscribe(Profiles.getPublicationName());
   this.subscribe(Favorites.getPublicationName());
+  this.subscribe(PeopleInterested.getPublicationName());
 });
 
 Template.Directory_Page.helpers({
@@ -17,5 +19,8 @@ Template.Directory_Page.helpers({
   },
   favorites() {
     return Favorites.find({}, { sort: { lastName: 1 } });
+  },
+  peopleInterested() {
+    return PeopleInterested.find({}, { sort: { lastName: 1 } });
   },
 });

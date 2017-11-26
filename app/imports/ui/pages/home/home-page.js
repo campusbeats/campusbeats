@@ -4,6 +4,7 @@ import { _ } from 'meteor/underscore';
 import { Profiles } from '/imports/api/profile/ProfileCollection';
 import { Interests } from '/imports/api/interest/InterestCollection';
 import { Favorites } from '/imports/api/favorites/FavoritesCollection';
+import { PeopleInterested } from '/imports/api/people-interested/PeopleInterestedCollection';
 
 const selectedInterestsKey = 'selectedInterests';
 
@@ -11,6 +12,7 @@ Template.Home_Page.onCreated(function onCreated() {
   this.subscribe(Interests.getPublicationName());
   this.subscribe(Profiles.getPublicationName());
   this.subscribe(Favorites.getPublicationName());
+  this.subscribe(PeopleInterested.getPublicationName());
   this.messageFlags = new ReactiveDict();
   this.messageFlags.set(selectedInterestsKey, undefined);
 });
@@ -26,7 +28,6 @@ Template.Home_Page.helpers({
     const selectedInterests = Template.instance().messageFlags.get(selectedInterestsKey);
     return _.filter(allProfiles, profile => _.intersection(profile.interests, selectedInterests).length > 0);
   },
-
   interests() {
     return _.map(Interests.findAll(),
         function makeInterestObject(interest) {
@@ -36,7 +37,6 @@ Template.Home_Page.helpers({
           };
         });
   },
-
   favorites() {
     // Initialize selectedInterests to all of them if messageFlags is undefined.
     if (!Template.instance().messageFlags.get(selectedInterestsKey)) {
@@ -46,6 +46,17 @@ Template.Home_Page.helpers({
     const allFavorites = Favorites.findAll();
     const selectedInterests = Template.instance().messageFlags.get(selectedInterestsKey);
     return _.filter(allFavorites, favorites => _.intersection(favorites.interests, selectedInterests).length > 0);
+  },
+  peopleInterested() {
+    // Initialize selectedInterests to all of them if messageFlags is undefined.
+    if (!Template.instance().messageFlags.get(selectedInterestsKey)) {
+      Template.instance().messageFlags.set(selectedInterestsKey, _.map(Interests.findAll(), interest => interest.name));
+    }
+    // Find all profiles with the currently selected interests.
+    const allPeopleInterested = PeopleInterested.findAll();
+    const selectedInterests = Template.instance().messageFlags.get(selectedInterestsKey);
+    return _.filter(allPeopleInterested, peopleInterested => _.intersection(peopleInterested.interests,
+        selectedInterests).length > 0);
   },
 });
 

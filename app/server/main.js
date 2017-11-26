@@ -3,3 +3,4 @@ import '/imports/api/base';
 import '/imports/api/profile';
 import '/imports/api/interest';
 import '/imports/api/favorites';
+import '/imports/api/people-interested';

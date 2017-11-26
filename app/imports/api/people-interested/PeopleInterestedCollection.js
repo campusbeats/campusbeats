@@ -6,19 +6,19 @@ import { Meteor } from 'meteor/meteor';
 import { _ } from 'meteor/underscore';
 import { Tracker } from 'meteor/tracker';
 
-/** @module Favorites */
+/** @module PeopleInterested */
 
 /**
  * Favorites provide profile portfolio data of favorites for a user.
  * @extends module:Base~BaseCollection
  */
-class FavoritesCollection extends BaseCollection {
+class PeopleInterestedCollection extends BaseCollection {
 
   /**
    * Creates the Favorites collection.
    */
   constructor() {
-    super('Favorites', new SimpleSchema({
+    super('PeopleInterested', new SimpleSchema({
       username: { type: String },
       // Remainder are optional
       firstName: { type: String, optional: true },
@@ -32,7 +32,7 @@ class FavoritesCollection extends BaseCollection {
   }
 
   /**
-   * Defines a new Favorites.
+   * Defines a new PeopleInterested.
    * @example
    * Favorites.define({ firstName: 'Philip',
    *                   lastName: 'Johnson',
@@ -101,4 +101,4 @@ class FavoritesCollection extends BaseCollection {
 /**
  * Provides the singleton instance of this class to all other entities.
  */
-export const Favorites = new FavoritesCollection();
+export const PeopleInterested = new PeopleInterestedCollection();
