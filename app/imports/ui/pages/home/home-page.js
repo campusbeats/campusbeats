@@ -2,6 +2,7 @@ import { Template } from 'meteor/templating';
 import { ReactiveDict } from 'meteor/reactive-dict';
 import { _ } from 'meteor/underscore';
 import { Profiles } from '/imports/api/profile/ProfileCollection';
+import { Favorites } from '/imports/api/favorites/FavoritesCollection';
 import { Interests } from '/imports/api/interest/InterestCollection';
 
 const selectedInterestsKey = 'selectedInterests';
@@ -9,6 +10,7 @@ const selectedInterestsKey = 'selectedInterests';
 Template.Home_Page.onCreated(function onCreated() {
   this.subscribe(Interests.getPublicationName());
   this.subscribe(Profiles.getPublicationName());
+  this.subscribe(Favorites.getPublicationName());
   this.messageFlags = new ReactiveDict();
   this.messageFlags.set(selectedInterestsKey, undefined);
 });
@@ -33,6 +35,17 @@ Template.Home_Page.helpers({
             selected: _.contains(Template.instance().messageFlags.get(selectedInterestsKey), interest.name),
           };
         });
+  },
+
+  favorites() {
+    // Initialize selectedInterests to all of them if messageFlags is undefined.
+    if (!Template.instance().messageFlags.get(selectedInterestsKey)) {
+      Template.instance().messageFlags.set(selectedInterestsKey, _.map(Interests.findAll(), interest => interest.name));
+    }
+    // Find all profiles with the currently selected interests.
+    const allFavorites = Favorites.findAll();
+    const selectedInterests = Template.instance().messageFlags.get(selectedInterestsKey);
+    return _.filter(allFavorites, favorites => _.intersection(favorites.interests, selectedInterests).length > 0);
   },
 });
 

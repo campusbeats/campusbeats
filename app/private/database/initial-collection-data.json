@@ -145,7 +145,6 @@
         }
       ]
     },
-
     {
       "name": "StyleCollection",
       "contents": [
@@ -215,6 +214,23 @@
           ],
           "title": "Associate Professor, Information and Computer Sciences",
           "picture": "/images/binsted.jpg"
+        }
+      ]
+    },
+    {
+      "name": "FavoritesCollection",
+      "contents": [
+        {
+          "firstName": "Lee",
+          "lastName": "Altenberg",
+          "username": "altenber",
+          "favorite": "Favorite",
+          "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
+          "interests": [
+            "Evolutionary Computation"
+          ],
+          "title": "Associate Professor, Information and Computer Sciences",
+          "picture": "/images/altenberg.jpg"
         }
       ]
     }
