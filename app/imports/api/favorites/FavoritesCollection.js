@@ -29,9 +29,6 @@ class FavoritesCollection extends BaseCollection {
       'interests.$': { type: String },
       title: { type: String, optional: true },
       picture: { type: SimpleSchema.RegEx.Url, optional: true },
-      github: { type: SimpleSchema.RegEx.Url, optional: true },
-      facebook: { type: SimpleSchema.RegEx.Url, optional: true },
-      instagram: { type: SimpleSchema.RegEx.Url, optional: true },
     }, { tracker: Tracker }));
   }
 
@@ -59,7 +56,6 @@ class FavoritesCollection extends BaseCollection {
    */
   define({
            firstName = '', lastName = '', username, favorites = '', bio = '', interests = [], picture = '', title = '',
-           github = '', facebook = '', instagram = '',
          }) {
     // make sure required fields are OK.
     const checkPattern = {
@@ -86,8 +82,7 @@ class FavoritesCollection extends BaseCollection {
     }
 
     return this._collection.insert({
-      firstName, lastName, username, favorites, bio, interests, picture, title, github,
-      facebook, instagram,
+      firstName, lastName, username, favorites, bio, interests, picture, title,
     });
   }
 
@@ -106,10 +101,7 @@ class FavoritesCollection extends BaseCollection {
     const interests = doc.interests;
     const picture = doc.picture;
     const title = doc.title;
-    const github = doc.github;
-    const facebook = doc.facebook;
-    const instagram = doc.instagram;
-    return { firstName, lastName, username, favorites, bio, interests, picture, title, github, facebook, instagram };
+    return { firstName, lastName, username, favorites, bio, interests, picture, title };
   }
 }
 

@@ -231,6 +231,19 @@
           ],
           "title": "Associate Professor, Information and Computer Sciences",
           "picture": "/images/altenberg.jpg"
+        },
+        {
+          "firstName": "Edo",
+          "lastName": "Biagioni",
+          "username": "esb",
+          "favorite": "Favorite",
+          "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
+          "interests": [
+            "Mobile Networks",
+            "Sailing"
+          ],
+          "title": "Associate Professor, Information and Computer Sciences",
+          "picture": "/images/biagioni.jpg"
         }
       ]
     }

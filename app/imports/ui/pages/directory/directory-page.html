@@ -7,6 +7,10 @@
           {{> Directory_Profile profile=profile }}
         {{/each}}
 
+        {{#each favorites in favorites }}
+          {{> Directory_Favorites favorites=favorites }}
+        {{/each}}
+
       </div>
     </div>
   {{/if}}
