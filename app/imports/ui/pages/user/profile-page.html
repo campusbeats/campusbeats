@@ -40,7 +40,15 @@
         </div>
 
         <div class="field">
+          {{> Select_Form_Control label="Experience" options=experience errorMessage=(fieldError "experience") multiple=true }}
+        </div>
+
+        <div class="field">
           {{> Select_Form_Control label="Goals" options=goals errorMessage=(fieldError "goals") multiple=true }}
+        </div>
+
+        <div class="field">
+          {{> Select_Form_Control label="Style" options=styles errorMessage=(fieldError "styles") multiple=true }}
         </div>
 
         <div class="fields">

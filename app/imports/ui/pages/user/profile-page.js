@@ -5,6 +5,7 @@ import { _ } from 'meteor/underscore';
 import { Profiles } from '/imports/api/profile/ProfileCollection';
 import { Interests } from '/imports/api/interest/InterestCollection';
 import { Abilities } from '/imports/api/ability/AbilityCollection';
+import { Styles } from '/imports/api/style/StyleCollection';
 
 const displaySuccessMessage = 'displaySuccessMessage';
 const displayErrorMessages = 'displayErrorMessages';
@@ -39,6 +40,14 @@ Template.Profile_Page.helpers({
               return { label: ability.name, selected: _.contains(selectedAbilities, ability.name) };
             });
   },
+  styles() {
+    const profile = Profiles.findDoc(FlowRouter.getParam('username'));
+    const selectedStyles = profile.styles;
+    return profile && _.map(Styles.findAll(),
+        function makeStyleObject(style) {
+          return { label: style.name, selected: _.contains(selectedStyles, style.name) };
+        });
+  },
 });
 
 
@@ -58,9 +67,11 @@ Template.Profile_Page.events({
     const bio = event.target.Bio.value;
     const selectedAbilities = _.filter(event.target.Abilities.selectedOptions, (option) => option.selected);
     const abilities = _.map(selectedAbilities, (option) => option.value);
+    const selectedStyles = _.filter(event.target.Styles.selectedOptions, (option) => option.selected);
+    const styles = _.map(selectedStyles, (option) => option.value);
 
     const updatedProfileData = { firstName, lastName, phone, email, address, picture, soundcloud, youtube, spotify,
-      bio, abilities, username };
+      bio, abilities, styles, username };
 
     // Clear out any old validation errors.
     instance.context.reset();
