@@ -1,6 +1,7 @@
 import SimpleSchema from 'simpl-schema';
 import BaseCollection from '/imports/api/base/BaseCollection';
-import { Interests } from '/imports/api/interest/InterestCollection';
+import { Abilities } from '/imports/api/ability/AbilityCollection';
+import { Styles } from '/imports/api/style/StyleCollection';
 import { check } from 'meteor/check';
 import { Meteor } from 'meteor/meteor';
 import { _ } from 'meteor/underscore';
@@ -23,14 +24,18 @@ class ProfileCollection extends BaseCollection {
       // Remainder are optional
       firstName: { type: String, optional: true },
       lastName: { type: String, optional: true },
+      phone: { type: String, optional: true },
+      email: { type: String, optional: true },
+      address: { type: String, optional: true },
       bio: { type: String, optional: true },
-      interests: { type: Array, optional: true },
-      'interests.$': { type: String },
-      title: { type: String, optional: true },
+      abilities: { type: Array, optional: true },
+      'abilities.$': { type: String },
+      styles: { type: Array, optional: true },
+      'styles.$': { type: String },
       picture: { type: SimpleSchema.RegEx.Url, optional: true },
-      github: { type: SimpleSchema.RegEx.Url, optional: true },
-      facebook: { type: SimpleSchema.RegEx.Url, optional: true },
-      instagram: { type: SimpleSchema.RegEx.Url, optional: true },
+      soundcloud: { type: SimpleSchema.RegEx.Url, optional: true },
+      youtube: { type: SimpleSchema.RegEx.Url, optional: true },
+      spotify: { type: SimpleSchema.RegEx.Url, optional: true },
     }, { tracker: Tracker }));
   }
 
@@ -55,27 +60,31 @@ class ProfileCollection extends BaseCollection {
    * if one or more interests are not defined, or if github, facebook, and instagram are not URLs.
    * @returns The newly created docID.
    */
-  define({ firstName = '', lastName = '', username, bio = '', interests = [], picture = '', title = '', github = '',
-      facebook = '', instagram = '' }) {
+  define({ firstName = '', lastName = '', username, bio = '', phone = '', email = '', address = '', abilities = [],
+           styles = [], picture = '', soundcloud = '', youtube = '', spotify = '' }) {
     // make sure required fields are OK.
-    const checkPattern = { firstName: String, lastName: String, username: String, bio: String, picture: String,
-      title: String };
-    check({ firstName, lastName, username, bio, picture, title }, checkPattern);
+    const checkPattern = { firstName: String, lastName: String, username: String, bio: String, phone: String,
+      email: String, address: String, picture: String };
+    check({ firstName, lastName, username, bio, phone, email, address, picture }, checkPattern);
 
     if (this.find({ username }).count() > 0) {
       throw new Meteor.Error(`${username} is previously defined in another Profile`);
     }
 
-    // Throw an error if any of the passed Interest names are not defined.
-    Interests.assertNames(interests);
+    // Throw an error if any of the passed names are not defined.
+    Abilities.assertNames(abilities);
+    Styles.assertNames(styles);
 
-    // Throw an error if there are duplicates in the passed interest names.
-    if (interests.length !== _.uniq(interests).length) {
-      throw new Meteor.Error(`${interests} contains duplicates`);
+    // Throw an error if there are duplicates in the passed names.
+    if (abilities.length !== _.uniq(abilities).length) {
+      throw new Meteor.Error(`${abilities} contains duplicates`);
+    }
+    if (styles.length !== _.uniq(styles).length) {
+      throw new Meteor.Error(`${styles} contains duplicates`);
     }
 
-    return this._collection.insert({ firstName, lastName, username, bio, interests, picture, title, github,
-      facebook, instagram });
+    return this._collection.insert({ firstName, lastName, username, bio, phone, email, address, abilities, styles,
+      picture, soundcloud, youtube, spotify });
   }
 
   /**
@@ -89,13 +98,17 @@ class ProfileCollection extends BaseCollection {
     const lastName = doc.lastName;
     const username = doc.username;
     const bio = doc.bio;
-    const interests = doc.interests;
+    const phone = doc.phone;
+    const email = doc.email;
+    const address = doc.address;
+    const abilities = doc.abilities;
+    const styles = doc.styles;
     const picture = doc.picture;
-    const title = doc.title;
-    const github = doc.github;
-    const facebook = doc.facebook;
-    const instagram = doc.instagram;
-    return { firstName, lastName, username, bio, interests, picture, title, github, facebook, instagram };
+    const soundcloud = doc.soundcloud;
+    const youtube = doc.youtube;
+    const spotify = doc.spotify;
+    return { firstName, lastName, username, bio, phone, email, address, abilities, styles, picture,
+      soundcloud, youtube, spotify };
   }
 }
 

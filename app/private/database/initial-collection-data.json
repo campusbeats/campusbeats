@@ -104,7 +104,7 @@
       ]
     },
     {
-      "name": "AbilitiesCollection",
+      "name": "AbilityCollection",
       "contents": [
         {
           "name": "Guitar ",
@@ -119,7 +119,7 @@
           "description": "can play drums"
         },
         {
-          "name": "vocal_chords",
+          "name": "Vocals",
           "description": "Can sing"
         }
       ]

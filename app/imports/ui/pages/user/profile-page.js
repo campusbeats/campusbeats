@@ -4,12 +4,15 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import { _ } from 'meteor/underscore';
 import { Profiles } from '/imports/api/profile/ProfileCollection';
 import { Interests } from '/imports/api/interest/InterestCollection';
+import { Abilities } from '/imports/api/ability/AbilityCollection';
+import { Styles } from '/imports/api/style/StyleCollection';
 
 const displaySuccessMessage = 'displaySuccessMessage';
 const displayErrorMessages = 'displayErrorMessages';
 
 Template.Profile_Page.onCreated(function onCreated() {
-  this.subscribe(Interests.getPublicationName());
+  this.subscribe(Abilities.getPublicationName());
+  this.subscribe(Styles.getPublicationName());
   this.subscribe(Profiles.getPublicationName());
   this.messageFlags = new ReactiveDict();
   this.messageFlags.set(displaySuccessMessage, false);
@@ -30,13 +33,21 @@ Template.Profile_Page.helpers({
   profile() {
     return Profiles.findDoc(FlowRouter.getParam('username'));
   },
-  interests() {
+  abilities() {
     const profile = Profiles.findDoc(FlowRouter.getParam('username'));
-    const selectedInterests = profile.interests;
-    return profile && _.map(Interests.findAll(),
-            function makeInterestObject(interest) {
-              return { label: interest.name, selected: _.contains(selectedInterests, interest.name) };
+    const selectedAbilities = profile.abilities;
+    return profile && _.map(Abilities.findAll(),
+            function makeAbilityObject(ability) {
+              return { label: ability.name, selected: _.contains(selectedAbilities, ability.name) };
             });
+  },
+  styles() {
+    const profile = Profiles.findDoc(FlowRouter.getParam('username'));
+    const selectedStyles = profile.styles;
+    return profile && _.map(Styles.findAll(),
+        function makeStyleObject(style) {
+          return { label: style.name, selected: _.contains(selectedStyles, style.name) };
+        });
   },
 });
 
@@ -46,18 +57,22 @@ Template.Profile_Page.events({
     event.preventDefault();
     const firstName = event.target.First.value;
     const lastName = event.target.Last.value;
-    const title = event.target.Title.value;
+    const phone = event.target.Phone.value;
+    const email = event.target.Email.value;
+    const address = event.target.Address.value;
     const username = FlowRouter.getParam('username'); // schema requires username.
     const picture = event.target.Picture.value;
-    const github = event.target.Github.value;
-    const facebook = event.target.Facebook.value;
-    const instagram = event.target.Instagram.value;
+    const soundcloud = event.target.Soundcloud.value;
+    const youtube = event.target.Youtube.value;
+    const spotify = event.target.Spotify.value;
     const bio = event.target.Bio.value;
-    const selectedInterests = _.filter(event.target.Interests.selectedOptions, (option) => option.selected);
-    const interests = _.map(selectedInterests, (option) => option.value);
+    const selectedAbilities = _.filter(event.target.Abilities.selectedOptions, (option) => option.selected);
+    const abilities = _.map(selectedAbilities, (option) => option.value);
+    const selectedStyles = _.filter(event.target.Styles.selectedOptions, (option) => option.selected);
+    const styles = _.map(selectedStyles, (option) => option.value);
 
-    const updatedProfileData = { firstName, lastName, title, picture, github, facebook, instagram, bio, interests,
-      username };
+    const updatedProfileData = { firstName, lastName, phone, email, address, picture, soundcloud, youtube, spotify,
+      bio, abilities, styles, username };
 
     // Clear out any old validation errors.
     instance.context.reset();

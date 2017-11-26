@@ -26,24 +26,34 @@
           {{> Text_Form_Control label="Address" placeholder="123 Sesame St." value=profile.address errorMessage=(fieldError "address")}}
         </div>
 
+        <!--
         <div class="field">
           <div class="ui checkbox">
             <input type="checkbox" name="yesReceive" id="yesReceive" value="yesReceive">
             <label>I would like to receive notifications by text/email.</label>
           </div>
         </div>
+-->
 
         <div class="field">
           {{> Select_Form_Control label="Abilities" options=abilities errorMessage=(fieldError "abilities") multiple=true }}
         </div>
 
         <div class="field">
+          {{> Select_Form_Control label="Experience" options=experience errorMessage=(fieldError "experience") multiple=true }}
+        </div>
+
+        <div class="field">
           {{> Select_Form_Control label="Goals" options=goals errorMessage=(fieldError "goals") multiple=true }}
+        </div>
+
+        <div class="field">
+          {{> Select_Form_Control label="Style" options=styles errorMessage=(fieldError "styles") multiple=true }}
         </div>
 
         <div class="fields">
           {{> Social_Network_Form_Control label="Soundcloud" icon="soundcloud" placeholder="blainew" value=profile.soundcloud errorMessage=(fieldError "soundcloud")}}
-          {{> Social_Network_Form_Control label="YouTube" icon="youtube" placeholder="blainew" value=profile.youtube errorMessage=(fieldError "youtube")}}
+          {{> Social_Network_Form_Control label="Youtube" icon="youtube" placeholder="blainew" value=profile.youtube errorMessage=(fieldError "youtube")}}
           {{> Social_Network_Form_Control label="Spotify" icon="spotify" placeholder="blainew" value=profile.spotify errorMessage=(fieldError "spotify")}}
         </div>
 
