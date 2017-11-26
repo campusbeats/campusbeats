@@ -6,4 +6,5 @@ import { Goals } from '/imports/api/goal/GoalCollection';
 export function removeAllEntities() {
   Profiles.removeAll();
   Interests.removeAll();
+  Goals.removeAll();
 }
