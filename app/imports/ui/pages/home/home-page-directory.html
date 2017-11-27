@@ -1,7 +1,15 @@
 <template name="Home_Page_Directory">
-  <div style="margin-top: 20px" class="ui cards">
-    {{#each profile in profiles }}
+  <div style="margin: 0 40px 20px 160px;" class="ui cards">
+    {{#each profile in profile }}
       {{> Directory_Profile profile=profile }}
+    {{/each}}
+
+    {{#each favorites in favorites }}
+      {{> Directory_Favorites favorites=favorites }}
+    {{/each}}
+
+    {{#each peopleInterested in peopleInterested }}
+      {{> Directory_People_Interested peopleInterested=peopleInterested }}
     {{/each}}
   </div>
 </template>

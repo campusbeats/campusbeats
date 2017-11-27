@@ -1,0 +1,38 @@
+<template name="Directory_People_Interested">
+
+  <div class="card">
+    <div class="content">
+      <img class="right floated mini ui image" src="{{ peopleInterested.picture }}">
+      <div class="header">
+        <i class="sound icon"></i> {{ peopleInterested.firstName }} {{ peopleInterested.lastName }}
+      </div>
+      <div class="meta">
+        {{ peopleInterested.title }}
+      </div>
+      <div class="description">
+        {{ peopleInterested.bio }}
+      </div>
+      <div style="margin-top: 10px">
+        {{#each interest in peopleInterested.interests}}
+          <a style="margin-bottom: 2px" class="ui teal tag small label">{{interest}}</a>
+        {{/each}}
+      </div>
+
+    </div>
+    <div class="extra content">
+      <div class="ui equal width center aligned grid">
+        <div class="column"><a href="mailto:{{ peopleInterested.username}}@hawaii.edu"><i class="big mail icon"></i></a></div>
+        {{#if peopleInterested.github }}
+          <div class="column"><a href="https://github.com/{{ peopleInterested.github}}"><i class="big github icon"></i></a></div>
+        {{/if}}
+        {{#if peopleInterested.facebook }}
+          <div class="column"><a href="https://facebook.com/{{ peopleInterested.facebook}}"><i class="big facebook icon"></i></a></div>
+        {{/if}}
+        {{#if peopleInterested.instagram }}
+          <div class="column"><a href="https://instagram.com/{{ peopleInterested.instagram}}"><i class="big instagram icon"></i></a></div>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+
+</template>

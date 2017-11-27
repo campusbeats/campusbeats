@@ -2,11 +2,17 @@
   {{#if Template.subscriptionsReady}}
     <div style="margin-top: 10px" class="ui container">
       <div class="ui cards">
-
         {{#each profile in profiles }}
           {{> Directory_Profile profile=profile }}
         {{/each}}
 
+        {{#each favorites in favorites }}
+          {{> Directory_Favorites favorites=favorites }}
+        {{/each}}
+
+        {{#each peopleInterested in peopleInterested }}
+          {{> Directory_People_Interested peopleInterested=peopleInterested }}
+        {{/each}}
       </div>
     </div>
   {{/if}}
