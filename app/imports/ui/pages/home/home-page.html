@@ -13,21 +13,20 @@
     <div class="ui container">
 
       <div
-          style="margin-right: 50px; margin-left: 30px; background: url('/images/segmentbackground.jpg'); background-size: contain; color: #ffffff; border: groove #000000 2px;"
+          style="margin-right: 50px; margin-left: 30px; background: url('/images/segmentbackground.jpg'); background-size: 100%; color: #ffffff; border: groove #000000 2px;"
           class="ui segment">
-        <p style="font-size: 2em; font-weight: bold; text-align: center; margin-bottom: 17px;">Your Favorites <i
-            class="yellow star icon"></i></p>
+        <p style="font-size: 2em; font-weight: bold; text-align: center; margin-bottom: 17px;">Your Favorites <i style="color: #ff25bc" class="heart icon"></i></p>
         <hr style="margin: 0 15px 15px 65px;">
-        {{> Filter_Page_Directory profiles=profiles }}
+        {{> Home_Page_Directory favorites=favorites }}
       </div>
 
       <div
           style="margin-right: 50px; margin-left: 30px; margin-bottom: 20px; background: url('/images/segmentbackground9.jpg') 70px 80px; background-size: contain;  color: #ffffff; border: groove #000000 2px"
           class="ui segment">
-        <p style="font-size: 2em; font-weight: bold; text-align: center; margin-bottom: 17px;">People who're interested
-          in you</p>
+        <p style="font-size: 2em; font-weight: bold; text-align: center; margin-bottom: 17px;">
+          <i style="color: #85E4FE" class="users icon"></i>  People who're interested in you  <i style="color: #85E4FE" class="users icon"></i></p>
         <hr style="margin: 0 15px 15px 65px;">
-        {{> Filter_Page_Directory profiles=profiles }}
+        {{> Home_Page_Directory peopleInterested=peopleInterested }}
       </div>
     </div>
   {{/if}}
