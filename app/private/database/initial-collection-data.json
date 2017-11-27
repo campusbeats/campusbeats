@@ -23,6 +23,16 @@
       ]
     },
     {
+      "name": "InterestCollection2",
+      "contents": [
+        {
+          "name": "Videogame",
+          "description": "Can sing"
+        }
+      ]
+    },
+
+    {
       "name": "GoalCollection",
       "contents": [
         {

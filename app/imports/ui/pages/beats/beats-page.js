@@ -5,6 +5,7 @@ import { _ } from 'meteor/underscore';
 import { Profiles } from '/imports/api/profile/ProfileCollection';
 import { Interests } from '/imports/api/interest/InterestCollection';
 import { Goals } from '/imports/api/goal/GoalCollection';
+import { Interests2 } from '/imports/api/interest2/InterestCollection2';
 
 
 const selectedInterestsKey = 'selectedInterests';
