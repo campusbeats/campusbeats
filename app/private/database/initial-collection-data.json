@@ -83,7 +83,7 @@
       ]
     },
     {
-      "name": "GoalsCollection",
+      "name": "GoalCollection",
       "contents": [
         {
           "name": "Band ",
@@ -159,7 +159,7 @@
         },
         {
           "name": "Rap",
-          "description": "can play drums"
+          "description": "can rhyme and rap"
         },
         {
           "name": "Videogame",
