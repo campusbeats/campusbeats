@@ -4,6 +4,7 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import { _ } from 'meteor/underscore';
 import { Profiles } from '/imports/api/profile/ProfileCollection';
 import { Interests } from '/imports/api/interest/InterestCollection';
+import { Goals } from '/imports/api/goal/GoalCollection';
 
 const displaySuccessMessage = 'displaySuccessMessage';
 const displayErrorMessages = 'displayErrorMessages';
@@ -11,6 +12,7 @@ const displayErrorMessages = 'displayErrorMessages';
 Template.Profile_Page.onCreated(function onCreated() {
   this.subscribe(Interests.getPublicationName());
   this.subscribe(Profiles.getPublicationName());
+  this.subscribe(Goals.getPublicationName());
   this.messageFlags = new ReactiveDict();
   this.messageFlags.set(displaySuccessMessage, false);
   this.messageFlags.set(displayErrorMessages, false);
@@ -37,6 +39,14 @@ Template.Profile_Page.helpers({
             function makeInterestObject(interest) {
               return { label: interest.name, selected: _.contains(selectedInterests, interest.name) };
             });
+  },
+  goals() {
+    const profile = Profiles.findDoc(FlowRouter.getParam('username'));
+    const selectedGoals = profile.goals;
+    return profile && _.map(Goals.findAll(),
+        function makeGoalObject(goal) {
+          return { label: goal.name, selected: _.contains(selectedGoals, goal.name) };
+        });
   },
 });
 
