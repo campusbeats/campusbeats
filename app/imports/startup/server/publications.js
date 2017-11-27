@@ -1,6 +1,7 @@
 import { Interests } from '/imports/api/interest/InterestCollection';
 import { Profiles } from '/imports/api/profile/ProfileCollection';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Abilities } from '/imports/api/ability/AbilityCollection';
 import { Styles } from '/imports/api/style/StyleCollection';
 import { Favorites } from '/imports/api/favorites/FavoritesCollection';
@@ -20,3 +21,8 @@ Profiles.publish();
 Goals.publish();
 
 >>>>>>> e8cc57a55f8337fba7e01bb20eac4715595afcb6
+=======
+
+Interests.publish();
+Profiles.publish();
+>>>>>>> parent of e8cc57a... was able to get goals on the slider in beats page! OMG
