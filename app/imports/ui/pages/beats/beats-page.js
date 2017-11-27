@@ -5,17 +5,21 @@ import { _ } from 'meteor/underscore';
 import { Profiles } from '/imports/api/profile/ProfileCollection';
 import { Interests } from '/imports/api/interest/InterestCollection';
 import { Goals } from '/imports/api/goal/GoalCollection';
+import { Experiences } from '/imports/api/experience/ExperienceCollection';
 
 const selectedInterestsKey = 'selectedInterests';
 const selectedGoalsKey = 'selectedGoals';
+const selectedExperiencesKey = 'selectedExperiences';
 
 Template.Beats_Page.onCreated(function onCreated() {
   this.subscribe(Interests.getPublicationName());
   this.subscribe(Profiles.getPublicationName());
   this.subscribe(Goals.getPublicationName());
+  this.subscribe(Experiences.getPublicationName());
   this.messageFlags = new ReactiveDict();
   this.messageFlags.set(selectedInterestsKey, undefined);
   this.messageFlags.set(selectedGoalsKey, undefined);
+  this.messageFlags.set(selectedExperiencesKey, undefined);
   this.context = Profiles.getSchema().namedContext('Beats_Page');
 });
 
@@ -59,6 +63,21 @@ Template.Beats_Page.helpers({
     return profile && _.map(Goals.findAll(),
         function makeGoalObject(goal) {
           return { label: goal.name, selected: _.contains(selectedGoals, goal.name) };
+        });
+  },
+  experiences() {
+    /*  return _.map(Goals.findAll(),
+        function makeGoalObject(goal) {
+          return {
+            label: goal.name,
+            selected: _.contains(Template.instance().messageFlags.get(selectedGoalsKey), goal.name),
+          };
+        }); */
+    const profile = Profiles.findDoc(FlowRouter.getParam('username'));
+    const selectedExperiences = profile.experiences;
+    return profile && _.map(Experiences.findAll(),
+        function makeExperienceObject(experience) {
+          return { label: experience.name, selected: _.contains(selectedExperiences, experience.name) };
         });
   },
 });
