@@ -4,8 +4,13 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import { _ } from 'meteor/underscore';
 import { Profiles } from '/imports/api/profile/ProfileCollection';
 import { Interests } from '/imports/api/interest/InterestCollection';
+<<<<<<< HEAD
 import { Abilities } from '/imports/api/ability/AbilityCollection';
 import { Styles } from '/imports/api/style/StyleCollection';
+=======
+import { Goals } from '/imports/api/goal/GoalCollection';
+import { Experiences } from '/imports/api/experience/ExperienceCollection';
+>>>>>>> issue-20e
 
 const displaySuccessMessage = 'displaySuccessMessage';
 const displayErrorMessages = 'displayErrorMessages';
@@ -14,6 +19,8 @@ Template.Profile_Page.onCreated(function onCreated() {
   this.subscribe(Abilities.getPublicationName());
   this.subscribe(Styles.getPublicationName());
   this.subscribe(Profiles.getPublicationName());
+  this.subscribe(Goals.getPublicationName());
+  this.subscribe(Experiences.getPublicationName());
   this.messageFlags = new ReactiveDict();
   this.messageFlags.set(displaySuccessMessage, false);
   this.messageFlags.set(displayErrorMessages, false);
@@ -41,12 +48,29 @@ Template.Profile_Page.helpers({
               return { label: ability.name, selected: _.contains(selectedAbilities, ability.name) };
             });
   },
+<<<<<<< HEAD
   styles() {
     const profile = Profiles.findDoc(FlowRouter.getParam('username'));
     const selectedStyles = profile.styles;
     return profile && _.map(Styles.findAll(),
         function makeStyleObject(style) {
           return { label: style.name, selected: _.contains(selectedStyles, style.name) };
+=======
+  goals() {
+    const profile = Profiles.findDoc(FlowRouter.getParam('username'));
+    const selectedGoals = profile.goals;
+    return profile && _.map(Goals.findAll(),
+        function makeGoalObject(goal) {
+          return { label: goal.name, selected: _.contains(selectedGoals, goal.name) };
+        });
+  },
+  experiences() {
+    const profile = Profiles.findDoc(FlowRouter.getParam('username'));
+    const selectedExperiences = profile.experiences;
+    return profile && _.map(Experiences.findAll(),
+        function makeExperienceObject(experience) {
+          return { label: experience.name, selected: _.contains(selectedExperiences, experience.name) };
+>>>>>>> issue-20e
         });
   },
 });
