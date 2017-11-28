@@ -2,6 +2,8 @@ import SimpleSchema from 'simpl-schema';
 import BaseCollection from '/imports/api/base/BaseCollection';
 import { Abilities } from '/imports/api/ability/AbilityCollection';
 import { Styles } from '/imports/api/style/StyleCollection';
+import { Experiences } from '/imports/api/experience/ExperienceCollection';
+import { Goals } from '/imports/api/goal/GoalCollection';
 import { check } from 'meteor/check';
 import { Meteor } from 'meteor/meteor';
 import { _ } from 'meteor/underscore';
@@ -32,6 +34,10 @@ class ProfileCollection extends BaseCollection {
       'abilities.$': { type: String },
       styles: { type: Array, optional: true },
       'styles.$': { type: String },
+      experiences: { type: Array, optional: true },
+      'experiences.$': { type: String },
+      goals: { type: Array, optional: true },
+      'goals.$': { type: String },
       picture: { type: SimpleSchema.RegEx.Url, optional: true },
       soundcloud: { type: SimpleSchema.RegEx.Url, optional: true },
       youtube: { type: SimpleSchema.RegEx.Url, optional: true },
@@ -61,7 +67,7 @@ class ProfileCollection extends BaseCollection {
    * @returns The newly created docID.
    */
   define({ firstName = '', lastName = '', username, bio = '', phone = '', email = '', address = '', abilities = [],
-           styles = [], picture = '', soundcloud = '', youtube = '', spotify = '' }) {
+           styles = [], experiences = [], goals = [], picture = '', soundcloud = '', youtube = '', spotify = '' }) {
     // make sure required fields are OK.
     const checkPattern = { firstName: String, lastName: String, username: String, bio: String, phone: String,
       email: String, address: String, picture: String };
@@ -74,7 +80,8 @@ class ProfileCollection extends BaseCollection {
     // Throw an error if any of the passed names are not defined.
     Abilities.assertNames(abilities);
     Styles.assertNames(styles);
-
+    Experiences.assertNames(experiences);
+    Goals.assertNames(goals);
     // Throw an error if there are duplicates in the passed names.
     if (abilities.length !== _.uniq(abilities).length) {
       throw new Meteor.Error(`${abilities} contains duplicates`);
@@ -82,9 +89,14 @@ class ProfileCollection extends BaseCollection {
     if (styles.length !== _.uniq(styles).length) {
       throw new Meteor.Error(`${styles} contains duplicates`);
     }
-
+    if (goals.length !== _.uniq(goals).length) {
+      throw new Meteor.Error(`${goals} contains duplicates`);
+    }
+    if (experiences.length !== _.uniq(experiences).length) {
+      throw new Meteor.Error(`${experiences} contains duplicates`);
+    }
     return this._collection.insert({ firstName, lastName, username, bio, phone, email, address, abilities, styles,
-      picture, soundcloud, youtube, spotify });
+      experiences, goals, picture, soundcloud, youtube, spotify });
   }
 
   /**
@@ -103,12 +115,14 @@ class ProfileCollection extends BaseCollection {
     const address = doc.address;
     const abilities = doc.abilities;
     const styles = doc.styles;
+    const experiences = doc.experiences;
+    const goals = doc.goals;
     const picture = doc.picture;
     const soundcloud = doc.soundcloud;
     const youtube = doc.youtube;
     const spotify = doc.spotify;
     return { firstName, lastName, username, bio, phone, email, address, abilities, styles, picture,
-      soundcloud, youtube, spotify };
+      experiences, goals, soundcloud, youtube, spotify };
   }
 }
 
