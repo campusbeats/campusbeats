@@ -90,9 +90,12 @@ Template.Profile_Page.events({
     const abilities = _.map(selectedAbilities, (option) => option.value);
     const selectedStyles = _.filter(event.target.Styles.selectedOptions, (option) => option.selected);
     const styles = _.map(selectedStyles, (option) => option.value);
-
+    const selectedGoals = _.filter(event.target.Goals.selectedOptions, (option) => option.selected);
+    const goals = _.map(selectedGoals, (option) => option.value);
+    const selectedExperiences = _.filter(event.target.Experiences.selectedOptions, (option) => option.selected);
+    const experiences = _.map(selectedExperiences, (option) => option.value);
     const updatedProfileData = { firstName, lastName, phone, email, address, picture, soundcloud, youtube, spotify,
-      bio, abilities, styles, username };
+      bio, abilities, styles, goals, experiences, username };
 
     // Clear out any old validation errors.
     instance.context.reset();
