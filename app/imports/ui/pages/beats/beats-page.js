@@ -124,7 +124,7 @@ Template.Beats_Page.helpers({
 Template.Beats_Page.events({
   'submit .filter-data-form'(event, instance) {
     event.preventDefault();
-    const selectedOptions = _.filter(event.target.Interests.selectedOptions, (option) => option.selected);
-    instance.messageFlags.set(selectedInterestsKey, _.map(selectedOptions, (option) => option.value));
+    const selectedOptions = _.filter(event.target.Abilities.selectedOptions, (option) => option.selected);
+    instance.messageFlags.set(selectedAbilitiesKey, _.map(selectedOptions, (option) => option.value));
   },
 });

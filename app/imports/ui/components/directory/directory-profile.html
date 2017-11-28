@@ -9,6 +9,11 @@
       <div class="description">
         {{ profile.bio }}
       </div>
+      <div style="margin-top: 10px">
+        {{#each ability in profile.abilities}}
+          <a style="margin-bottom: 2px" class="ui teal tag small label">{{ability}}</a>
+        {{/each}}
+      </div>
     </div>
   </div>
 

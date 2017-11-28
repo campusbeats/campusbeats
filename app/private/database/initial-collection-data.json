@@ -176,7 +176,7 @@
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
           "abilities": [
             "Guitar",
-            "Base"
+            "Bass"
           ],
           "picture": "/images/altenberg.jpg"
         },
@@ -214,6 +214,10 @@
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
           "interests": [
             "Evolutionary Computation"
+          ],
+          "abilities": [
+            "Guitar",
+            "Bass"
           ],
           "title": "Associate Professor, Information and Computer Sciences",
           "picture": "/images/altenberg.jpg"
