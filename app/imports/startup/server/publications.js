@@ -4,6 +4,8 @@ import { Abilities } from '/imports/api/ability/AbilityCollection';
 import { Styles } from '/imports/api/style/StyleCollection';
 import { Favorites } from '/imports/api/favorites/FavoritesCollection';
 import { PeopleInterested } from '/imports/api/people-interested/PeopleInterestedCollection';
+import { Goals } from '/imports/api/goal/GoalCollection';
+import { Experiences } from '/imports/api/experience/ExperienceCollection';
 
 Interests.publish();
 Profiles.publish();
@@ -11,11 +13,6 @@ Abilities.publish();
 Styles.publish();
 Favorites.publish();
 PeopleInterested.publish();
-import { Goals } from '/imports/api/goal/GoalCollection';
-import { Experiences } from '/imports/api/experience/ExperienceCollection';
-
-Interests.publish();
-Profiles.publish();
 Goals.publish();
 Experiences.publish();
 
