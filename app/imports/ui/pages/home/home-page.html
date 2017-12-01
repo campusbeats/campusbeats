@@ -2,30 +2,33 @@
   {{#if Template.subscriptionsReady}}
 
     <div class="ui segments">
-      <div class="ui center aligned segment">
-        <h3>Look for people with musical interests like you here!</h3>
+      <div style="background-color: #c9ccff; box-shadow: inset;" class=" ui center aligned segment">
+        <h3 style="color: #303030;" >Look for people with musical interests like you here!</h3>
         <div class="button row">
-          <button class="ui medium teal button">Browse</button>
+          <button style="background-color: #8781ba;" class="ui medium teal button">Browse</button>
         </div>
       </div>
     </div>
 
     <div class="ui container">
 
-      <div
-          style="margin-right: 50px; margin-left: 30px; background: url('/images/segmentbackground.jpg'); background-size: 100%; color: #ffffff; border: groove #000000 2px;"
-          class="ui segment">
-        <p style="font-size: 2em; font-weight: bold; text-align: center; margin-bottom: 17px;">Your Favorites <i style="color: #ff25bc" class="heart icon"></i></p>
-        <hr style="margin: 0 15px 15px 65px;">
+      <div style="margin-right: 50px; margin-left: 20px; background-color: transparent; border: none; box-shadow: none;"
+           class="ui segment">
+        <h2 style="border-left: 20px solid #8781ba; background-color: #fdfdfd; font-size: 2em; font-weight: bold; margin-left: 20px;"
+            class="ui violet block header">
+          Your Favorites <i style="color: #ff25bc; margin-left: 6px;" class="yellow star icon"></i>
+        </h2>
         {{> Home_Page_Directory favorites=favorites }}
       </div>
 
-      <div
-          style="margin-right: 50px; margin-left: 30px; margin-bottom: 20px; background: url('/images/segmentbackground9.jpg') 70px 80px; background-size: contain;  color: #ffffff; border: groove #000000 2px"
-          class="ui segment">
-        <p style="font-size: 2em; font-weight: bold; text-align: center; margin-bottom: 17px;">
-          <i style="color: #85E4FE" class="users icon"></i>  People who're interested in you  <i style="color: #85E4FE" class="users icon"></i></p>
-        <hr style="margin: 0 15px 15px 65px;">
+      <div class="ui hidden divider"></div>
+
+      <div style="margin-right: 50px; margin-left: 20px; background-color: transparent; border: none; box-shadow: none;"
+           class="ui segment">
+        <h2 style="border-left: 20px solid #8781ba; background-color: #fdfdfd; font-size: 2em; font-weight: bold; margin-left: 20px;"
+            class="ui violet block header">
+          People who're interested in you <i style="color: #000000; margin-left: 6px;" class="sound icon"></i>
+        </h2>
         {{> Home_Page_Directory peopleInterested=peopleInterested }}
       </div>
     </div>
