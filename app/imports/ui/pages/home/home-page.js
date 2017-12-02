@@ -114,14 +114,39 @@ Template.Home_Page.helpers({
   },
   peopleInterested() {
     // Initialize selectedInterests to all of them if messageFlags is undefined.
-    if (!Template.instance().messageFlags.get(selectedInterestsKey)) {
+    /* if (!Template.instance().messageFlags.get(selectedInterestsKey)) {
       Template.instance().messageFlags.set(selectedInterestsKey, _.map(Interests.findAll(), interest => interest.name));
     }
     // Find all profiles with the currently selected interests.
     const allPeopleInterested = PeopleInterested.findAll();
     const selectedInterests = Template.instance().messageFlags.get(selectedInterestsKey);
     return _.filter(allPeopleInterested, peopleInterested => _.intersection(peopleInterested.interests,
-        selectedInterests).length > 0);
+        selectedInterests).length > 0); */
+    // Initialize selectedAbiltiies to all of them if messageFlags is undefined.
+    if (!Template.instance().messageFlags.get(selectedAbilitiesKey) &&
+        !Template.instance().messageFlags.get(selectedStylesKey) &&
+        !Template.instance().messageFlags.get(selectedGoalsKey) &&
+        !Template.instance().messageFlags.get(selectedExperiencesKey)) {
+      Template.instance().messageFlags.set(selectedAbilitiesKey, _.map(Abilities.findAll(), ability => ability.name));
+      Template.instance().messageFlags.set(selectedStylesKey, _.map(Styles.findAll(), style => style.name));
+      Template.instance().messageFlags.set(selectedGoalsKey, _.map(Goals.findAll(), goal => goal.name));
+      Template.instance().messageFlags.set(selectedExperiencesKey, _.map(Experiences.findAll(), exp => exp.name));
+    }
+    // Find all profiles with the currently selected interests.
+    let allPpl = PeopleInterested.findAll();
+    const selectedAbilities = Template.instance().messageFlags.get(selectedAbilitiesKey);
+    const selectedGoals = Template.instance().messageFlags.get(selectedGoalsKey);
+    const selectedStyles = Template.instance().messageFlags.get(selectedStylesKey);
+    const selectedExperiences = Template.instance().messageFlags.get(selectedExperiencesKey);
+    allPpl = _.filter(allPpl, peopleInterested => _.intersection(peopleInterested.abilities,
+        selectedAbilities).length > 0);
+    allPpl = _.filter(allPpl, peopleInterested => _.intersection(peopleInterested.goals,
+        selectedGoals).length > 0);
+    allPpl = _.filter(allPpl, peopleInterested => _.intersection(peopleInterested.styles,
+        selectedStyles).length > 0);
+    allPpl = _.filter(allPpl, peopleInterested => _.intersection(peopleInterested.experiences,
+        selectedExperiences).length > 0);
+    return allPpl;
   },
 });
 
