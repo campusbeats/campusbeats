@@ -55,16 +55,16 @@ Template.Beats_Page.helpers({
       Template.instance().messageFlags.set(selectedExperiencesKey, _.map(Experiences.findAll(), exp => exp.name));
     }
     // Find all profiles with the currently selected interests.
-    let allProf = Profiles.findAll();
+    let allProfiles = Profiles.findAll();
     const selectedAbilities = Template.instance().messageFlags.get(selectedAbilitiesKey);
     const selectedGoals = Template.instance().messageFlags.get(selectedGoalsKey);
     const selectedStyles = Template.instance().messageFlags.get(selectedStylesKey);
     const selectedExperiences = Template.instance().messageFlags.get(selectedExperiencesKey);
-    allProf = _.filter(allProf, profile => _.intersection(profile.abilities, selectedAbilities).length > 0);
-    allProf = _.filter(allProf, profile => _.intersection(profile.goals, selectedGoals).length > 0);
-    allProf = _.filter(allProf, profile => _.intersection(profile.styles, selectedStyles).length > 0);
-    allProf = _.filter(allProf, profile => _.intersection(profile.experiences, selectedExperiences).length > 0);
-    return allProf;
+    allProfiles = _.filter(allProfiles, profile => _.intersection(profile.abilities, selectedAbilities).length > 0);
+    allProfiles = _.filter(allProfiles, profile => _.intersection(profile.goals, selectedGoals).length > 0);
+    allProfiles = _.filter(allProfiles, profile => _.intersection(profile.styles, selectedStyles).length > 0);
+    allProfiles = _.filter(allProfiles, profile => _.intersection(profile.experiences, selectedExperiences).length > 0);
+    return allProfiles;
   },
 
   interests() {
