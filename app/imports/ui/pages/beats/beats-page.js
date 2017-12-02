@@ -33,14 +33,14 @@ Template.Beats_Page.onCreated(function onCreated() {
 
 Template.Beats_Page.helpers({
   profiles() {
-    // Initialize selectedInterests to all of them if messageFlags is undefined.
-    if (!Template.instance().messageFlags.get(selectedInterestsKey)) {
-      Template.instance().messageFlags.set(selectedInterestsKey, _.map(Interests.findAll(), interest => interest.name));
+    // Initialize selectedAbilities to all of them if messageFlags is undefined.
+    if (!Template.instance().messageFlags.get(selectedAbilitiesKey)) {
+      Template.instance().messageFlags.set(selectedAbilitiesKey, _.map(Abilities.findAll(), ability => ability.name));
     }
     // Find all profiles with the currently selected interests.
     const allProfiles = Profiles.findAll();
-    const selectedInterests = Template.instance().messageFlags.get(selectedInterestsKey);
-    return _.filter(allProfiles, profile => _.intersection(profile.interests, selectedInterests).length > 0);
+    const selectedAbilities = Template.instance().messageFlags.get(selectedAbilitiesKey);
+    return _.filter(allProfiles, profile => _.intersection(profile.abilities, selectedAbilities).length > 0);
   },
 
   interests() {
