@@ -14,6 +14,21 @@
           <a style="margin-bottom: 2px" class="ui teal tag small label">{{ability}}</a>
         {{/each}}
       </div>
+      <div style="margin-top: 10px">
+        {{#each style in profile.styles}}
+        <a style="margin-bottom: 2px" class="ui teal tag small label">{{style}}</a>
+        {{/each}}
+      </div>
+      <div style="margin-top: 10px">
+        {{#each goal in profile.goals}}
+        <a style="margin-bottom: 2px" class="ui teal tag small label">{{goal}}</a>
+        {{/each}}
+      </div>
+      <div style="margin-top: 10px">
+        {{#each experience in profile.experience}}
+        <a style="margin-bottom: 2px" class="ui teal tag small label">{{experience}}</a>
+        {{/each}}
+      </div>
     </div>
   </div>
 

@@ -34,7 +34,7 @@ Template.Home_Page.onCreated(function onCreated() {
 });
 
 Template.Home_Page.helpers({
-  profiles() {
+  /* profiles() {
     // Initialize selectedAbilties to all of them if messageFlags is undefined.
     if (!Template.instance().messageFlags.get(selectedAbilitiesKey)) {
       Template.instance().messageFlags.set(selectedAbilitiesKey, _.map(Abilities.findAll(), ability => ability.name));
@@ -43,7 +43,7 @@ Template.Home_Page.helpers({
     const allProfiles = Profiles.findAll();
     const selectedAbilities = Template.instance().messageFlags.get(selectedAbilitiesKey);
     return _.filter(allProfiles, profile => _.intersection(profile.ability, selectedAbilities).length > 0);
-  },
+  }, */
   interests() {
     return _.map(Interests.findAll(),
         function makeInterestObject(interest) {

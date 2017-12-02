@@ -1,7 +1,7 @@
 <template name="Beats_Page_Directory">
   <div style="margin-top: 0; margin-right: 25px; margin-left: 90px;" class="ui cards">
-    {{#each favorite in favorites }}
-      {{> Directory_Favorites favorite=favorite }}
+    {{#each profile in profiles }}
+      {{> Directory_Profile profile=profile }}
     {{/each}}
   </div>
 </template>

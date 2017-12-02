@@ -23,7 +23,7 @@ Template.Beats_Page.onCreated(function onCreated() {
   this.subscribe(Abilities.getPublicationName());
   this.subscribe(Styles.getPublicationName());
   this.messageFlags = new ReactiveDict();
-  this.messageFlags.set(selectedInterestsKey, undefined);
+  // this.messageFlags.set(selectedInterestsKey, undefined);
   this.messageFlags.set(selectedGoalsKey, undefined);
   this.messageFlags.set(selectedExperiencesKey, undefined);
   this.messageFlags.set(selectedAbilitiesKey, undefined);
@@ -32,17 +32,41 @@ Template.Beats_Page.onCreated(function onCreated() {
 });
 
 Template.Beats_Page.helpers({
+  /*
   profiles() {
-    // Initialize selectedAbilities to all of them if messageFlags is undefined.
-    if (!Template.instance().messageFlags.get(selectedAbilitiesKey)) {
+  // Initialize selectedAbilities to all of them if messageFlags is undefined.
+  if (!Template.instance().messageFlags.get(selectedAbilitiesKey)) {
+    Template.instance().messageFlags.set(selectedAbilitiesKey, _.map(Abilities.findAll(), ability => ability.name));
+  }
+  // Find all profiles with the currently selected interests.
+  const allProfiles = Profiles.findAll();
+  const selectedAbilities = Template.instance().messageFlags.get(selectedAbilitiesKey);
+  return _.filter(allProfiles, profile => _.intersection(profile.abilities, selectedAbilities).length > 0);
+},
+*/
+  profiles() {
+    // Initialize selectedAbiltiies to all of them if messageFlags is undefined.
+    if (!Template.instance().messageFlags.get(selectedAbilitiesKey) &&
+        !Template.instance().messageFlags.get(selectedStylesKey) &&
+        !Template.instance().messageFlags.get(selectedGoalsKey) &&
+        !Template.instance().messageFlags.get(selectedExperiencesKey)) {
       Template.instance().messageFlags.set(selectedAbilitiesKey, _.map(Abilities.findAll(), ability => ability.name));
+      Template.instance().messageFlags.set(selectedStylesKey, _.map(Styles.findAll(), style => style.name));
+      Template.instance().messageFlags.set(selectedGoalsKey, _.map(Goals.findAll(), goal => goal.name));
+      Template.instance().messageFlags.set(selectedExperiencesKey, _.map(Experiences.findAll(), exp => exp.name));
     }
     // Find all profiles with the currently selected interests.
-    const allProfiles = Profiles.findAll();
+    let allPro = Profiles.findAll();
     const selectedAbilities = Template.instance().messageFlags.get(selectedAbilitiesKey);
-    return _.filter(allProfiles, profile => _.intersection(profile.abilities, selectedAbilities).length > 0);
+    const selectedGoals = Template.instance().messageFlags.get(selectedGoalsKey);
+    const selectedStyles = Template.instance().messageFlags.get(selectedStylesKey);
+    const selectedExperiences = Template.instance().messageFlags.get(selectedExperiencesKey);
+    allPro = _.filter(allPro, profiles => _.intersection(profiles.abilities, selectedAbilities).length > 0);
+    allPro = _.filter(allPro, profiles => _.intersection(profiles.goals, selectedGoals).length > 0);
+    allPro = _.filter(allPro, profiles => _.intersection(profiles.styles, selectedStyles).length > 0);
+    allPro = _.filter(allPro, profiles => _.intersection(profiles.experiences, selectedExperiences).length > 0);
+    return allPro;
   },
-
   interests() {
       /*  return _.map(Interests.findAll(),
         function makeInterestObject(interest) {
@@ -59,68 +83,45 @@ Template.Beats_Page.helpers({
         });
   },
   goals() {
-    /*  return _.map(Goals.findAll(),
+    return _.map(Goals.findAll(),
         function makeGoalObject(goal) {
           return {
             label: goal.name,
             selected: _.contains(Template.instance().messageFlags.get(selectedGoalsKey), goal.name),
           };
-        }); */
-    const profile = Profiles.findDoc(FlowRouter.getParam('username'));
-    const selectedGoals = profile.goals;
-    return profile && _.map(Goals.findAll(),
-        function makeGoalObject(goal) {
-          return { label: goal.name, selected: _.contains(selectedGoals, goal.name) };
         });
   },
   experiences() {
-    /*  return _.map(Goals.findAll(),
-        function makeGoalObject(goal) {
-          return {
-            label: goal.name,
-            selected: _.contains(Template.instance().messageFlags.get(selectedGoalsKey), goal.name),
-          };
-        }); */
-    const profile = Profiles.findDoc(FlowRouter.getParam('username'));
-    const selectedExperiences = profile.experiences;
-    return profile && _.map(Experiences.findAll(),
+    return _.map(Experiences.findAll(),
         function makeExperienceObject(experience) {
-          return { label: experience.name, selected: _.contains(selectedExperiences, experience.name) };
+          return {
+            label: experience.name,
+            selected: _.contains(Template.instance().messageFlags.get(selectedExperiencesKey), experience.name),
+          };
         });
   },
   abilities() {
-    /*  return _.map(Goals.findAll(),
-        function makeGoalObject(goal) {
-          return {
-            label: goal.name,
-            selected: _.contains(Template.instance().messageFlags.get(selectedGoalsKey), goal.name),
-          };
-        }); */
-    const profile = Profiles.findDoc(FlowRouter.getParam('username'));
-    const selectedAbilities = profile.abilities;
-    return profile && _.map(Abilities.findAll(),
+    return _.map(Abilities.findAll(),
         function makeAbilityObject(ability) {
-          return { label: ability.name, selected: _.contains(selectedAbilities, ability.name) };
+          return {
+            label: ability.name,
+            selected: _.contains(Template.instance().messageFlags.get(selectedAbilitiesKey), ability.name),
+          };
         });
   },
   styles() {
-    /*  return _.map(Goals.findAll(),
-        function makeGoalObject(goal) {
-          return {
-            label: goal.name,
-            selected: _.contains(Template.instance().messageFlags.get(selectedGoalsKey), goal.name),
-          };
-        }); */
-    const profile = Profiles.findDoc(FlowRouter.getParam('username'));
-    const selectedStyles = profile.styles;
-    return profile && _.map(Styles.findAll(),
+    return _.map(Styles.findAll(),
         function makeStyleObject(style) {
-          return { label: style.name, selected: _.contains(selectedStyles, style.name) };
+          return {
+            label: style.name,
+            selected: _.contains(Template.instance().messageFlags.get(selectedStylesKey), style.name),
+          };
         });
   },
 });
 
 /* I feel like I might need to change this if I want to have it register the filtering. */
+/*
 Template.Beats_Page.events({
   'submit .filter-data-form'(event, instance) {
     event.preventDefault();
@@ -128,3 +129,4 @@ Template.Beats_Page.events({
     instance.messageFlags.set(selectedAbilitiesKey, _.map(selectedOptions, (option) => option.value));
   },
 });
+*/
