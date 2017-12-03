@@ -6,6 +6,8 @@ import { Favorites } from '/imports/api/favorites/FavoritesCollection';
 import { PeopleInterested } from '/imports/api/people-interested/PeopleInterestedCollection';
 import { Goals } from '/imports/api/goal/GoalCollection';
 import { Experiences } from '/imports/api/experience/ExperienceCollection';
+import { EventData } from '/imports/api/eventdata/eventdata.js';
+import { Meteor } from 'meteor/meteor';
 
 Interests.publish();
 Profiles.publish();
@@ -16,3 +18,6 @@ PeopleInterested.publish();
 Goals.publish();
 Experiences.publish();
 
+Meteor.publish('EventData', function publishStudentData() {
+  return EventData.find();
+});

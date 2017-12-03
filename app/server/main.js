@@ -8,3 +8,4 @@ import '/imports/api/favorites';
 import '/imports/api/people-interested';
 import '/imports/api/goal';
 import '/imports/api/experience';
+import '/imports/api/eventdata';
