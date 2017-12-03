@@ -76,14 +76,6 @@ userRoutes.route('/admin', {
   },
 });
 
-export const filterPageRouteName = 'Filter_Page';
-userRoutes.route('/filter', {
-  name: filterPageRouteName,
-  action() {
-    BlazeLayout.render('User_Layout', { main: filterPageRouteName });
-  },
-});
-
 /*                        BEATS ROUTES                       */
 export const beatsPageRouteName = 'Beats_Page';
 userRoutes.route('/beats', {

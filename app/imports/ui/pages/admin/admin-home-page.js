@@ -150,12 +150,19 @@ Template.Admin_Page.helpers({
   },
 });
 
-/*
 Template.Admin_Page.events({
-  'submit .filter-data-form'(event, instance) {
+  /* 'submit .filter-data-form'(event, instance) {
     event.preventDefault();
     const selectedOptions = _.filter(event.target.Interests.selectedOptions, (option) => option.selected);
     instance.messageFlags.set(selectedInterestsKey, _.map(selectedOptions, (option) => option.value));
+  }, */
+  'click .ui.medium.red.button'(event) {
+    event.preventDefault();
+    /* FlowRouter.route('/admin/ban', {
+      action(params) {
+        FlowRouter.go('Admin_Ban_Page', params);
+      },
+    }); */
+    //  FlowRouter.go('/admin/ban/:id');
   },
 });
-*/
