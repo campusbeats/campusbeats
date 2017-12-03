@@ -113,19 +113,19 @@ Template.Beats_Page.helpers({
         });
   },
   abilities() {
-    /*  return _.map(Goals.findAll(),
-        function makeGoalObject(goal) {
+    return _.map(Abilities.findAll(),
+        function makeAbilityObject(ability) {
           return {
-            label: goal.name,
-            selected: _.contains(Template.instance().messageFlags.get(selectedGoalsKey), goal.name),
+            label: ability.name,
+            selected: _.contains(Template.instance().messageFlags.get(selectedGoalsKey), ability.name),
           };
-        }); */
-    const profile = Profiles.findDoc(FlowRouter.getParam('username'));
+        });
+    /* const profile = Profiles.findDoc(FlowRouter.getParam('username'));
     const selectedAbilities = profile.abilities;
     return profile && _.map(Abilities.findAll(),
         function makeAbilityObject(ability) {
           return { label: ability.name, selected: _.contains(selectedAbilities, ability.name) };
-        });
+        }); /*
     /* const favorite = Favorites.findDoc(FlowRouter.getParam('username'));
     const selectedAbilities = favorite.abilities;
     return favorite && _.map(Abilities.findAll(),
