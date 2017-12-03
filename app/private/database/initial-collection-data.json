@@ -158,7 +158,7 @@
         },
         {
           "name": "Rap",
-          "description": "can r"
+          "description": "can rap"
         },
         {
           "name": "Videogame",
@@ -174,6 +174,17 @@
           "lastName": "Altenberg",
           "username": "altenber",
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
+          "goals": [
+            "Band",
+            "Learn"
+          ],
+          "experiences": [
+            "1-6 months"
+          ],
+          "styles": [
+            "Rock",
+            "Jazz"
+          ],
           "abilities": [
             "Guitar",
             "Bass"
@@ -185,6 +196,18 @@
           "lastName": "Baek",
           "username": "baek",
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
+          "goals": [
+            "Learn"
+          ],
+          "experiences": [
+            "7-12 months"
+          ],
+          "styles": [
+            "Rap"
+          ],
+          "abilities": [
+            "Drums"
+          ],
           "picture": "/images/baek.jpg"
         },
         {
@@ -192,6 +215,19 @@
           "lastName": "Biagioni",
           "username": "esb",
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
+          "goals": [
+            "Compose"
+          ],
+          "experiences": [
+            "1-3 years"
+          ],
+          "styles": [
+            "Rap",
+            "Videogame"
+          ],
+          "abilities": [
+            "Drums"
+          ],
           "picture": "/images/biagioni.jpg"
         },
         {
@@ -199,6 +235,19 @@
           "lastName": "Binsted",
           "username": "binsted",
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
+          "goals": [
+            "Project"
+          ],
+          "experiences": [
+            "5-10 years"
+          ],
+          "styles": [
+            "Jazz",
+            "Videogame"
+          ],
+          "abilities": [
+            "Vocals"
+          ],
           "picture": "/images/binsted.jpg"
         }
       ]
@@ -212,8 +261,20 @@
           "username": "altenber",
           "favorites": "Favorite",
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
-          "interests": [
-            "Evolutionary Computation"
+          "goals": [
+            "Band",
+            "Learn"
+          ],
+          "experiences": [
+            "1-6 months"
+          ],
+          "styles": [
+            "Rock",
+            "Jazz"
+          ],
+          "abilities": [
+            "Guitar",
+            "Bass"
           ],
           "title": "Associate Professor, Information and Computer Sciences",
           "picture": "/images/altenberg.jpg"
@@ -224,9 +285,18 @@
           "username": "esb",
           "favorites": "Favorite",
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
-          "interests": [
-            "Mobile Networks",
-            "Sailing"
+          "goals": [
+            "Compose"
+          ],
+          "experiences": [
+            "1-3 years"
+          ],
+          "styles": [
+            "Rap",
+            "Videogame"
+          ],
+          "abilities": [
+            "Drums"
           ],
           "title": "Associate Professor, Information and Computer Sciences",
           "picture": "/images/biagioni.jpg"
@@ -241,8 +311,20 @@
           "lastName": "Altenberg",
           "username": "altenber",
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
-          "interests": [
-            "Evolutionary Computation"
+          "goals": [
+            "Band",
+            "Learn"
+          ],
+          "experiences": [
+            "1-6 months"
+          ],
+          "styles": [
+            "Rock",
+            "Jazz"
+          ],
+          "abilities": [
+            "Guitar",
+            "Bass"
           ],
           "title": "Associate Professor, Information and Computer Sciences",
           "picture": "/images/altenberg.jpg"
@@ -252,8 +334,17 @@
           "lastName": "Baek",
           "username": "baek",
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
-          "interests": [
-            "Computer Vision"
+          "goals": [
+            "Learn"
+          ],
+          "experiences": [
+            "7-12 months"
+          ],
+          "styles": [
+            "Rap"
+          ],
+          "abilities": [
+            "Drums"
           ],
           "title": "Associate Professor, Information and Computer Sciences",
           "picture": "/images/baek.jpg"
@@ -263,9 +354,18 @@
           "lastName": "Binsted",
           "username": "binsted",
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
-          "interests": [
-            "Mars",
-            "Imu Cooking"
+          "goals": [
+            "Project"
+          ],
+          "experiences": [
+            "5-10 years"
+          ],
+          "styles": [
+            "Jazz",
+            "Videogame"
+          ],
+          "abilities": [
+            "Vocals"
           ],
           "title": "Associate Professor, Information and Computer Sciences",
           "picture": "/images/binsted.jpg"
