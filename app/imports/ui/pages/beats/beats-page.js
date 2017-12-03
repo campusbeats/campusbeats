@@ -26,13 +26,13 @@ Template.Beats_Page.onCreated(function onCreated() {
 Template.Beats_Page.helpers({
   profiles() {
     // Initialize selectedInterests to all of them if messageFlags is undefined.
-    if (!Template.instance().messageFlags.get(selectedInterestsKey)) {
-      Template.instance().messageFlags.set(selectedInterestsKey, _.map(Interests.findAll(), interest => interest.name));
+    if (!Template.instance().messageFlags.get(selectedGoalsKey)) {
+      Template.instance().messageFlags.set(selectedGoalsKey, _.map(Interests.findAll(), goal => goal.name));
     }
     // Find all profiles with the currently selected interests.
     const allProfiles = Profiles.findAll();
-    const selectedInterests = Template.instance().messageFlags.get(selectedInterestsKey);
-    return _.filter(allProfiles, profile => _.intersection(profile.interests, selectedInterests).length > 0);
+    const selectedGoals = Template.instance().messageFlags.get(selectedGoalsKey);
+    return _.filter(allProfiles, profile => _.intersection(profile.goals, selectedGoals).length > 0);
   },
 
   interests() {
@@ -86,7 +86,7 @@ Template.Beats_Page.helpers({
 Template.Beats_Page.events({
   'submit .filter-data-form'(event, instance) {
     event.preventDefault();
-    const selectedOptions = _.filter(event.target.Interests.selectedOptions, (option) => option.selected);
-    instance.messageFlags.set(selectedInterestsKey, _.map(selectedOptions, (option) => option.value));
+    const selectedOptions = _.filter(event.target.Goals.selectedOptions, (option) => option.selected);
+    instance.messageFlags.set(selectedGoalsKey, _.map(selectedOptions, (option) => option.value));
   },
 });
