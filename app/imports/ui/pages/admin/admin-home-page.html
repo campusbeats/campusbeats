@@ -1,60 +1,73 @@
 <template name="Admin_Page">
   {{#if Template.subscriptionsReady}}
+
     <div class="ui segments">
-      <div class="ui center aligned segment">
-        <h3>Look for people with musical interests like you here!</h3>
+      <div style="background-color: #f9f9f9; box-shadow: inset;" class=" ui center aligned segment">
+        <h3 style="color: #15137c;">Look for people with musical interests like you here!</h3>
         <div class="button row">
-          <button class="ui medium teal button">Browse</button>
+          <button style="background-color: #0a406e;" class="ui medium teal button">Browse</button>
         </div>
       </div>
     </div>
 
-    <div style="margin-bottom: 20px; " class="ui three centered column grid">
-      <div style="margin: 0 15px 10px 15px;" class="five wide column">
-        <div style="background-image: url('/images/columnbackground2.jpg'); border: ridge whitesmoke"
-             class="ui segment">
-          <button style="margin-top: 10px" class="ui medium purple button">MONITOR</button>
-          <p style="margin-top: 10px; margin-bottom: 10px; font-weight: bold; text-align: center; color: #ffffff; font-size: 17px">
-            Mark Inappropriate Content</p>
+    <div class="ui two column grid">
+      <div style="margin-left: 150px;" class="four wide column">
+        <div style="margin: 0 15px 10px 15px;" class="three wide column">
+          <div style="background-color: #a7e7ee; border: ridge whitesmoke" class="ui segment">
+            <p style="margin-top: 10px; margin-bottom: 10px; font-weight: bold; text-align: center; color: #0a406e; font-size: 17px">
+              Mark Inappropriate Content
+            </p>
+            <button style="margin-top: 10px; margin-left: 57px; background-color: #982b8a; color: #ffffff;"
+                    class="ui medium button">
+              MONITOR
+            </button>
+          </div>
         </div>
-      </div>
-      <div style="margin: 0 25px 10px 25px;" class="five wide column">
-        <div style="background: url('/images/columnbackground2.jpg') right top; border: ridge whitesmoke"
-             class="ui segment">
-          <button style="margin-top: 10px" class="ui medium orange button">CREATE</button>
-          <p style="margin-top: 10px; margin-bottom: 10px; font-weight: bold; text-align: center; color: #ffffff; font-size: 17px">
-            Make New Goals, Abilities, Etc.</p>
+        <div style="margin: 70px 15px 10px 15px;" class="three wide column">
+          <div style="background-color: #a7e7ee; border: ridge whitesmoke" class="ui segment">
+            <p style="margin-top: 10px; margin-bottom: 10px; font-weight: bold; text-align: center; color: #0a406e; font-size: 17px">
+              Make New Goals, Abilities, Etc.
+            </p>
+            <button style="margin-top: 10px; margin-left: 67px; background-color: #a73a5b; color: #ffffff"
+                    class="ui medium button">
+              CREATE
+            </button>
+          </div>
         </div>
-      </div>
-      <div style="margin: 0 15px 10px 15px;" class="five wide column">
-        <div style="background: url('/images/columnbackground2.jpg') center; border: ridge whitesmoke"
-             class="ui segment">
-          <button style="margin-top: 10px" class="ui medium red button">BAN</button>
-          <p style="margin-top: 10px; margin-bottom: 10px; font-weight: bold; text-align: center; color: #ffffff; font-size: 17px">
-            Bad Users</p>
+        <div style="margin: 70px 15px 10px 15px;" class="three wide column">
+          <div style="background-color: #a7e7ee; border: ridge whitesmoke" class="ui segment">
+            <p style="margin-top: 10px; margin-bottom: 10px; font-weight: bold; text-align: center; color: #0a406e; font-size: 17px">
+              Bad Users
+            </p>
+            <button style="margin-top: 10px; margin-left: 78px;" class="ui medium red button">BAN</button>
+          </div>
         </div>
-      </div>
-    </div>
-
-    <div class="ui container">
-      <div
-          style="margin-right: 50px; margin-left: 30px; background: url('/images/segmentbackground.jpg'); background-size: 100%; color: #ffffff; border: groove #000000 2px;"
-          class="ui segment">
-        <p style="font-size: 2em; font-weight: bold; text-align: center; margin-bottom: 17px;">Your Favorites <i
-            style="color: #ff25bc" class="heart icon"></i></p>
-        <hr style="margin: 0 15px 15px 65px;">
-        {{> Admin_Page_Directory favorites=favorites }}
       </div>
 
-      <div
-          style="margin-right: 50px; margin-left: 30px; margin-bottom: 20px; background: url('/images/segmentbackground9.jpg') 70px 80px; background-size: contain;  color: #ffffff; border: groove #000000 2px"
-          class="ui segment">
-        <p style="font-size: 2em; font-weight: bold; text-align: center; margin-bottom: 17px;">
-          <i style="color: #85E4FE" class="users icon"></i> People who're interested in you <i style="color: #85E4FE"
-                                                                                               class="users icon"></i>
-        </p>
-        <hr style="margin: 0 15px 15px 65px;">
-        {{> Admin_Page_Directory peopleInterested=peopleInterested }}
+      <div class="nine wide column">
+        <div class="ui container">
+          <div
+              style="margin-right: 50px; margin-left: 50px; background: linear-gradient(45deg, #ade4e6, #22537c); border: none; box-shadow: none;"
+              class="ui segment">
+            <h2 style="border-left: 20px solid #007897; background-color: #f4f4f4; color: #0a406e; font-size: 2em; font-weight: bold; margin-left: 20px;"
+                class="ui block header">
+              Your Favorites <i style="margin-left: 6px;" class="yellow star icon"></i>
+            </h2>
+            {{> Home_Page_Directory favorites=favorites }}
+          </div>
+
+          <div class="ui hidden divider"></div>
+
+          <div
+              style="margin: 0 50px 15px 50px; background: linear-gradient(135deg, #ade4e6, #22537c); border: none; box-shadow: none;"
+              class="ui segment">
+            <h2 style="border-left: 20px solid #007897; background-color: #f4f4f4; color: #0a406e; font-size: 2em; font-weight: bold; margin-left: 20px;"
+                class="ui block header">
+              People who're interested in you <i style="color: #000000; margin-left: 6px;" class="sound icon"></i>
+            </h2>
+            {{> Home_Page_Directory peopleInterested=peopleInterested }}
+          </div>
+        </div>
       </div>
     </div>
   {{/if}}

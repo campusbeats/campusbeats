@@ -28,17 +28,13 @@
             </div>
 
 
-            <button class="ui primary button" type="submit">Submit</button>
-            {{#if displaySuccessMessage}}
-              <div class="ui success message">
-                <p>Profile data successfully updated.</p>
-              </div>
-            {{/if}}
+            <button class="ui primary button" type="submit">Search</button>
           </form>
         </div>
 
         <div style="margin-left: 0" class="twelve wide column">
-          {{> Filter_Page_Directory profiles=profiles }}
+          {{> Beats_Page_Directory profiles=profiles }}
+          <!--{{> Beats_Page_Directory favorites=favorites }}-->
         </div>
       </div>
     </div>

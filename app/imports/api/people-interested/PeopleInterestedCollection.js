@@ -1,6 +1,10 @@
 import SimpleSchema from 'simpl-schema';
 import BaseCollection from '/imports/api/base/BaseCollection';
 import { Interests } from '/imports/api/interest/InterestCollection';
+import { Abilities } from '/imports/api/ability/AbilityCollection';
+import { Styles } from '/imports/api/style/StyleCollection';
+import { Goals } from '/imports/api/goal/GoalCollection';
+import { Experiences } from '/imports/api/experience/ExperienceCollection';
 import { check } from 'meteor/check';
 import { Meteor } from 'meteor/meteor';
 import { _ } from 'meteor/underscore';
@@ -26,6 +30,14 @@ class PeopleInterestedCollection extends BaseCollection {
       bio: { type: String, optional: true },
       interests: { type: Array, optional: true },
       'interests.$': { type: String },
+      abilities: { type: Array, optional: true },
+      'abilities.$': { type: String },
+      styles: { type: Array, optional: true },
+      'styles.$': { type: String },
+      goals: { type: Array, optional: true },
+      'goals.$': { type: String },
+      experiences: { type: Array, optional: true },
+      'experiences.$': { type: String },
       title: { type: String, optional: true },
       picture: { type: SimpleSchema.RegEx.Url, optional: true },
     }, { tracker: Tracker }));
@@ -50,7 +62,8 @@ class PeopleInterestedCollection extends BaseCollection {
    * @returns The newly created docID.
    */
   define({
-           firstName = '', lastName = '', username, bio = '', interests = [], picture = '', title = '',
+           firstName = '', lastName = '', username, bio = '', interests = [], abilities = [], styles = [],
+           goals = [], experiences = [], picture = '', title = '',
          }) {
     // make sure required fields are OK.
     const checkPattern = {
@@ -69,14 +82,30 @@ class PeopleInterestedCollection extends BaseCollection {
 
     // Throw an error if any of the passed Interest names are not defined.
     Interests.assertNames(interests);
+    Abilities.assertNames(abilities);
+    Styles.assertNames(styles);
+    Goals.assertNames(goals);
+    Experiences.assertNames(experiences);
 
     // Throw an error if there are duplicates in the passed interest names.
     if (interests.length !== _.uniq(interests).length) {
       throw new Meteor.Error(`${interests} contains duplicates`);
     }
+    if (abilities.length !== _.uniq(abilities).length) {
+      throw new Meteor.Error(`${abilities} contains duplicates`);
+    }
+    if (styles.length !== _.uniq(styles).length) {
+      throw new Meteor.Error(`${styles} contains duplicates`);
+    }
+    if (goals.length !== _.uniq(goals).length) {
+      throw new Meteor.Error(`${goals} contains duplicates`);
+    }
+    if (experiences.length !== _.uniq(experiences).length) {
+      throw new Meteor.Error(`${experiences} contains duplicates`);
+    }
 
     return this._collection.insert({
-      firstName, lastName, username, bio, interests, picture, title,
+      firstName, lastName, username, bio, interests, abilities, styles, goals, experiences, picture, title,
     });
   }
 
@@ -92,9 +121,13 @@ class PeopleInterestedCollection extends BaseCollection {
     const username = doc.username;
     const bio = doc.bio;
     const interests = doc.interests;
+    const abilities = doc.abilities;
+    const styles = doc.styles;
+    const goals = doc.goals;
+    const experiences = doc.experiences;
     const picture = doc.picture;
     const title = doc.title;
-    return { firstName, lastName, username, bio, interests, picture, title };
+    return { firstName, lastName, username, bio, interests, abilities, styles, goals, experiences, picture, title };
   }
 }
 

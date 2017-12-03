@@ -1,13 +1,12 @@
 .landing-section-1 {
   padding: 10px 10px 30px 10px;
-  /* background-color: #00B5AD; */
-  background-color: #7a74a8;
+  background-color: #007897;
   color: #E5F9E7;
 }
 
 .landing-section-2 {
   padding: 20px 10px 20px 10px;
-  background-color: #E5F9E7;
+  background-color: #ade4e6;
   color:  #00B5AD;
 }
 
@@ -28,6 +27,7 @@
   font-family: 'Roboto', sans-serif;
   font-weight: 900;
   font-size: 72px;
+  color: #ffffff;
 }
 
 .landing-section-header {
@@ -36,7 +36,9 @@
   font-size: 36px;
 }
 
-
+.landing-section-1-tagline {
+  color: #f4f4f4;
+}
 
 /* css for carousel */
 * {box-sizing:border-box}
