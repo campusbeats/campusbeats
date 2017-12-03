@@ -174,9 +174,9 @@
           "firstName": "Lee",
           "lastName": "Altenberg",
           "username": "altenber",
-          "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
-          "interests": [
-            "Evolutionary Computation"
+          "bio": "I am a pimp daddy who can play te violin so hard that the girls melt. I traded my hair for these mad skills",
+          "goals": [
+            "Band"
           ],
           "title": "Associate Professor, Information and Computer Sciences",
           "picture": "/images/altenberg.jpg"
@@ -185,9 +185,9 @@
           "firstName": "Kyungim",
           "lastName": "Baek",
           "username": "baek",
-          "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
-          "interests": [
-            "Computer Vision"
+          "bio": "I just lost my job and will play drums and backflip for money. I have 17 children, please.",
+          "goals": [
+            "Band"
           ],
           "title": "Associate Professor, Information and Computer Sciences",
           "picture": "/images/baek.jpg"
@@ -196,10 +196,10 @@
           "firstName": "Edo",
           "lastName": "Biagioni",
           "username": "esb",
-          "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
-          "interests": [
-            "Mobile Networks",
-            "Sailing"
+          "bio": "I am 9000 years old, and I can't play any sweet music. I don't want to be miserable anymore.",
+          "goals": [
+            "Learn",
+            "Band"
           ],
           "title": "Associate Professor, Information and Computer Sciences",
           "picture": "/images/biagioni.jpg"
@@ -208,10 +208,9 @@
           "firstName": "Kim",
           "lastName": "Binsted",
           "username": "binsted",
-          "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
+          "bio": "I can tacos and sing at the same time. Looking into making games.",
           "interests": [
-            "Mars",
-            "Imu Cooking"
+            "Compose"
           ],
           "title": "Associate Professor, Information and Computer Sciences",
           "picture": "/images/binsted.jpg"
