@@ -84,6 +84,14 @@ userRoutes.route('/filter', {
   },
 });
 
+export const calendarPageRouteName = 'Calendar_Page';
+userRoutes.route('/calendar', {
+  name: calendarPageRouteName,
+  action() {
+    BlazeLayout.render('User_Layout', { main: calendarPageRouteName });
+  },
+});
+
 /*                        BEATS ROUTES                       */
 export const beatsPageRouteName = 'Beats_Page';
 userRoutes.route('/beats', {
