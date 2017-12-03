@@ -173,6 +173,9 @@
           "firstName": "Lee",
           "lastName": "Altenberg",
           "username": "altenber",
+          "favorites": "Favorite",
+          "email": "altenber@hawaii.edu",
+          "phone": "1-808-123-4567",
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
           "goals": [
             "Band",
@@ -189,12 +192,17 @@
             "Guitar",
             "Bass"
           ],
-          "picture": "/images/altenberg.jpg"
+          "picture": "/images/altenberg.jpg",
+          "soundcloud": "https://soundcloud.com/altenber",
+          "youtube": "https://youtube.com/altenber",
+          "spotify": "https://spotify.com/altenber"
         },
         {
           "firstName": "Kyungim",
           "lastName": "Baek",
           "username": "baek",
+          "email": "baek@hawaii.edu",
+          "phone": "1-179-748-5947",
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
           "goals": [
             "Learn"
@@ -208,12 +216,19 @@
           "abilities": [
             "Drums"
           ],
-          "picture": "/images/baek.jpg"
+          "title": "Associate Professor, Information and Computer Sciences",
+          "picture": "/images/baek.jpg",
+          "soundcloud": "https://soundcloud.com/baek",
+          "youtube": "https://youtube.com/baek",
+          "spotify": "https://spotify.com/baek"
         },
         {
           "firstName": "Edo",
           "lastName": "Biagioni",
           "username": "esb",
+          "favorites": "Favorite",
+          "email": "esb@hawaii.edu",
+          "phone": "1-800-987-6543",
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
           "goals": [
             "Compose"
@@ -228,12 +243,18 @@
           "abilities": [
             "Drums"
           ],
-          "picture": "/images/biagioni.jpg"
+          "title": "Associate Professor, Information and Computer Sciences",
+          "picture": "/images/biagioni.jpg",
+          "soundcloud": "https://soundcloud.com/esb",
+          "youtube": "https://youtube.com/esb",
+          "spotify": "https://spotify.com/esb"
         },
         {
           "firstName": "Kim",
           "lastName": "Binsted",
           "username": "binsted",
+          "email": "binsted@hawaii.edu",
+          "phone": "1-999-294-2123",
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
           "goals": [
             "Project"
@@ -248,7 +269,11 @@
           "abilities": [
             "Vocals"
           ],
-          "picture": "/images/binsted.jpg"
+          "title": "Associate Professor, Information and Computer Sciences",
+          "picture": "/images/binsted.jpg",
+          "soundcloud": "https://soundcloud.com/binsted",
+          "youtube": "https://youtube.com/binsted",
+          "spotify": "https://spotify.com/binsted"
         }
       ]
     },
@@ -260,6 +285,8 @@
           "lastName": "Altenberg",
           "username": "altenber",
           "favorites": "Favorite",
+          "email": "altenber@hawaii.edu",
+          "phone": "1-808-123-4567",
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
           "goals": [
             "Band",
@@ -276,14 +303,18 @@
             "Guitar",
             "Bass"
           ],
-          "title": "Associate Professor, Information and Computer Sciences",
-          "picture": "/images/altenberg.jpg"
+          "picture": "/images/altenberg.jpg",
+          "soundcloud": "https://soundcloud.com/altenber",
+          "youtube": "https://youtube.com/altenber",
+          "spotify": "https://spotify.com/altenber"
         },
         {
           "firstName": "Edo",
           "lastName": "Biagioni",
           "username": "esb",
           "favorites": "Favorite",
+          "email": "esb@hawaii.edu",
+          "phone": "1-800-987-6543",
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
           "goals": [
             "Compose"
@@ -299,7 +330,10 @@
             "Drums"
           ],
           "title": "Associate Professor, Information and Computer Sciences",
-          "picture": "/images/biagioni.jpg"
+          "picture": "/images/biagioni.jpg",
+          "soundcloud": "https://soundcloud.com/esb",
+          "youtube": "https://youtube.com/esb",
+          "spotify": "https://spotify.com/esb"
         }
       ]
     },
@@ -310,6 +344,8 @@
           "firstName": "Lee",
           "lastName": "Altenberg",
           "username": "altenber",
+          "email": "altenber@hawaii.edu",
+          "phone": "1-808-123-4567",
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
           "goals": [
             "Band",
@@ -327,12 +363,17 @@
             "Bass"
           ],
           "title": "Associate Professor, Information and Computer Sciences",
-          "picture": "/images/altenberg.jpg"
+          "picture": "/images/altenberg.jpg",
+          "soundcloud": "https://soundcloud.com/altenber",
+          "youtube": "https://youtube.com/altenber",
+          "spotify": "https://spotify.com/altenber"
         },
         {
           "firstName": "Kyungim",
           "lastName": "Baek",
           "username": "baek",
+          "email": "baek@hawaii.edu",
+          "phone": "1-179-748-5947",
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
           "goals": [
             "Learn"
@@ -347,12 +388,17 @@
             "Drums"
           ],
           "title": "Associate Professor, Information and Computer Sciences",
-          "picture": "/images/baek.jpg"
+          "picture": "/images/baek.jpg",
+          "soundcloud": "https://soundcloud.com/baek",
+          "youtube": "https://youtube.com/baek",
+          "spotify": "https://spotify.com/baek"
         },
         {
           "firstName": "Kim",
           "lastName": "Binsted",
           "username": "binsted",
+          "email": "binsted@hawaii.edu",
+          "phone": "1-999-294-2123",
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
           "goals": [
             "Project"
@@ -368,7 +414,10 @@
             "Vocals"
           ],
           "title": "Associate Professor, Information and Computer Sciences",
-          "picture": "/images/binsted.jpg"
+          "picture": "/images/binsted.jpg",
+          "soundcloud": "https://soundcloud.com/binsted",
+          "youtube": "https://youtube.com/binsted",
+          "spotify": "https://spotify.com/binsted"
         }
       ]
     }
