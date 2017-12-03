@@ -260,6 +260,8 @@
           "lastName": "Altenberg",
           "username": "altenber",
           "favorites": "Favorite",
+          "email": "altenber@hawaii.edu",
+          "phone": "1-808-123-4567",
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
           "goals": [
             "Band",
@@ -276,8 +278,10 @@
             "Guitar",
             "Bass"
           ],
-          "title": "Associate Professor, Information and Computer Sciences",
-          "picture": "/images/altenberg.jpg"
+          "picture": "/images/altenberg.jpg",
+          "soundcloud": "https://soundcloud.com/altenber",
+          "youtube": "https://youtube.com/altenber",
+          "spotify": "https://spotify.com/altenber"
         },
         {
           "firstName": "Edo",
