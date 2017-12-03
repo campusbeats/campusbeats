@@ -17,6 +17,26 @@
           <a style="margin-bottom: 2px" class="ui teal tag small label">{{interest}}</a>
         {{/each}}
       </div>
+      <div style="margin-top: 10px">
+        {{#each ability in favorites.abilities}}
+          <a style="margin-bottom: 2px; background-color: #1a4f78 ; color: #ffffff;" class="ui tag small label">{{ability}}</a>
+        {{/each}}
+      </div>
+      <div style="margin-top: 10px">
+        {{#each style in favorites.styles}}
+        <a style="margin-bottom: 2px; background-color: #1985a1; color: #ffffff;" class="ui tag small label">{{style}}</a>
+        {{/each}}
+      </div>
+      <div style="margin-top: 10px">
+        {{#each experience in favorites.experiences}}
+        <a style="margin-bottom: 2px; background-color: #4db0ca; color: #ffffff;" class="ui tag small label">{{experience}}</a>
+        {{/each}}
+      </div>
+      <div style="margin-top: 10px">
+        {{#each goal in favorites.goals}}
+        <a style="margin-bottom: 2px; background-color: #9ae9fe; color: #ffffff;" class="ui tag small label">{{goal}}</a>
+        {{/each}}
+      </div>
 
     </div>
     <div class="extra content">
