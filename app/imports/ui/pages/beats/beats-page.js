@@ -179,5 +179,11 @@ Template.Beats_Page.events({
     event.preventDefault();
     const selectedOptions = _.filter(event.target.Abilities.selectedOptions, (option) => option.selected);
     instance.messageFlags.set(selectedAbilitiesKey, _.map(selectedOptions, (option) => option.value));
+    const selectedOptions2 = _.filter(event.target.Styles.selectedOption, (option) => option.selected);
+    instance.messageFlags.set(selectedStylesKey, _.map(selectedOptions2, (option) => option.value));
+    const selectedOptions3 = _.filter(event.target.Goals.selectedOption, (option) => option.selected);
+    instance.messageFlags.set(selectedGoalsKey, _.map(selectedOptions3, (option) => option.value));
+    const selectedOptions4 = _.filter(event.target.Experiences.selectedOption, (option) => option.selected);
+    instance.messageFlags.set(selectedExperiencesKey, _.map(selectedOptions4, (option) => option.value));
   },
 });
