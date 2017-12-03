@@ -27,7 +27,7 @@ Template.Beats_Page.helpers({
   profiles() {
     // Initialize selectedInterests to all of them if messageFlags is undefined.
     if (!Template.instance().messageFlags.get(selectedGoalsKey)) {
-      Template.instance().messageFlags.set(selectedGoalsKey, _.map(Interests.findAll(), goal => goal.name));
+      Template.instance().messageFlags.set(selectedGoalsKey, _.map(Goals.findAll(), goal => goal.name));
     }
     // Find all profiles with the currently selected interests.
     const allProfiles = Profiles.findAll();
