@@ -178,12 +178,12 @@ Template.Beats_Page.events({
   'submit .filter-data-form'(event, instance) {
     event.preventDefault();
     const selectedAbilityOptions = _.filter(event.target.Abilities.selectedOptions, (option) => option.selected);
-    // const selectedStyleOptions = _.filter(event.target.Styles.selectedOptions, (option) => option.selected);
+    const selectedStyleOptions = _.filter(event.target.Styles.selectedOptions, (option) => option.selected);
     const selectedGoalOptions = _.filter(event.target.Goals.selectedOptions, (option) => option.selected);
-    // const selectedExperienceOptions = _.filter(event.target.Experiences.selectedOptions, (option) => option.selected);
+    const selectedExperienceOptions = _.filter(event.target.Experiences.selectedOptions, (option) => option.selected);
     instance.messageFlags.set(selectedAbilitiesKey, _.map(selectedAbilityOptions, (option) => option.value));
-    // instance.messageFlags.set(selectedStylesKey, _.map(selectedStyleOptions, (option) => option.value));
+    instance.messageFlags.set(selectedStylesKey, _.map(selectedStyleOptions, (option) => option.value));
     instance.messageFlags.set(selectedGoalsKey, _.map(selectedGoalOptions, (option) => option.value));
-    // instance.messageFlags.set(selectedExperiencesKey, _.map(selectedExperienceOptions, (option) => option.value));
+    instance.messageFlags.set(selectedExperiencesKey, _.map(selectedExperienceOptions, (option) => option.value));
   },
 });
