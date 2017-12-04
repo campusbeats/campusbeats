@@ -3,14 +3,17 @@ import { ReactiveDict } from 'meteor/reactive-dict';
 import { _ } from 'meteor/underscore';
 import { Profiles } from '/imports/api/profile/ProfileCollection';
 import { Interests } from '/imports/api/interest/InterestCollection';
+import { Abilities } from '/imports/api/ability/AbilityCollection';
 
 const selectedInterestsKey = 'selectedInterests';
+const selectedAbilitiesKey = 'selectedAbilities';
 
 Template.Filter_Page.onCreated(function onCreated() {
   this.subscribe(Interests.getPublicationName());
   this.subscribe(Profiles.getPublicationName());
   this.messageFlags = new ReactiveDict();
   this.messageFlags.set(selectedInterestsKey, undefined);
+  this.messageFlags.set(selectedAbilitiesKey, undefined);
 });
 
 Template.Filter_Page.helpers({

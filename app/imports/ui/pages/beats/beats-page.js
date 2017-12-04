@@ -64,7 +64,7 @@ Template.Beats_Page.helpers({
     allProfiles = _.filter(allProfiles, profile => _.intersection(profile.goals, selectedGoals).length > 0);
     allProfiles = _.filter(allProfiles, profile => _.intersection(profile.styles, selectedStyles).length > 0);
     allProfiles = _.filter(allProfiles, profile => _.intersection(profile.experiences, selectedExperiences).length > 0);
-    return allProfiles;
+    return allProfiles; /* is it this return? */
   },
 
   interests() {
