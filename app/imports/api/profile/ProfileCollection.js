@@ -28,7 +28,6 @@ class ProfileCollection extends BaseCollection {
       lastName: { type: String, optional: true },
       phone: { type: String, optional: true },
       email: { type: String, optional: true },
-      address: { type: String, optional: true },
       bio: { type: String, optional: true },
       abilities: { type: Array, optional: true },
       'abilities.$': { type: String },
@@ -66,12 +65,12 @@ class ProfileCollection extends BaseCollection {
    * if one or more interests are not defined, or if github, facebook, and instagram are not URLs.
    * @returns The newly created docID.
    */
-  define({ firstName = '', lastName = '', username, bio = '', phone = '', email = '', address = '', abilities = [],
+  define({ firstName = '', lastName = '', username, bio = '', phone = '', email = '', abilities = [],
            styles = [], experiences = [], goals = [], picture = '', soundcloud = '', youtube = '', spotify = '' }) {
     // make sure required fields are OK.
     const checkPattern = { firstName: String, lastName: String, username: String, bio: String, phone: String,
-      email: String, address: String, picture: String };
-    check({ firstName, lastName, username, bio, phone, email, address, picture }, checkPattern);
+      email: String, picture: String };
+    check({ firstName, lastName, username, bio, phone, email, picture }, checkPattern);
 
     if (this.find({ username }).count() > 0) {
       throw new Meteor.Error(`${username} is previously defined in another Profile`);
@@ -95,7 +94,7 @@ class ProfileCollection extends BaseCollection {
     if (experiences.length !== _.uniq(experiences).length) {
       throw new Meteor.Error(`${experiences} contains duplicates`);
     }
-    return this._collection.insert({ firstName, lastName, username, bio, phone, email, address, abilities, styles,
+    return this._collection.insert({ firstName, lastName, username, bio, phone, email, abilities, styles,
       experiences, goals, picture, soundcloud, youtube, spotify });
   }
 
@@ -112,7 +111,6 @@ class ProfileCollection extends BaseCollection {
     const bio = doc.bio;
     const phone = doc.phone;
     const email = doc.email;
-    const address = doc.address;
     const abilities = doc.abilities;
     const styles = doc.styles;
     const experiences = doc.experiences;
@@ -121,7 +119,7 @@ class ProfileCollection extends BaseCollection {
     const soundcloud = doc.soundcloud;
     const youtube = doc.youtube;
     const spotify = doc.spotify;
-    return { firstName, lastName, username, bio, phone, email, address, abilities, styles, picture,
+    return { firstName, lastName, username, bio, phone, email, abilities, styles, picture,
       experiences, goals, soundcloud, youtube, spotify };
   }
 }

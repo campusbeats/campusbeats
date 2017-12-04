@@ -7,34 +7,29 @@
         {{ favorites.firstName }} {{ favorites.lastName }} <i class="yellow star icon"></i>
       </div>
       <div class="meta">
-        {{ favorites.title }}
+        {{ favorites.phone }}
       </div>
       <div class="description">
         {{ favorites.bio }}
       </div>
       <div style="margin-top: 10px">
-        {{#each interest in favorites.interests}}
-          <a style="margin-bottom: 2px" class="ui teal tag small label">{{interest}}</a>
+        {{#each abilities in favorites.abilities}}
+          <a style="margin-bottom: 2px; background-color: #1a4f78 ; color: #ffffff;" class="ui tag small label">{{abilities}}</a>
         {{/each}}
       </div>
       <div style="margin-top: 10px">
-        {{#each ability in favorites.abilities}}
-          <a style="margin-bottom: 2px; background-color: #1a4f78 ; color: #ffffff;" class="ui tag small label">{{ability}}</a>
+        {{#each styles in favorites.styles}}
+          <a style="margin-bottom: 2px; background-color: #1985a1; color: #ffffff;" class="ui tag small label">{{styles}}</a>
         {{/each}}
       </div>
       <div style="margin-top: 10px">
-        {{#each style in favorites.styles}}
-        <a style="margin-bottom: 2px; background-color: #1985a1; color: #ffffff;" class="ui tag small label">{{style}}</a>
+        {{#each experiences in favorites.experiences}}
+          <a style="margin-bottom: 2px; background-color: #4db0ca; color: #ffffff;" class="ui tag small label">{{experiences}}</a>
         {{/each}}
       </div>
       <div style="margin-top: 10px">
-        {{#each experience in favorites.experiences}}
-        <a style="margin-bottom: 2px; background-color: #4db0ca; color: #ffffff;" class="ui tag small label">{{experience}}</a>
-        {{/each}}
-      </div>
-      <div style="margin-top: 10px">
-        {{#each goal in favorites.goals}}
-        <a style="margin-bottom: 2px; background-color: #9ae9fe; color: #ffffff;" class="ui tag small label">{{goal}}</a>
+        {{#each goals in favorites.goals}}
+          <a style="margin-bottom: 2px; background-color: #9ae9fe; color: #ffffff;" class="ui tag small label">{{goals}}</a>
         {{/each}}
       </div>
 
@@ -42,17 +37,17 @@
     <div class="extra content">
       <div class="ui equal width center aligned grid">
         <div class="column"><a href="mailto:{{ favorites.username}}@hawaii.edu"><i class="big mail icon"></i></a></div>
-        {{#if favorites.github }}
-          <div class="column"><a href="https://github.com/{{ favorites.github}}"><i class="big github icon"></i></a>
+        {{#if favorites.soundcloud }}
+          <div class="column"><a href="https://soundcloud.com/{{ favorites.soundcloud}}"><i class="big soundcloud icon"></i></a>
           </div>
         {{/if}}
-        {{#if favorites.facebook }}
-          <div class="column"><a href="https://facebook.com/{{ favorites.facebook}}"><i
-              class="big facebook icon"></i></a></div>
+        {{#if favorites.youtube }}
+          <div class="column"><a href="https://youtube.com/{{ favorites.youtube}}"><i
+              class="big youtube icon"></i></a></div>
         {{/if}}
-        {{#if favorites.instagram }}
-          <div class="column"><a href="https://instagram.com/{{ favorites.instagram}}"><i
-              class="big instagram icon"></i></a></div>
+        {{#if favorites.spotify }}
+          <div class="column"><a href="https://spotify.com/{{ favorites.spotify}}"><i
+              class="big spotify icon"></i></a></div>
         {{/if}}
       </div>
     </div>
