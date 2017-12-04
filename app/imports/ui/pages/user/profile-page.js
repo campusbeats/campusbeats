@@ -93,8 +93,8 @@ Template.Profile_Page.events({
     const goals = _.map(selectedGoals, (option) => option.value);
     const selectedExperiences = _.filter(event.target.Experiences.selectedOptions, (option) => option.selected);
     const experiences = _.map(selectedExperiences, (option) => option.value);
-    const updatedProfileData = { firstName, lastName, phone, email, picture, soundcloud, youtube, spotify,
-      bio, abilities, styles, goals, experiences, username };
+    const updatedProfileData = { firstName, lastName, phone, email, username, picture, soundcloud, youtube, spotify,
+      bio, abilities, styles, goals, experiences };
 
     // Clear out any old validation errors.
     instance.context.reset();

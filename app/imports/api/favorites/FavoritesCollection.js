@@ -1,6 +1,6 @@
 import SimpleSchema from 'simpl-schema';
 import BaseCollection from '/imports/api/base/BaseCollection';
-import { Interests } from '/imports/api/interest/InterestCollection';
+// import { Interests } from '/imports/api/interest/InterestCollection';
 import { Abilities } from '/imports/api/ability/AbilityCollection';
 import { Styles } from '/imports/api/style/StyleCollection';
 import { Goals } from '/imports/api/goal/GoalCollection';

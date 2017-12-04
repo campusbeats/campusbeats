@@ -13,10 +13,10 @@ Interests.publish();
 Profiles.publish();
 Abilities.publish();
 Styles.publish();
-Favorites.publish();
-PeopleInterested.publish();
 Goals.publish();
 Experiences.publish();
+Favorites.publish();
+PeopleInterested.publish();
 
 Meteor.publish('EventData', function publishStudentData() {
   return EventData.find();
