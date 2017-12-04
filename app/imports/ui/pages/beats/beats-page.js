@@ -45,25 +45,29 @@ Template.Beats_Page.helpers({
     const selectedAbilities = Template.instance().messageFlags.get(selectedAbilitiesKey);
     return _.filter(allProfiles, profile => _.intersection(profile.abilities, selectedAbilities).length > 0); */
     // Initialize selectedAbilities to all of them if messageFlags is undefined.
-    if (!Template.instance().messageFlags.get(selectedAbilitiesKey) &&
+    /* if (!Template.instance().messageFlags.get(selectedAbilitiesKey) &&
         !Template.instance().messageFlags.get(selectedStylesKey) &&
         !Template.instance().messageFlags.get(selectedGoalsKey) &&
-        !Template.instance().messageFlags.get(selectedExperiencesKey)) {
-      Template.instance().messageFlags.set(selectedAbilitiesKey, _.map(Abilities.findAll(), ability => ability.name));
+        !Template.instance().messageFlags.get(selectedExperiencesKey)) */
+    if (!Template.instance().messageFlags.get(selectedInterestsKey))
+    { /* Template.instance().messageFlags.set(selectedAbilitiesKey, _.map(Abilities.findAll(), ability => ability.name));
       Template.instance().messageFlags.set(selectedStylesKey, _.map(Styles.findAll(), style => style.name));
       Template.instance().messageFlags.set(selectedGoalsKey, _.map(Goals.findAll(), goal => goal.name));
-      Template.instance().messageFlags.set(selectedExperiencesKey, _.map(Experiences.findAll(), exp => exp.name));
+      Template.instance().messageFlags.set(selectedExperiencesKey, _.map(Experiences.findAll(), exp => exp.name)); */
+      Template.instance().messageFlags.set(selectedInterestsKey, _.map(Interests.findAll(), interest => interest.name));
     }
     // Find all profiles with the currently selected interests.
     let allProfiles = Profiles.findAll();
-    const selectedAbilities = Template.instance().messageFlags.get(selectedAbilitiesKey);
+    const selectedInterests = Template.instance().messageFlags.get(selectedInterestsKey);
+    allProfiles = _.filter(allProfiles, profile => _.intersection(profile.interests, selectedInterests).length > 0);
+    /* const selectedAbilities = Template.instance().messageFlags.get(selectedAbilitiesKey);
     const selectedGoals = Template.instance().messageFlags.get(selectedGoalsKey);
     const selectedStyles = Template.instance().messageFlags.get(selectedStylesKey);
     const selectedExperiences = Template.instance().messageFlags.get(selectedExperiencesKey);
     allProfiles = _.filter(allProfiles, profile => _.intersection(profile.abilities, selectedAbilities).length > 0);
     allProfiles = _.filter(allProfiles, profile => _.intersection(profile.goals, selectedGoals).length > 0);
     allProfiles = _.filter(allProfiles, profile => _.intersection(profile.styles, selectedStyles).length > 0);
-    allProfiles = _.filter(allProfiles, profile => _.intersection(profile.experiences, selectedExperiences).length > 0);
+    allProfiles = _.filter(allProfiles, profile => _.intersection(profile.experiences, selectedExperiences).length > 0); */
     return allProfiles; /* is it this return? */
   },
 
@@ -177,13 +181,15 @@ Template.Beats_Page.helpers({
 Template.Beats_Page.events({
   'submit .filter-data-form'(event, instance) {
     event.preventDefault();
-    const selectedOptions = _.filter(event.target.Abilities.selectedOptions, (option) => option.selected);
+    const selectedOptions = _.filter(event.target.Interests.selectedOptions, (option) => option.selected);
+    instance.messageFlags.set(selectedInterestsKey, _.map(selectedOptions, (option) => option.value));
+    /* const selectedOptions = _.filter(event.target.Abilities.selectedOptions, (option) => option.selected);
     instance.messageFlags.set(selectedAbilitiesKey, _.map(selectedOptions, (option) => option.value));
     const selectedOptions2 = _.filter(event.target.Styles.selectedOption, (option) => option.selected);
     instance.messageFlags.set(selectedStylesKey, _.map(selectedOptions2, (option) => option.value));
     const selectedOptions3 = _.filter(event.target.Goals.selectedOption, (option) => option.selected);
     instance.messageFlags.set(selectedGoalsKey, _.map(selectedOptions3, (option) => option.value));
     const selectedOptions4 = _.filter(event.target.Experiences.selectedOption, (option) => option.selected);
-    instance.messageFlags.set(selectedExperiencesKey, _.map(selectedOptions4, (option) => option.value));
+    instance.messageFlags.set(selectedExperiencesKey, _.map(selectedOptions4, (option) => option.value)); */
   },
 });
