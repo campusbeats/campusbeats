@@ -5,17 +5,17 @@ import { _ } from 'meteor/underscore';
 import { Profiles } from '/imports/api/profile/ProfileCollection';
 /* import { Interests } from '/imports/api/interest/InterestCollection'; */
 import { Abilities } from '/imports/api/ability/AbilityCollection';
-import { Styles } from '/imports/api/style/StyleCollection';
 import { Goals } from '/imports/api/goal/GoalCollection';
+import { Styles } from '/imports/api/style/StyleCollection';
 import { Experiences } from '/imports/api/experience/ExperienceCollection';
 
 const displaySuccessMessage = 'displaySuccessMessage';
 const displayErrorMessages = 'displayErrorMessages';
 
 Template.Profile_Page.onCreated(function onCreated() {
+  this.subscribe(Profiles.getPublicationName());
   this.subscribe(Abilities.getPublicationName());
   this.subscribe(Styles.getPublicationName());
-  this.subscribe(Profiles.getPublicationName());
   this.subscribe(Goals.getPublicationName());
   this.subscribe(Experiences.getPublicationName());
   this.messageFlags = new ReactiveDict();
@@ -70,7 +70,6 @@ Template.Profile_Page.helpers({
         });
   },
 });
-
 
 Template.Profile_Page.events({
   'submit .profile-data-form'(event, instance) {
