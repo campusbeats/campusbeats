@@ -29,8 +29,9 @@ Template.Filter_Page.helpers({
     let allProfiles = Profiles.findAll();
     const selectedInterests = Template.instance().messageFlags.get(selectedInterestsKey);
     const selectedGoals = Template.instance().messageFlags.get(selectedGoalsKey);
-    allProfiles =_.filter(allProfiles, profile => _.intersection(profile.interests, selectedInterests).length > 0);
-    allProfiles =_.filter(allProfiles, profile => _.intersection(profile.goals, selectedGoals).length > 0);
+    allProfiles = _.filter(allProfiles, profile => _.intersection(profile.interests, selectedInterests).length > 0);
+    allProfiles = _.filter(allProfiles, profile => _.intersection(profile.goals, selectedGoals).length > 0);
+    return allProfiles;
   },
 
   interests() {
