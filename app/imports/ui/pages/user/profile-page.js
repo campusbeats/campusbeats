@@ -79,7 +79,6 @@ Template.Profile_Page.events({
     const lastName = event.target.Last.value;
     const phone = event.target.Phone.value;
     const email = event.target.Email.value;
-    const address = event.target.Address.value;
     const username = FlowRouter.getParam('username'); // schema requires username.
     const picture = event.target.Picture.value;
     const soundcloud = event.target.Soundcloud.value;
@@ -94,7 +93,7 @@ Template.Profile_Page.events({
     const goals = _.map(selectedGoals, (option) => option.value);
     const selectedExperiences = _.filter(event.target.Experiences.selectedOptions, (option) => option.selected);
     const experiences = _.map(selectedExperiences, (option) => option.value);
-    const updatedProfileData = { firstName, lastName, phone, email, address, picture, soundcloud, youtube, spotify,
+    const updatedProfileData = { firstName, lastName, phone, email, picture, soundcloud, youtube, spotify,
       bio, abilities, styles, goals, experiences, username };
 
     // Clear out any old validation errors.
