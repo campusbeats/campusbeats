@@ -7,14 +7,29 @@
         <i class="sound icon"></i> {{ peopleInterested.firstName }} {{ peopleInterested.lastName }}
       </div>
       <div class="meta">
-        {{ peopleInterested.title }}
+        {{ peopleInterested.phone }}
       </div>
       <div class="description">
         {{ peopleInterested.bio }}
       </div>
       <div style="margin-top: 10px">
-        {{#each interest in peopleInterested.interests}}
-          <a style="margin-bottom: 2px" class="ui teal tag small label">{{interest}}</a>
+        {{#each abilities in peopleInterested.abilities}}
+          <a style="margin-bottom: 2px; background-color: #1a4f78 ; color: #ffffff;" class="ui tag small label">{{abilities}}</a>
+        {{/each}}
+      </div>
+      <div style="margin-top: 10px">
+        {{#each styles in peopleInterested.styles}}
+          <a style="margin-bottom: 2px; background-color: #1985a1; color: #ffffff;" class="ui tag small label">{{styles}}</a>
+        {{/each}}
+      </div>
+      <div style="margin-top: 10px">
+        {{#each experiences in peopleInterested.experiences}}
+          <a style="margin-bottom: 2px; background-color: #4db0ca; color: #ffffff;" class="ui tag small label">{{experiences}}</a>
+        {{/each}}
+      </div>
+      <div style="margin-top: 10px">
+        {{#each goals in peopleInterested.goals}}
+          <a style="margin-bottom: 2px; background-color: #9ae9fe; color: #ffffff;" class="ui tag small label">{{goals}}</a>
         {{/each}}
       </div>
 
@@ -22,14 +37,17 @@
     <div class="extra content">
       <div class="ui equal width center aligned grid">
         <div class="column"><a href="mailto:{{ peopleInterested.username}}@hawaii.edu"><i class="big mail icon"></i></a></div>
-        {{#if peopleInterested.github }}
-          <div class="column"><a href="https://github.com/{{ peopleInterested.github}}"><i class="big github icon"></i></a></div>
+        {{#if peopleInterested.soundcloud }}
+          <div class="column"><a href="https://soundcloud.com/{{ peopleInterested.soundcloud}}"><i class="big soundcloud icon"></i></a>
+          </div>
         {{/if}}
-        {{#if peopleInterested.facebook }}
-          <div class="column"><a href="https://facebook.com/{{ peopleInterested.facebook}}"><i class="big facebook icon"></i></a></div>
+        {{#if peopleInterested.youtube }}
+          <div class="column"><a href="https://youtube.com/{{ peopleInterested.youtube}}"><i
+              class="big youtube icon"></i></a></div>
         {{/if}}
-        {{#if peopleInterested.instagram }}
-          <div class="column"><a href="https://instagram.com/{{ peopleInterested.instagram}}"><i class="big instagram icon"></i></a></div>
+        {{#if peopleInterested.spotify }}
+          <div class="column"><a href="https://spotify.com/{{ peopleInterested.spotify}}"><i
+              class="big spotify icon"></i></a></div>
         {{/if}}
       </div>
     </div>

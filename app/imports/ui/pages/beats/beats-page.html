@@ -8,37 +8,33 @@
           <div class="ui dividing header">
             Beats
           </div>
-          <form class="ui equal width form profile-data-form {{ successClass }} {{ errorClass }}">
+          <form class="ui equal width form filter-data-form">
 
 
             <div class="field">
-              {{> Select_Form_Control label="Goals" options=goals errorMessage=(fieldError "interests") multiple=true }}
+              {{> Select_Form_Control label="Goals" options=goals multiple=true }}
             </div>
 
             <div class="field">
-              {{> Select_Form_Control label="Abilities" options=abilities errorMessage=(fieldError "abilities") multiple=true }}
+              {{> Select_Form_Control label="Abilities" options=abilities multiple=true }}
             </div>
 
             <div class="field">
-              {{> Select_Form_Control label="Experience" options=experiences errorMessage=(fieldError "experiences") multiple=true }}
+              {{> Select_Form_Control label="Experiences" options=experiences multiple=true }}
             </div>
 
             <div class="field">
-              {{> Select_Form_Control label="Style" options=styles errorMessage=(fieldError "styles") multiple=true }}
+              {{> Select_Form_Control label="Styles" options=styles multiple=true }}
             </div>
 
 
-            <button class="ui primary button" type="submit">Submit</button>
-            {{#if displaySuccessMessage}}
-              <div class="ui success message">
-                <p>Profile data successfully updated.</p>
-              </div>
-            {{/if}}
+            <button class="ui primary button" type="submit">Search</button>
           </form>
         </div>
 
         <div style="margin-left: 0" class="twelve wide column">
-          {{> Filter_Page_Directory profiles=profiles }}
+          {{> Beats_Page_Directory profiles=profiles }}
+          <!--{{> Beats_Page_Directory favorites=favorites }}-->
         </div>
       </div>
     </div>
