@@ -22,7 +22,8 @@ Template.Create_Event_Modal.helpers({
     return Template.instance().messageFlags.get(displayErrorMessages) ? 'error' : '';
   },
   displayFieldError(fieldName) {
-    const errorKeys = Template.instance().context.invalidKeys();
+    // const errorKeys = Template.instance().context.invalidKeys();
+    const errorKeys = Template.instance().context.validationErrors();
     return _.find(errorKeys, (keyObj) => keyObj.name === fieldName);
   },
 });
