@@ -76,7 +76,7 @@ userRoutes.route('/admin', {
   },
 });
 
-export const adminBanPageRouteName = 'Admin_Ban_Page';
+export const adminBanPageRouteName = 'Ban_Page';
 userRoutes.route('/admin/ban/', {
   name: adminBanPageRouteName,
   action() {
