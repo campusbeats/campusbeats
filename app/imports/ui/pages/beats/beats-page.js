@@ -175,7 +175,7 @@ Template.Beats_Page.helpers({
 
 /* I feel like I might need to change this if I want to have it register the filtering. */
 Template.Beats_Page.events({
-  'submit .filter-data-form'(event, instance) {
+  'submit .beats-data-form'(event, instance) {
     event.preventDefault();
     const selectedAbilityOptions = _.filter(event.target.Abilities.selectedOptions, (option) => option.selected);
     const selectedStyleOptions = _.filter(event.target.Styles.selectedOptions, (option) => option.selected);
