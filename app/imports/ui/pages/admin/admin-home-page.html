@@ -39,7 +39,12 @@
             <p style="margin-top: 10px; margin-bottom: 10px; font-weight: bold; text-align: center; color: #0a406e; font-size: 17px">
               Bad Users
             </p>
-            <button style="margin-top: 10px; margin-left: 78px;" class="ui medium red button" type="submit">BAN</button>
+            <button style="margin-top: 10px; margin-left: 78px;" class="ui medium red button" type="submit">
+              <a class="{{isActiveRoute "Admin_Ban_Page"}} item"
+                 href="{{pathFor "Admin_Ban_Page" username=routeUserName}}">
+                BAN
+              </a>
+            </button>
           </div>
         </div>
       </div>

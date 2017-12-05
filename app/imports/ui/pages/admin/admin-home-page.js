@@ -9,6 +9,7 @@ import { Goals } from '/imports/api/goal/GoalCollection';
 import { Experiences } from '/imports/api/experience/ExperienceCollection';
 import { Favorites } from '/imports/api/favorites/FavoritesCollection';
 import { PeopleInterested } from '/imports/api/people-interested/PeopleInterestedCollection';
+import { FlowRouter } from 'meteor/kadira:flow-router';
 
 const selectedInterestsKey = 'selectedInterests';
 const selectedAbilitiesKey = 'selectedAbilities';
@@ -158,11 +159,7 @@ Template.Admin_Page.events({
   }, */
   'click .ui.medium.red.button'(event) {
     event.preventDefault();
-    /* FlowRouter.route('/admin/ban', {
-      action(params) {
-        FlowRouter.go('Admin_Ban_Page', params);
-      },
-    }); */
+    FlowRouter.route('/username/admin/ban/');
     //  FlowRouter.go('/admin/ban/:id');
   },
 });
