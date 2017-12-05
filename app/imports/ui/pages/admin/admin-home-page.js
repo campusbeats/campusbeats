@@ -9,7 +9,7 @@ import { Goals } from '/imports/api/goal/GoalCollection';
 import { Experiences } from '/imports/api/experience/ExperienceCollection';
 import { Favorites } from '/imports/api/favorites/FavoritesCollection';
 import { PeopleInterested } from '/imports/api/people-interested/PeopleInterestedCollection';
-import { FlowRouter } from 'meteor/kadira:flow-router';
+//  import { FlowRouter } from 'meteor/kadira:flow-router';
 
 const selectedInterestsKey = 'selectedInterests';
 const selectedAbilitiesKey = 'selectedAbilities';
@@ -151,15 +151,20 @@ Template.Admin_Page.helpers({
   },
 });
 
-Template.Admin_Page.events({
-  /* 'submit .filter-data-form'(event, instance) {
+/* Template.Admin_Page.events({
+  'submit .filter-data-form'(event, instance) {
     event.preventDefault();
     const selectedOptions = _.filter(event.target.Interests.selectedOptions, (option) => option.selected);
     instance.messageFlags.set(selectedInterestsKey, _.map(selectedOptions, (option) => option.value));
-  }, */
-  'click .ui.medium.red.button'(event) {
-    event.preventDefault();
-    FlowRouter.route('/username/admin/ban/');
-    //  FlowRouter.go('/admin/ban/:id');
   },
-});
+  'click .red.button'(event) {
+    event.preventDefault();
+    FlowRouter.getParam('username');
+    FlowRouter.route('/username/admin/ban/', {
+      action: function(params, queryParams) {
+        console.log("Yeah! We are on the post:", params.postId);
+      }
+    });
+    //  FlowRouter.go('Admin_Home_Page');
+  },
+}); */
