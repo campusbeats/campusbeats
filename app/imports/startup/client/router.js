@@ -76,8 +76,8 @@ userRoutes.route('/admin', {
   },
 });
 
-export const adminBanPageRouteName = 'Ban_Page';
-userRoutes.route('/admin/ban/', {
+export const adminBanPageRouteName = 'Admin_Ban_Page';
+userRoutes.route('/ban', {
   name: adminBanPageRouteName,
   action() {
     BlazeLayout.render('User_Layout', { main: adminBanPageRouteName });
