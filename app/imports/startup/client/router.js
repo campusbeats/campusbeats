@@ -76,11 +76,11 @@ userRoutes.route('/admin', {
   },
 });
 
-export const filterPageRouteName = 'Filter_Page';
-userRoutes.route('/filter', {
-  name: filterPageRouteName,
+export const adminBanPageRouteName = 'Admin_Ban_Page';
+userRoutes.route('/ban', {
+  name: adminBanPageRouteName,
   action() {
-    BlazeLayout.render('User_Layout', { main: filterPageRouteName });
+    BlazeLayout.render('User_Layout', { main: adminBanPageRouteName });
   },
 });
 
