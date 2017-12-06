@@ -84,6 +84,22 @@ userRoutes.route('/ban', {
   },
 });
 
+export const adminCreatePageRouteName = 'Admin_Create_Page';
+userRoutes.route('/create', {
+  name: adminCreatePageRouteName,
+  action() {
+    BlazeLayout.render('User_Layout', { main: adminCreatePageRouteName });
+  },
+});
+
+export const adminMonitorPageRouteName = 'Admin_Monitor_Page';
+userRoutes.route('/monitor', {
+  name: adminMonitorPageRouteName,
+  action() {
+    BlazeLayout.render('User_Layout', { main: adminMonitorPageRouteName });
+  },
+});
+
 /*                        BEATS ROUTES                       */
 export const beatsPageRouteName = 'Beats_Page';
 userRoutes.route('/beats', {
