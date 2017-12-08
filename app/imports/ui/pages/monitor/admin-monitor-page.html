@@ -1,0 +1,33 @@
+<template name="Admin_Monitor_Page">
+  {{#if Template.subscriptionsReady}}
+
+    <div style="background-color: #ffffff; margin: 20px 150px 20px 150px" class="ui centered grid container">
+      <h1 style="color: #0a406e;" class="ui icon header">
+        <!--<i style="color: #0a406e" class="plus square outline icon"></i>-->
+        Be Able to Monitor Campus Beats
+      </h1>
+
+      <div class="ui container">
+        <!--<div style="margin: 15px 250px 20px 250px;" class="ui middle aligned relaxed animated large list">-->
+        <div style="margin: 15px 250px 30px 250px;" class="ui middle aligned raised segments">
+          <div class="item">
+            <div class="ui segment">
+              <!--<img class="ui avatar image" src="/images/avatar/small/helen.jpg">-->
+              <p style="color: #15137c;">User #1</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="ui segment">
+              <p style="color: #15137c;">User #2</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="ui segment">
+              <p style="color: #15137c;">User #3</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {{/if}}
+</template>

@@ -1,15 +1,6 @@
 <template name="Admin_Page">
   {{#if Template.subscriptionsReady}}
 
-    <div class="ui segments">
-      <div style="background-color: #f9f9f9; box-shadow: inset;" class=" ui center aligned segment">
-        <h3 style="color: #15137c;">Look for people with musical interests like you here!</h3>
-        <div class="button row">
-          <button style="background-color: #0a406e;" class="ui medium teal button">Browse</button>
-        </div>
-      </div>
-    </div>
-
     <div class="ui two column grid">
       <div style="margin-left: 60px; margin-right: 20px;" class="four wide column">
         <div style="margin: 0 15px 10px 15px;" class="three wide column">
@@ -17,9 +8,9 @@
             <p style="margin-top: 10px; margin-bottom: 10px; font-weight: bold; text-align: center; color: #0a406e; font-size: 17px">
               Mark Inappropriate Content
             </p>
-            <button style="margin-top: 10px; margin-left: 57px; background-color: #982b8a; color: #ffffff;"
+            <button style="margin-top: 10px; margin-left: 57px; background-color: #e0e0e0; color: #ffffff;"
                     class="ui medium button">
-              MONITOR
+              <a href="monitor">MONITOR</a>
             </button>
           </div>
         </div>
@@ -28,9 +19,9 @@
             <p style="margin-top: 10px; margin-bottom: 10px; font-weight: bold; text-align: center; color: #0a406e; font-size: 17px">
               Make New Goals, Abilities, Etc.
             </p>
-            <button style="margin-top: 10px; margin-left: 67px; background-color: #a73a5b; color: #ffffff"
+            <button style="margin-top: 10px; margin-left: 67px; background-color: #e0e0e0; color: #ffffff"
                     class="ui medium button">
-              CREATE
+              <a href="create">CREATE</a>
             </button>
           </div>
         </div>
@@ -39,7 +30,10 @@
             <p style="margin-top: 10px; margin-bottom: 10px; font-weight: bold; text-align: center; color: #0a406e; font-size: 17px">
               Bad Users
             </p>
-            <button style="margin-top: 10px; margin-left: 78px;" class="ui medium red button">BAN</button>
+            <button style="margin-top: 10px; margin-left: 78px; background-color: #e0e0e0;" class="ui medium button"
+                    type="submit">
+              <a href="ban">BAN</a>
+            </button>
           </div>
         </div>
       </div>

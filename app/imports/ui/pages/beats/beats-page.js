@@ -175,9 +175,15 @@ Template.Beats_Page.helpers({
 
 /* I feel like I might need to change this if I want to have it register the filtering. */
 Template.Beats_Page.events({
-  'submit .filter-data-form'(event, instance) {
+  'submit .beats-data-form'(event, instance) {
     event.preventDefault();
-    const selectedOptions = _.filter(event.target.Abilities.selectedOptions, (option) => option.selected);
-    instance.messageFlags.set(selectedAbilitiesKey, _.map(selectedOptions, (option) => option.value));
+    const selectedAbilityOptions = _.filter(event.target.Abilities.selectedOptions, (option) => option.selected);
+    const selectedStyleOptions = _.filter(event.target.Styles.selectedOptions, (option) => option.selected);
+    const selectedGoalOptions = _.filter(event.target.Goals.selectedOptions, (option) => option.selected);
+    const selectedExperienceOptions = _.filter(event.target.Experiences.selectedOptions, (option) => option.selected);
+    instance.messageFlags.set(selectedAbilitiesKey, _.map(selectedAbilityOptions, (option) => option.value));
+    instance.messageFlags.set(selectedStylesKey, _.map(selectedStyleOptions, (option) => option.value));
+    instance.messageFlags.set(selectedGoalsKey, _.map(selectedGoalOptions, (option) => option.value));
+    instance.messageFlags.set(selectedExperiencesKey, _.map(selectedExperienceOptions, (option) => option.value));
   },
 });

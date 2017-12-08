@@ -76,11 +76,27 @@ userRoutes.route('/admin', {
   },
 });
 
-export const filterPageRouteName = 'Filter_Page';
-userRoutes.route('/filter', {
-  name: filterPageRouteName,
+export const adminBanPageRouteName = 'Admin_Ban_Page';
+userRoutes.route('/ban', {
+  name: adminBanPageRouteName,
   action() {
-    BlazeLayout.render('User_Layout', { main: filterPageRouteName });
+    BlazeLayout.render('User_Layout', { main: adminBanPageRouteName });
+  },
+});
+
+export const adminCreatePageRouteName = 'Admin_Create_Page';
+userRoutes.route('/create', {
+  name: adminCreatePageRouteName,
+  action() {
+    BlazeLayout.render('User_Layout', { main: adminCreatePageRouteName });
+  },
+});
+
+export const adminMonitorPageRouteName = 'Admin_Monitor_Page';
+userRoutes.route('/monitor', {
+  name: adminMonitorPageRouteName,
+  action() {
+    BlazeLayout.render('User_Layout', { main: adminMonitorPageRouteName });
   },
 });
 

@@ -4,27 +4,27 @@
 
     <div class="ui container">
       <div style="margin-bottom: 20px" class="ui two column grid">
-        <div style="background-color: #ffffff; height: 430px; margin-top: 45px" class="four wide column">
+        <div style="background-color: #ffffff; height: 565px; margin-top: 45px" class="four wide column">
           <div class="ui dividing header">
             Beats
           </div>
-          <form class="ui equal width form profile-data-form {{ successClass }} {{ errorClass }}">
+          <form class="ui equal width form beats-data-form">
 
 
             <div class="field">
-              {{> Select_Form_Control label="Goals" options=goals errorMessage=(fieldError "interests") multiple=true }}
+              {{> Select_Form_Control label="Goals" options=goals multiple=true }}
             </div>
 
             <div class="field">
-              {{> Select_Form_Control label="Abilities" options=abilities errorMessage=(fieldError "abilities") multiple=true }}
+              {{> Select_Form_Control label="Abilities" options=abilities multiple=true }}
             </div>
 
             <div class="field">
-              {{> Select_Form_Control label="Experience" options=experiences errorMessage=(fieldError "experiences") multiple=true }}
+              {{> Select_Form_Control label="Experiences" options=experiences multiple=true }}
             </div>
 
             <div class="field">
-              {{> Select_Form_Control label="Style" options=styles errorMessage=(fieldError "styles") multiple=true }}
+              {{> Select_Form_Control label="Styles" options=styles multiple=true }}
             </div>
 
 
