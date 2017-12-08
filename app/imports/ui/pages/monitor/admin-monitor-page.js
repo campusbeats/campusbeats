@@ -17,7 +17,7 @@ const selectedStylesKey = 'selectedStyles';
 const selectedGoalsKey = 'selectedGoals';
 const selectedExperiencesKey = 'selectedExperiences';
 
-Template.Admin_Ban_Page.onCreated(function onCreated() {
+Template.Admin_Monitor_Page.onCreated(function onCreated() {
   this.subscribe(Interests.getPublicationName());
   this.subscribe(Profiles.getPublicationName());
   this.subscribe(Favorites.getPublicationName());
@@ -34,7 +34,7 @@ Template.Admin_Ban_Page.onCreated(function onCreated() {
   this.messageFlags.set(selectedExperiencesKey, undefined);
 });
 
-Template.Admin_Ban_Page.helpers({
+Template.Admin_Monitor_Page.helpers({
   profiles() {
     // Initialize selectedAbilties to all of them if messageFlags is undefined.
     if (!Template.instance().messageFlags.get(selectedAbilitiesKey)) {
@@ -151,7 +151,7 @@ Template.Admin_Ban_Page.helpers({
   },
 });
 
-/* Template.Admin_Ban_Page.events({
+/* Template.Admin_Monitor_Page.events({
   'submit .filter-data-form'(event, instance) {
     event.preventDefault();
     const selectedOptions = _.filter(event.target.Abilities.selectedOptions, (option) => option.selected);
