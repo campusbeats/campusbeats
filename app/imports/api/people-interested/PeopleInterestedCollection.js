@@ -12,7 +12,7 @@ import { Tracker } from 'meteor/tracker';
 /** @module PeopleInterested */
 
 /**
- * Favorites provide profile portfolio data of favorites for a user.
+ * PeopleInterested provide profile portfolio data of favorites for a user.
  * @extends module:Base~BaseCollection
  */
 class PeopleInterestedCollection extends BaseCollection {
@@ -47,13 +47,20 @@ class PeopleInterestedCollection extends BaseCollection {
   /**
    * Defines a new PeopleInterested.
    * @example
-   * Favorites.define({ firstName: 'Philip',
+   * PeopleInterested.define({ firstName: 'Philip',
    *                   lastName: 'Johnson',
    *                   username: 'johnson',
+   *                   phone: '1-808-123-4567',
+   *                   email: 'johnson@hawaii.edu',
    *                   bio: 'I have been a professor of computer science at UH since 1990.',
-   *                   interests: ['Application Development', 'Software Engineering', 'Databases'],
-   *                   title: 'Professor of Information and Computer Sciences',
+   *                   abilities: 'Guitar',
+   *                   styles: 'Rock',
+   *                   experiences: '1-3 years',
+   *                   goals: 'Learn',
    *                   picture: 'http://philipmjohnson.org/headshot.jpg',
+   *                   soundlcoud: 'http://philipj@soundcloud.com',
+   *                   youtube: 'http://philipj@youtube.com',
+   *                   spotify: 'http://philipj@spotify.com',
    * @param { Object } description Object with required key username.
    * Remaining keys are optional.
    * Username must be unique for all users. It should be the UH email account.
