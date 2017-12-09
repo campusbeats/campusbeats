@@ -9,6 +9,7 @@ import { Goals } from '/imports/api/goal/GoalCollection';
 import { Experiences } from '/imports/api/experience/ExperienceCollection';
 import { Favorites } from '/imports/api/favorites/FavoritesCollection';
 import { PeopleInterested } from '/imports/api/people-interested/PeopleInterestedCollection';
+import { Report } from '/imports/api/report/ReportCollection';
 //  import { FlowRouter } from 'meteor/kadira:flow-router';
 
 const selectedInterestsKey = 'selectedInterests';
@@ -17,11 +18,12 @@ const selectedStylesKey = 'selectedStyles';
 const selectedGoalsKey = 'selectedGoals';
 const selectedExperiencesKey = 'selectedExperiences';
 
-Template.Admin_Monitor_Page.onCreated(function onCreated() {
+Template.Monitor_Page.onCreated(function onCreated() {
   this.subscribe(Interests.getPublicationName());
   this.subscribe(Profiles.getPublicationName());
   this.subscribe(Favorites.getPublicationName());
   this.subscribe(PeopleInterested.getPublicationName());
+  this.subscribe(Report.getPublicationName());
   this.subscribe(Abilities.getPublicationName());
   this.subscribe(Styles.getPublicationName());
   this.subscribe(Goals.getPublicationName());
@@ -34,7 +36,7 @@ Template.Admin_Monitor_Page.onCreated(function onCreated() {
   this.messageFlags.set(selectedExperiencesKey, undefined);
 });
 
-Template.Admin_Monitor_Page.helpers({
+Template.Monitor_Page.helpers({
   profiles() {
     // Initialize selectedAbilties to all of them if messageFlags is undefined.
     if (!Template.instance().messageFlags.get(selectedAbilitiesKey)) {
@@ -149,9 +151,41 @@ Template.Admin_Monitor_Page.helpers({
         selectedExperiences).length > 0);
     return allPpl;
   },
+  reports() {
+    // Initialize selectedInterests to all of them if messageFlags is undefined.
+    /* if (!Template.instance().messageFlags.get(selectedInterestsKey)) {
+      Template.instance().messageFlags.set(selectedInterestsKey, _.map(Interests.findAll(), interest => interest.name));
+    }
+    // Find all profiles with the currently selected interests.
+    const allPeopleInterested = PeopleInterested.findAll();
+    const selectedInterests = Template.instance().messageFlags.get(selectedInterestsKey);
+    return _.filter(allPeopleInterested, report => _.intersection(report.interests,
+        selectedInterests).length > 0); */
+    // Initialize selectedAbiltiies to all of them if messageFlags is undefined.
+    if (!Template.instance().messageFlags.get(selectedAbilitiesKey) &&
+        !Template.instance().messageFlags.get(selectedStylesKey) &&
+        !Template.instance().messageFlags.get(selectedGoalsKey) &&
+        !Template.instance().messageFlags.get(selectedExperiencesKey)) {
+      Template.instance().messageFlags.set(selectedAbilitiesKey, _.map(Abilities.findAll(), ability => ability.name));
+      Template.instance().messageFlags.set(selectedStylesKey, _.map(Styles.findAll(), style => style.name));
+      Template.instance().messageFlags.set(selectedGoalsKey, _.map(Goals.findAll(), goal => goal.name));
+      Template.instance().messageFlags.set(selectedExperiencesKey, _.map(Experiences.findAll(), exp => exp.name));
+    }
+    // Find all profiles with the currently selected interests.
+    let allReport = Report.findAll();
+    const selectedAbilities = Template.instance().messageFlags.get(selectedAbilitiesKey);
+    const selectedGoals = Template.instance().messageFlags.get(selectedGoalsKey);
+    const selectedStyles = Template.instance().messageFlags.get(selectedStylesKey);
+    const selectedExperiences = Template.instance().messageFlags.get(selectedExperiencesKey);
+    allReport = _.filter(allReport, report => _.intersection(report.abilities, selectedAbilities).length > 0);
+    allReport = _.filter(allReport, report => _.intersection(report.goals, selectedGoals).length > 0);
+    allReport = _.filter(allReport, report => _.intersection(report.styles, selectedStyles).length > 0);
+    allReport = _.filter(allReport, report => _.intersection(report.experiences, selectedExperiences).length > 0);
+    return allReport;
+  },
 });
 
-/* Template.Admin_Monitor_Page.events({
+/* Template.Monitor_Page.events({
   'submit .filter-data-form'(event, instance) {
     event.preventDefault();
     const selectedOptions = _.filter(event.target.Abilities.selectedOptions, (option) => option.selected);

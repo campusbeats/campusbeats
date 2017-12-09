@@ -92,7 +92,7 @@ userRoutes.route('/create', {
   },
 });
 
-export const adminMonitorPageRouteName = 'Admin_Monitor_Page';
+export const adminMonitorPageRouteName = 'Monitor_Page';
 userRoutes.route('/monitor', {
   name: adminMonitorPageRouteName,
   action() {
