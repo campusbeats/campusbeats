@@ -3,7 +3,7 @@
 
 //  import { Profiles } from '/imports/api/profile/ProfileCollection';
 import { Interests } from '/imports/api/interest/InterestCollection';
-import { Report } from '/imports/api/people-interested/ReportCollection';
+import { Report } from '/imports/api/report/ReportCollection';
 import { Meteor } from 'meteor/meteor';
 import { expect } from 'chai';
 import { removeAllEntities } from '/imports/api/base/BaseUtilities';
