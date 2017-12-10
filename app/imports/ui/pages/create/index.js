@@ -1,3 +1,3 @@
-import './admin-create-page.html';
-import './admin-create-page.js';
+import './create-page.html';
+import './create-page.js';
 

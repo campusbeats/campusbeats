@@ -1,0 +1,34 @@
+<template name="Create_Page">
+  {{#if Template.subscriptionsReady}}
+
+    <div style="background-color: #ffffff; margin: 20px 150px 20px 150px" class="ui centered grid container">
+      <h1 style="color: #0a406e; text-align: center; margin-bottom: 25px" class="ui icon header">
+        <i style="color: #8ae5f9" class="plus icon"></i>
+        Create new categories for Abilities, Experiences, Goals, & Styles!
+      </h1>
+      <form style="margin-bottom: 20px;" class="ui equal width form create-data-form {{ successClass }} {{ errorClass }}">
+
+        <div class="ui container">
+          <!--<div style="margin: 15px 250px 20px 250px;" class="ui middle aligned relaxed animated large list">-->
+          <div style="margin-left: 300px; margin-right: 300px" class="fields">
+            {{> Text_Form_Control label="New Abilities" placeholder="Guitar" value=profile.abilities errorMessage=(fieldError "abilities")}}
+            {{> Text_Form_Control label="New Styles" placeholder="Rock" value=profile.styles errorMessage=(fieldError "styles")}}
+          </div>
+
+          <div style="margin-left: 300px; margin-right: 300px" class="fields">
+            {{> Text_Form_Control label="New Experiences" placeholder="1-3 months" value=profile.experiences errorMessage=(fieldError "experiences")}}
+            {{> Text_Form_Control label="New Goals" placeholder="Learn" value=profile.goals errorMessage=(fieldError "goals")}}
+          </div>
+
+        </div>
+
+        <button class="ui primary button" type="submit">Update</button>
+        {{#if displaySuccessMessage}}
+          <div class="ui success message">
+            <p>Categories successfully updated.</p>
+          </div>
+        {{/if}}
+      </form>
+    </div>
+  {{/if}}
+</template>
