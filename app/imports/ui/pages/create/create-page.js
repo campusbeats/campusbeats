@@ -10,6 +10,10 @@ import { Experiences } from '/imports/api/experience/ExperienceCollection';
 
 const displaySuccessMessage = 'displaySuccessMessage';
 const displayErrorMessages = 'displayErrorMessages';
+const selectedAbilitiesKey = 'selectedAbilities';
+const selectedStylesKey = 'selectedStyles';
+const selectedGoalsKey = 'selectedGoals';
+const selectedExperiencesKey = 'selectedExperiences';
 
 Template.Create_Page.onCreated(function onCreated() {
   this.subscribe(Abilities.getPublicationName());
@@ -20,7 +24,11 @@ Template.Create_Page.onCreated(function onCreated() {
   this.messageFlags = new ReactiveDict();
   this.messageFlags.set(displaySuccessMessage, false);
   this.messageFlags.set(displayErrorMessages, false);
-  this.context = Profiles.getSchema().namedContext('Profile_Page');
+  this.messageFlags.set(selectedAbilitiesKey, undefined);
+  this.messageFlags.set(selectedStylesKey, undefined);
+  this.messageFlags.set(selectedGoalsKey, undefined);
+  this.messageFlags.set(selectedExperiencesKey, undefined);
+  this.context = Profiles.getSchema().namedContext('Create_Page');
 });
 
 Template.Create_Page.helpers({
@@ -37,6 +45,13 @@ Template.Create_Page.helpers({
     return Profiles.findDoc(FlowRouter.getParam('username'));
   },
   abilities() {
+    /* return _.map(Abilities.findAll(),
+        function makeAbilityObject(ability) {
+          return {
+            label: ability.name,
+            selected: _.contains(Template.instance().messageFlags.get(selectedAbilitiesKey), ability.name),
+          };
+        }); */
     const profile = Profiles.findDoc(FlowRouter.getParam('username'));
     const selectedAbilities = profile.abilities;
     return profile && _.map(Abilities.findAll(),
