@@ -11,18 +11,18 @@
         <div class="ui container">
           <!--<div style="margin: 15px 250px 20px 250px;" class="ui middle aligned relaxed animated large list">-->
           <div style="margin-left: 300px; margin-right: 300px" class="fields">
-            {{> Text_Form_Control label="New Abilities" placeholder="Guitar" value=profile.abilities errorMessage=(fieldError "abilities")}}
-            {{> Text_Form_Control label="New Styles" placeholder="Rock" value=profile.styles errorMessage=(fieldError "styles")}}
+            {{> Text_Form_Control label="Abilities" placeholder="Guitar" value=profile.abilities errorMessage=(fieldError "abilities")}}
+            <!--{{> Text_Form_Control label="Styles" placeholder="Rock" value=profile.styles errorMessage=(fieldError "styles")}}-->
           </div>
 
-          <div style="margin-left: 300px; margin-right: 300px" class="fields">
-            {{> Text_Form_Control label="New Experiences" placeholder="1-3 months" value=profile.experiences errorMessage=(fieldError "experiences")}}
-            {{> Text_Form_Control label="New Goals" placeholder="Learn" value=profile.goals errorMessage=(fieldError "goals")}}
-          </div>
+          <!--<div style="margin-left: 300px; margin-right: 300px" class="fields">
+            {{> Text_Form_Control label="Experiences" placeholder="1-3 months" value=profile.experiences errorMessage=(fieldError "experiences")}}
+            {{> Text_Form_Control label="Goals" placeholder="Learn" value=profile.goals errorMessage=(fieldError "goals")}}
+          </div>-->
 
         </div>
 
-        <button class="ui primary button" type="submit">Update</button>
+        <button class="ui primary button" type="submit">Create</button>
         {{#if displaySuccessMessage}}
           <div class="ui success message">
             <p>Categories successfully updated.</p>
