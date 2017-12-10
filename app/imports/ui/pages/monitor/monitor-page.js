@@ -2,7 +2,6 @@ import { Template } from 'meteor/templating';
 import { ReactiveDict } from 'meteor/reactive-dict';
 import { _ } from 'meteor/underscore';
 import { Profiles } from '/imports/api/profile/ProfileCollection';
-import { Interests } from '/imports/api/interest/InterestCollection';
 import { Abilities } from '/imports/api/ability/AbilityCollection';
 import { Styles } from '/imports/api/style/StyleCollection';
 import { Goals } from '/imports/api/goal/GoalCollection';
@@ -10,16 +9,15 @@ import { Experiences } from '/imports/api/experience/ExperienceCollection';
 import { Favorites } from '/imports/api/favorites/FavoritesCollection';
 import { PeopleInterested } from '/imports/api/people-interested/PeopleInterestedCollection';
 import { Report } from '/imports/api/report/ReportCollection';
-//  import { FlowRouter } from 'meteor/kadira:flow-router';
+import { FlowRouter } from 'meteor/kadira:flow-router';
 
-const selectedInterestsKey = 'selectedInterests';
 const selectedAbilitiesKey = 'selectedAbilities';
 const selectedStylesKey = 'selectedStyles';
 const selectedGoalsKey = 'selectedGoals';
 const selectedExperiencesKey = 'selectedExperiences';
+const selectedProfileKey = 'selectedProfile';
 
 Template.Monitor_Page.onCreated(function onCreated() {
-  this.subscribe(Interests.getPublicationName());
   this.subscribe(Profiles.getPublicationName());
   this.subscribe(Favorites.getPublicationName());
   this.subscribe(PeopleInterested.getPublicationName());
@@ -34,62 +32,121 @@ Template.Monitor_Page.onCreated(function onCreated() {
   this.messageFlags.set(selectedStylesKey, undefined);
   this.messageFlags.set(selectedGoalsKey, undefined);
   this.messageFlags.set(selectedExperiencesKey, undefined);
+  this.messageFlags.set(selectedProfileKey, undefined);
 });
 
 Template.Monitor_Page.helpers({
   profiles() {
-    // Initialize selectedAbilties to all of them if messageFlags is undefined.
-    if (!Template.instance().messageFlags.get(selectedAbilitiesKey)) {
+    // Initialize selectedAbilities to all of them if messageFlags is undefined.
+    /* if (!Template.instance().messageFlags.get(selectedAbilitiesKey)) {
       Template.instance().messageFlags.set(selectedAbilitiesKey, _.map(Abilities.findAll(), ability => ability.name));
     }
     // Find all profiles with the currently selected interests.
     const allProfiles = Profiles.findAll();
     const selectedAbilities = Template.instance().messageFlags.get(selectedAbilitiesKey);
-    return _.filter(allProfiles, profile => _.intersection(profile.ability, selectedAbilities).length > 0);
+    return _.filter(allProfiles, profile => _.intersection(profile.abilities, selectedAbilities).length > 0); */
+    // Initialize selectedAbilities to all of them if messageFlags is undefined.
+    if (!Template.instance().messageFlags.get(selectedAbilitiesKey) &&
+        !Template.instance().messageFlags.get(selectedStylesKey) &&
+        !Template.instance().messageFlags.get(selectedGoalsKey) &&
+        !Template.instance().messageFlags.get(selectedExperiencesKey)) {
+      Template.instance().messageFlags.set(selectedAbilitiesKey, _.map(Abilities.findAll(), ability => ability.name));
+      Template.instance().messageFlags.set(selectedStylesKey, _.map(Styles.findAll(), style => style.name));
+      Template.instance().messageFlags.set(selectedGoalsKey, _.map(Goals.findAll(), goal => goal.name));
+      Template.instance().messageFlags.set(selectedExperiencesKey, _.map(Experiences.findAll(), exp => exp.name));
+    }
+    // Find all profiles with the currently selected interests.
+    let allProfiles = Profiles.findAll();
+    const selectedAbilities = Template.instance().messageFlags.get(selectedAbilitiesKey);
+    const selectedGoals = Template.instance().messageFlags.get(selectedGoalsKey);
+    const selectedStyles = Template.instance().messageFlags.get(selectedStylesKey);
+    const selectedExperiences = Template.instance().messageFlags.get(selectedExperiencesKey);
+    allProfiles = _.filter(allProfiles, profile => _.intersection(profile.abilities, selectedAbilities).length > 0);
+    allProfiles = _.filter(allProfiles, profile => _.intersection(profile.goals, selectedGoals).length > 0);
+    allProfiles = _.filter(allProfiles, profile => _.intersection(profile.styles, selectedStyles).length > 0);
+    allProfiles = _.filter(allProfiles, profile => _.intersection(profile.experiences, selectedExperiences).length > 0);
+    return allProfiles;
   },
-  interests() {
-    return _.map(Interests.findAll(),
+
+  // interests() {
+    /*  return _.map(Interests.findAll(),
+      function makeInterestObject(interest) {
+        return {
+          label: interest.name,
+          selected: _.contains(Template.instance().messageFlags.get(selectedInterestsKey), interest.name),
+        };
+      }); */
+    /* const profile = Profiles.findDoc(FlowRouter.getParam('username'));
+    const selectedInterests = profile.interests;
+    return profile && _.map(Interests.findAll(),
         function makeInterestObject(interest) {
-          return {
-            label: interest.name,
-            selected: _.contains(Template.instance().messageFlags.get(selectedInterestsKey), interest.name),
-          };
+          return { label: interest.name, selected: _.contains(selectedInterests, interest.name) };
         });
-  },
-  abilties() {
-    return _.map(Abilities.findAll(),
-        function makeAbilityObject(ability) {
-          return {
-            label: ability.name,
-            selected: _.contains(Template.instance().messageFlags.get(selectedAbilitiesKey), ability.name),
-          };
-        });
-  },
-  styles() {
-    return _.map(Goals.findAll(),
+  }, */
+  goals() {
+    /*  return _.map(Goals.findAll(),
         function makeGoalObject(goal) {
           return {
             label: goal.name,
             selected: _.contains(Template.instance().messageFlags.get(selectedGoalsKey), goal.name),
           };
-        });
-  },
-  goals() {
-    return _.map(Styles.findAll(),
-        function makeStyleObject(style) {
-          return {
-            label: style.name,
-            selected: _.contains(Template.instance().messageFlags.get(selectedStylesKey), style.name),
-          };
+        }); */
+    const profile = Profiles.findDoc(FlowRouter.getParam('username'));
+    const selectedGoals = profile.goals;
+    return profile && _.map(Goals.findAll(),
+        function makeGoalObject(goal) {
+          return { label: goal.name, selected: _.contains(selectedGoals, goal.name) };
         });
   },
   experiences() {
-    return _.map(Abilities.findAll(),
-        function makeExperienceObject(experience) {
+    /*  return _.map(Goals.findAll(),
+        function makeGoalObject(goal) {
           return {
-            label: experience.name,
-            selected: _.contains(Template.instance().messageFlags.get(selectedExperiencesKey), experience.name),
+            label: goal.name,
+            selected: _.contains(Template.instance().messageFlags.get(selectedGoalsKey), goal.name),
           };
+        }); */
+    const profile = Profiles.findDoc(FlowRouter.getParam('username'));
+    const selectedExperiences = profile.experiences;
+    return profile && _.map(Experiences.findAll(),
+        function makeExperienceObject(experience) {
+          return { label: experience.name, selected: _.contains(selectedExperiences, experience.name) };
+        });
+  },
+  abilities() {
+    /*  return _.map(Goals.findAll(),
+        function makeGoalObject(goal) {
+          return {
+            label: goal.name,
+            selected: _.contains(Template.instance().messageFlags.get(selectedGoalsKey), goal.name),
+          };
+        }); */
+    const profile = Profiles.findDoc(FlowRouter.getParam('username'));
+    const selectedAbilities = profile.abilities;
+    return profile && _.map(Abilities.findAll(),
+        function makeAbilityObject(ability) {
+          return { label: ability.name, selected: _.contains(selectedAbilities, ability.name) };
+        });
+    /* const favorite = Favorites.findDoc(FlowRouter.getParam('username'));
+    const selectedAbilities = favorite.abilities;
+    return favorite && _.map(Abilities.findAll(),
+        function makeAbilityObject(ability) {
+          return { label: ability.name, selected: _.contains(selectedAbilities, ability.name) };
+        }); */
+  },
+  styles() {
+    /*  return _.map(Goals.findAll(),
+        function makeGoalObject(goal) {
+          return {
+            label: goal.name,
+            selected: _.contains(Template.instance().messageFlags.get(selectedGoalsKey), goal.name),
+          };
+        }); */
+    const profile = Profiles.findDoc(FlowRouter.getParam('username'));
+    const selectedStyles = profile.styles;
+    return profile && _.map(Styles.findAll(),
+        function makeStyleObject(style) {
+          return { label: style.name, selected: _.contains(selectedStyles, style.name) };
         });
   },
   favorites() {
@@ -114,42 +171,6 @@ Template.Monitor_Page.helpers({
     allFav = _.filter(allFav, favorites => _.intersection(favorites.styles, selectedStyles).length > 0);
     allFav = _.filter(allFav, favorites => _.intersection(favorites.experiences, selectedExperiences).length > 0);
     return allFav;
-  },
-  peopleInterested() {
-    // Initialize selectedInterests to all of them if messageFlags is undefined.
-    /* if (!Template.instance().messageFlags.get(selectedInterestsKey)) {
-      Template.instance().messageFlags.set(selectedInterestsKey, _.map(Interests.findAll(), interest => interest.name));
-    }
-    // Find all profiles with the currently selected interests.
-    const allPeopleInterested = PeopleInterested.findAll();
-    const selectedInterests = Template.instance().messageFlags.get(selectedInterestsKey);
-    return _.filter(allPeopleInterested, peopleInterested => _.intersection(peopleInterested.interests,
-        selectedInterests).length > 0); */
-    // Initialize selectedAbiltiies to all of them if messageFlags is undefined.
-    if (!Template.instance().messageFlags.get(selectedAbilitiesKey) &&
-        !Template.instance().messageFlags.get(selectedStylesKey) &&
-        !Template.instance().messageFlags.get(selectedGoalsKey) &&
-        !Template.instance().messageFlags.get(selectedExperiencesKey)) {
-      Template.instance().messageFlags.set(selectedAbilitiesKey, _.map(Abilities.findAll(), ability => ability.name));
-      Template.instance().messageFlags.set(selectedStylesKey, _.map(Styles.findAll(), style => style.name));
-      Template.instance().messageFlags.set(selectedGoalsKey, _.map(Goals.findAll(), goal => goal.name));
-      Template.instance().messageFlags.set(selectedExperiencesKey, _.map(Experiences.findAll(), exp => exp.name));
-    }
-    // Find all profiles with the currently selected interests.
-    let allPpl = PeopleInterested.findAll();
-    const selectedAbilities = Template.instance().messageFlags.get(selectedAbilitiesKey);
-    const selectedGoals = Template.instance().messageFlags.get(selectedGoalsKey);
-    const selectedStyles = Template.instance().messageFlags.get(selectedStylesKey);
-    const selectedExperiences = Template.instance().messageFlags.get(selectedExperiencesKey);
-    allPpl = _.filter(allPpl, peopleInterested => _.intersection(peopleInterested.abilities,
-        selectedAbilities).length > 0);
-    allPpl = _.filter(allPpl, peopleInterested => _.intersection(peopleInterested.goals,
-        selectedGoals).length > 0);
-    allPpl = _.filter(allPpl, peopleInterested => _.intersection(peopleInterested.styles,
-        selectedStyles).length > 0);
-    allPpl = _.filter(allPpl, peopleInterested => _.intersection(peopleInterested.experiences,
-        selectedExperiences).length > 0);
-    return allPpl;
   },
   reports() {
     // Initialize selectedInterests to all of them if messageFlags is undefined.
@@ -183,12 +204,29 @@ Template.Monitor_Page.helpers({
     allReport = _.filter(allReport, report => _.intersection(report.experiences, selectedExperiences).length > 0);
     return allReport;
   },
+  /* report() {
+    const profile = Profiles.findDoc(FlowRouter.getParam('username'));
+    // const selectedAbilities = profile.abilities;
+    return profile && _.map(Profiles.findAll(),
+    // return profile;
+        function makeReportObject(profiles) {
+          return { label: profiles.name, selected: _.contains(profiles, profiles.name) };
+        });
+  }, */
 });
 
-/* Template.Monitor_Page.events({
-  'submit .filter-data-form'(event, instance) {
+Template.Monitor_Page.events({
+  'submit .monitor-data-form'(event, instance) {
     event.preventDefault();
-    const selectedOptions = _.filter(event.target.Abilities.selectedOptions, (option) => option.selected);
-    instance.messageFlags.set(selectedAbilitiesKey, _.map(selectedOptions, (option) => option.value));
+    /* const selectedAbilityOptions = _.filter(event.target.Abilities.selectedOptions, (option) => option.selected);
+    const selectedStyleOptions = _.filter(event.target.Styles.selectedOptions, (option) => option.selected);
+    const selectedGoalOptions = _.filter(event.target.Goals.selectedOptions, (option) => option.selected);
+    const selectedExperienceOptions = _.filter(event.target.Experiences.selectedOptions, (option) => option.selected);
+    instance.messageFlags.set(selectedAbilitiesKey, _.map(selectedAbilityOptions, (option) => option.value));
+    instance.messageFlags.set(selectedStylesKey, _.map(selectedStyleOptions, (option) => option.value));
+    instance.messageFlags.set(selectedGoalsKey, _.map(selectedGoalOptions, (option) => option.value));
+    instance.messageFlags.set(selectedExperiencesKey, _.map(selectedExperienceOptions, (option) => option.value)); */
+    const selectedProfileOptions = _.filter(event.target.Profile.selectedOptions, (option) => option.selected);
+    instance.messageFlags.set(selectedProfileKey, _.map(selectedProfileOptions, (option) => option.value));
   },
-}); */
+});
