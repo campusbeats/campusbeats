@@ -46,7 +46,7 @@ Template.Monitor_Page.helpers({
     const selectedAbilities = Template.instance().messageFlags.get(selectedAbilitiesKey);
     return _.filter(allProfiles, profile => _.intersection(profile.abilities, selectedAbilities).length > 0); */
     // Initialize selectedAbilities to all of them if messageFlags is undefined.
-    if (!Template.instance().messageFlags.get(selectedAbilitiesKey) &&
+    /* if (!Template.instance().messageFlags.get(selectedAbilitiesKey) &&
         !Template.instance().messageFlags.get(selectedStylesKey) &&
         !Template.instance().messageFlags.get(selectedGoalsKey) &&
         !Template.instance().messageFlags.get(selectedExperiencesKey)) {
@@ -65,24 +65,33 @@ Template.Monitor_Page.helpers({
     allProfiles = _.filter(allProfiles, profile => _.intersection(profile.goals, selectedGoals).length > 0);
     allProfiles = _.filter(allProfiles, profile => _.intersection(profile.styles, selectedStyles).length > 0);
     allProfiles = _.filter(allProfiles, profile => _.intersection(profile.experiences, selectedExperiences).length > 0);
-    return allProfiles;
+    return allProfiles; */
+    const profile = Profiles.findDoc(FlowRouter.getParam('username'));
+    /* return profile && _.map(Profiles.findAll(),
+        function makeProfileObject(profile2) {
+          return { label: profile2.name, selected: _.contains(profile, profile2.name) };
+        }); */
+    return profile.name && Profiles.find().map(
+        function (obj) {
+          return { label: obj.name, value: obj.value };
+        });
   },
 
   // interests() {
-    /*  return _.map(Interests.findAll(),
+  /*  return _.map(Interests.findAll(),
+    function makeInterestObject(interest) {
+      return {
+        label: interest.name,
+        selected: _.contains(Template.instance().messageFlags.get(selectedInterestsKey), interest.name),
+      };
+    }); */
+  /* const profile = Profiles.findDoc(FlowRouter.getParam('username'));
+  const selectedInterests = profile.interests;
+  return profile && _.map(Interests.findAll(),
       function makeInterestObject(interest) {
-        return {
-          label: interest.name,
-          selected: _.contains(Template.instance().messageFlags.get(selectedInterestsKey), interest.name),
-        };
-      }); */
-    /* const profile = Profiles.findDoc(FlowRouter.getParam('username'));
-    const selectedInterests = profile.interests;
-    return profile && _.map(Interests.findAll(),
-        function makeInterestObject(interest) {
-          return { label: interest.name, selected: _.contains(selectedInterests, interest.name) };
-        });
-  }, */
+        return { label: interest.name, selected: _.contains(selectedInterests, interest.name) };
+      });
+}, */
   goals() {
     /*  return _.map(Goals.findAll(),
         function makeGoalObject(goal) {
