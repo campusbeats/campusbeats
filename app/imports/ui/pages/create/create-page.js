@@ -89,51 +89,29 @@ Template.Create_Page.helpers({
 Template.Create_Page.events({
   'submit .create-data-form'(event, instance) {
     event.preventDefault();
-    // const username = FlowRouter.getParam('username'); // schema requires username.
-    // const abilities = _.map(_.filter(event.target.Abilities.textValues), (option) => option.value);
-    const abilities = event.target.Abilities.value;
-    /* const styles = event.target.Styles.value;
-    const goals = event.target.Goals.value;
-    const experiences = event.target.Experiences.value; */
-    /* const selectedAbilities = _.filter(event.target.Abilities.selectedOptions, (option) => option.selected);
+    const username = FlowRouter.getParam('username'); // schema requires username.
+    const selectedAbilities = _.filter(event.target.Abilities.selectedOptions, (option) => option.selected);
     const abilities = _.map(selectedAbilities, (option) => option.value);
-    const selectedStyles = _.filter(event.target.Styles.selectedOptions, (option) => option.selected);
+    /* const selectedStyles = _.filter(event.target.Styles.selectedOptions, (option) => option.selected);
     const styles = _.map(selectedStyles, (option) => option.value);
     const selectedGoals = _.filter(event.target.Goals.selectedOptions, (option) => option.selected);
     const goals = _.map(selectedGoals, (option) => option.value);
     const selectedExperiences = _.filter(event.target.Experiences.selectedOptions, (option) => option.selected);
     const experiences = _.map(selectedExperiences, (option) => option.value); */
-    // const newAbilitiesData = { abilities, username };
-    const newAbilitiesData = { abilities };
-    /* const newStylesData = { styles, username };
-    const newGoalsData = { goals, username };
-    const newExperiencesData = { experiences, username }; */
+    const updatedAbilitiesData = { abilities, username };
 
     // Clear out any old validation errors.
     instance.context.reset();
     // Invoke clean so that updatedProfileData reflects what will be inserted.
-    const cleanData = Abilities.getSchema().clean(newAbilitiesData);
-    /* const cleanData2 = Styles.getSchema().clean(newStylesData);
-    const cleanData3 = Goals.getSchema().clean(newGoalsData);
-    const cleanData4 = Experiences.getSchema().clean(newExperiencesData); */
+    const cleanData = Abilities.getSchema().clean(updatedAbilitiesData);
     // Determine validity.
     instance.context.validate(cleanData);
-    /* instance.context.validate(cleanData2);
-    instance.context.validate(cleanData3);
-    instance.context.validate(cleanData4); */
 
     if (instance.context.isValid()) {
-      // const docID = Profiles.findDoc(FlowRouter.getParam('username'))._id;
-      const id = Abilities.insert(cleanData);
-      /* const id2 = Styles.insert(cleanData2);
-      const id3 = Goals.insert(cleanData3);
-      const id4 = Experiences.insert(cleanData4); */
+      const docID = Abilities._id;
+      const id = Abilities.update(docID, { $set: cleanData });
       instance.messageFlags.set(displaySuccessMessage, id);
-      /* instance.messageFlags.set(displaySuccessMessage, id2);
-      instance.messageFlags.set(displaySuccessMessage, id3);
-      instance.messageFlags.set(displaySuccessMessage, id4);
-      instance.messageFlags.set(displayErrorMessages, false); */
-      FlowRouter.go('Home_Page');
+      instance.messageFlags.set(displayErrorMessages, false);
     } else {
       instance.messageFlags.set(displaySuccessMessage, false);
       instance.messageFlags.set(displayErrorMessages, true);
