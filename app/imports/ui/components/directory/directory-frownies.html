@@ -1,0 +1,56 @@
+<template name="Directory_Frownies">
+
+  <div class="card">
+    <div class="content">
+      <img class="right floated mini ui image" src="{{ frownies.picture }}">
+      <div class="header">
+        {{ frownies.firstName }} {{ frownies.lastName }} <i class="yellow star icon"></i>
+      </div>
+      <div class="meta">
+        {{ frownies.phone }}
+      </div>
+      <div class="description">
+        {{ frownies.bio }}
+      </div>
+      <div style="margin-top: 10px">
+        {{#each abilities in frownies.abilities}}
+          <a style="margin-bottom: 2px; background-color: #1a4f78 ; color: #ffffff;" class="ui tag small label">{{abilities}}</a>
+        {{/each}}
+      </div>
+      <div style="margin-top: 10px">
+        {{#each styles in frownies.styles}}
+          <a style="margin-bottom: 2px; background-color: #1985a1; color: #ffffff;" class="ui tag small label">{{styles}}</a>
+        {{/each}}
+      </div>
+      <div style="margin-top: 10px">
+        {{#each experiences in frownies.experiences}}
+          <a style="margin-bottom: 2px; background-color: #4db0ca; color: #ffffff;" class="ui tag small label">{{experiences}}</a>
+        {{/each}}
+      </div>
+      <div style="margin-top: 10px">
+        {{#each goals in frownies.goals}}
+          <a style="margin-bottom: 2px; background-color: #9ae9fe; color: #ffffff;" class="ui tag small label">{{goals}}</a>
+        {{/each}}
+      </div>
+
+    </div>
+    <div class="extra content">
+      <div class="ui equal width center aligned grid">
+        <div class="column"><a href="mailto:{{ frownies.username}}@hawaii.edu"><i class="big mail icon"></i></a></div>
+        {{#if frownies.soundcloud }}
+          <div class="column"><a href="https://soundcloud.com/{{ frownies.soundcloud}}"><i class="big soundcloud icon"></i></a>
+          </div>
+        {{/if}}
+        {{#if frownies.youtube }}
+          <div class="column"><a href="https://youtube.com/{{ frownies.youtube}}"><i
+              class="big youtube icon"></i></a></div>
+        {{/if}}
+        {{#if frownies.spotify }}
+          <div class="column"><a href="https://spotify.com/{{ frownies.spotify}}"><i
+              class="big spotify icon"></i></a></div>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+
+</template>
