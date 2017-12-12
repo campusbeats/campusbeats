@@ -6,6 +6,7 @@ import '/imports/api/ability';
 import '/imports/api/style';
 import '/imports/api/goal';
 import '/imports/api/experience';
+import '/imports/api/eventdata';
 import '/imports/api/favorites';
 import '/imports/api/people-interested';
 import '/imports/api/report';
