@@ -10,19 +10,19 @@ import { Meteor } from 'meteor/meteor';
 import { _ } from 'meteor/underscore';
 import { Tracker } from 'meteor/tracker';
 
-/** @module Favorites */
+/** @module Frownies */
 
 /**
- * Favorites provide profile portfolio data of favorites for a user.
+ * Frownies provide profile portfolio data of frownies for a user.
  * @extends module:Base~BaseCollection
  */
-class FavoritesCollection extends BaseCollection {
+class FrowniesCollection extends BaseCollection {
 
   /**
-   * Creates the Favorites collection.
+   * Creates the Frownies collection.
    */
   constructor() {
-    super('Favorites', new SimpleSchema({
+    super('Frownies', new SimpleSchema({
       username: { type: String },
       // Remainder are optional
       firstName: { type: String, optional: true },
@@ -46,9 +46,9 @@ class FavoritesCollection extends BaseCollection {
   }
 
   /**
-   * Defines a new Favorites.
+   * Defines a new Frownies.
    * @example
-   * Favorites.define({ firstName: 'Philip',
+   * Frownies.define({ firstName: 'Philip',
    *                   lastName: 'Johnson',
    *                   username: 'johnson',
    *                   bio: 'I have been a professor of computer science at UH since 1990.',
@@ -125,4 +125,4 @@ class FavoritesCollection extends BaseCollection {
 /**
  * Provides the singleton instance of this class to all other entities.
  */
-export const Favorites = new FavoritesCollection();
+export const Frownies = new FrowniesCollection();

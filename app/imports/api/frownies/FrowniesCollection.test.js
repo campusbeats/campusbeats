@@ -3,13 +3,13 @@
 
 //  import { Profiles } from '/imports/api/profile/ProfileCollection';
 import { Interests } from '/imports/api/interest/InterestCollection';
-import { Favorites } from '/imports/api/favorites/FavoritesCollection';
+import { Frownies } from '/imports/api/frownies/FrowniesCollection';
 import { Meteor } from 'meteor/meteor';
 import { expect } from 'chai';
 import { removeAllEntities } from '/imports/api/base/BaseUtilities';
 
 if (Meteor.isServer) {
-  describe('FavoritesCollection', function testSuite() {
+  describe('FrownieCollection', function testSuite() {
     const interestName = 'Software Engineering';
     const interestDescription = 'Tools for software development';
     const firstName = 'Philip';
@@ -31,10 +31,10 @@ if (Meteor.isServer) {
     });
 
     it('#define, #isDefined, #removeIt, #dumpOne, #restoreOne', function test() {
-      let docID = Favorites.define(defineObject);
-      expect(Favorites.isDefined(docID)).to.be.true;
+      let docID = Frownies.define(defineObject);
+      expect(Frownies.isDefined(docID)).to.be.true;
       // Check that fields are available
-      const doc = Favorites.findDoc(docID);
+      const doc = Frownies.findDoc(docID);
       expect(doc.firstName).to.equal(firstName);
       expect(doc.lastName).to.equal(lastName);
       expect(doc.username).to.equal(username);
@@ -43,26 +43,26 @@ if (Meteor.isServer) {
       expect(doc.picture).to.equal(picture);
       expect(doc.title).to.equal(title);
       // Check that multiple definitions with the same email address fail
-      expect(function foo() { Favorites.define(defineObject); }).to.throw(Error);
-      // Check that we can dump and restore a Favorites.
-      const dumpObject = Favorites.dumpOne(docID);
-      Favorites.removeIt(docID);
-      expect(Favorites.isDefined(docID)).to.be.false;
-      docID = Favorites.restoreOne(dumpObject);
-      expect(Favorites.isDefined(docID)).to.be.true;
-      Favorites.removeIt(docID);
+      expect(function foo() { Frownies.define(defineObject); }).to.throw(Error);
+      // Check that we can dump and restore a Frownies.
+      const dumpObject = Frownies.dumpOne(docID);
+      Frownies.removeIt(docID);
+      expect(Frownies.isDefined(docID)).to.be.false;
+      docID = Frownies.restoreOne(dumpObject);
+      expect(Frownies.isDefined(docID)).to.be.true;
+      Frownies.removeIt(docID);
     });
 
     it('#define (illegal interest)', function test() {
       const illegalInterests = ['foo'];
       const defineObject2 = { firstName, lastName, username, bio, picture, title };
-      expect(function foo() { Favorites.define(defineObject2); }).to.throw(Error);
+      expect(function foo() { Frownies.define(defineObject2); }).to.throw(Error);
     });
 
     it('#define (duplicate interests)', function test() {
       const duplicateInterests = [interestName, interestName];
       const defineObject3 = { firstName, lastName, username, bio, picture, title  };
-      expect(function foo() { Favorites.define(defineObject3); }).to.throw(Error);
+      expect(function foo() { Frownies.define(defineObject3); }).to.throw(Error);
     });
   });
 }

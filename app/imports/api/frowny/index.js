@@ -1,1 +1,0 @@
-import './FavoritesCollection.js';
