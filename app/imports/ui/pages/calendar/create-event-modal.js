@@ -1,6 +1,6 @@
 import { Template } from 'meteor/templating';
 import { ReactiveDict } from 'meteor/reactive-dict';
-import { FlowRouter } from 'meteor/kadira:flow-router';
+// import { FlowRouter } from 'meteor/kadira:flow-router';
 import { Session } from 'meteor/session';
 import { _ } from 'meteor/underscore';
 import { $ } from 'meteor/jquery';
@@ -66,7 +66,8 @@ Template.Create_Event_Modal.events({
     newEvent = { title, start, end, startValue, endValue, startString, endString };
 
     // Clear out any old validation errors.
-    instance.context.resetValidation();
+    // instance.context.resetValidation();
+    instance.context.reset();
 
     // Invoke clean so that newEvent reflects what will be inserted.
     EventDataSchema.clean(newEvent);
@@ -79,7 +80,9 @@ Template.Create_Event_Modal.events({
       $('#create-event-modal')
           .modal('hide')
       ;
-      FlowRouter.go('Calendar_Page');
+      location.reload();
+      // const user = FlowRouter.getParam('username');
+      // FlowRouter.go('Calendar_Page');
     } else {
       instance.messageFlags.set(displayErrorMessages, true);
     }
