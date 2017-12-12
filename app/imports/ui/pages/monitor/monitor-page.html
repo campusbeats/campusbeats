@@ -1,0 +1,63 @@
+<template name="Monitor_Page">
+  {{#if Template.subscriptionsReady}}
+
+    <div class="ui container">
+      <div style="margin-bottom: 20px" class="ui two column grid">
+        <div style="background-color: #ffffff; height: 565px; margin-top: 45px" class="four wide column">
+          <div class="ui dividing header">
+            People to Ban
+          </div>
+          <form class="ui equal width form beats-data-form">
+
+            <div class="field">
+              {{> Select_Form_Control label="Users" options=profiles multiple=true }}
+            </div>
+
+            <button class="ui primary button" type="submit">Search</button>
+          </form>
+        </div>
+
+        <div style="margin-left: 0" class="twelve wide column">
+          <div
+              style="margin: 20px 50px 30px 50px; background: linear-gradient(45deg, #ade4e6, #22537c); border: none; box-shadow: none;"
+              class="ui segment">
+            <h2 style="border-left: 20px solid #007897; background-color: #f4f4f4; color: #0a406e; font-size: 2em; font-weight: bold; padding-bottom: 10px; padding-top: 10px"
+                class="ui center aligned icon header">
+              <i class="red minus circle icon"></i>
+              Be Able to Monitor Campus Beats
+            </h2>
+            {{> Monitor_Page_Directory reports=reports }}
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!--<div style="background-color: #ffffff; margin: 20px 150px 20px 150px" class="ui centered grid container">
+      <h1 style="border-left: 20px solid #007897; background-color: #f4f4f4; color: #0a406e; font-size: 2em; font-weight: bold; margin-left: 20px;" class="ui icon header">
+        <i style="color: red" class="minus circle icon"></i>
+        Be Able to Monitor Campus Beats
+      </h1>
+
+      <div class="ui container">
+        div style="margin: 15px 250px 20px 250px;" class="ui middle aligned relaxed animated large list">-->
+    <!--<div style="margin: 15px 250px 30px 250px;" class="ui middle aligned raised segments">
+      <div class="item">
+        <div class="ui segment">
+          <img class="ui avatar image" src="/images/avatar/small/helen.jpg">
+          <p style="color: #15137c;">User #1</p>
+        </div>
+      </div>
+      <div class="item">
+        <div class="ui segment">
+          <p style="color: #15137c;">User #2</p>
+        </div>
+      </div>
+      <div class="item">
+        <div class="ui segment">
+          <p style="color: #15137c;">User #3</p>
+        </div>
+      </div>
+    </div>-->
+  {{/if}}
+</template>

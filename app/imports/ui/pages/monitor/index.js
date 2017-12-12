@@ -1,3 +1,3 @@
-import './admin-monitor-page.html';
-import './admin-monitor-page.js';
-
+import './monitor-page.html';
+import './monitor-page.js';
+import './monitor-page-directory.html';

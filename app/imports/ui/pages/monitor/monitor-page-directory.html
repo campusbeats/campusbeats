@@ -1,0 +1,11 @@
+<template name="Monitor_Page_Directory">
+  <div style="margin: 0 20px 20px 40px;" class="ui cards">
+    {{#each report in reports }}
+      {{> Directory_Report report=report }}
+    {{/each}}
+
+    {{#each favorites in favorites }}
+      {{> Directory_Favorites favorites=favorites }}
+    {{/each}}
+  </div>
+</template>

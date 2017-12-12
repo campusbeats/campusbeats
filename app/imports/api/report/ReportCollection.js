@@ -1,6 +1,5 @@
 import SimpleSchema from 'simpl-schema';
 import BaseCollection from '/imports/api/base/BaseCollection';
-// import { Interests } from '/imports/api/interest/InterestCollection';
 import { Abilities } from '/imports/api/ability/AbilityCollection';
 import { Styles } from '/imports/api/style/StyleCollection';
 import { Goals } from '/imports/api/goal/GoalCollection';
@@ -10,19 +9,19 @@ import { Meteor } from 'meteor/meteor';
 import { _ } from 'meteor/underscore';
 import { Tracker } from 'meteor/tracker';
 
-/** @module Favorites */
+/** @module Report */
 
 /**
- * Favorites provide profile portfolio data of favorites for a user.
+ * Report provide profile portfolio data of favorites for a user.
  * @extends module:Base~BaseCollection
  */
-class FavoritesCollection extends BaseCollection {
+class ReportCollection extends BaseCollection {
 
   /**
    * Creates the Favorites collection.
    */
   constructor() {
-    super('Favorites', new SimpleSchema({
+    super('Report', new SimpleSchema({
       username: { type: String },
       // Remainder are optional
       firstName: { type: String, optional: true },
@@ -46,22 +45,15 @@ class FavoritesCollection extends BaseCollection {
   }
 
   /**
-   * Defines a new Favorites.
+   * Defines a new Report.
    * @example
-   * Favorites.define({ firstName: 'Philip',
+   * Report.define({ firstName: 'Philip',
    *                   lastName: 'Johnson',
    *                   username: 'johnson',
-   *                   phone: '1-808-123-4567',
-   *                   email: 'johnson@hawaii.edu',
    *                   bio: 'I have been a professor of computer science at UH since 1990.',
-   *                   abilities: 'Guitar',
-   *                   styles: 'Rock',
-   *                   experiences: '1-3 years',
-   *                   goals: 'Learn',
+   *                   interests: ['Application Development', 'Software Engineering', 'Databases'],
+   *                   title: 'Professor of Information and Computer Sciences',
    *                   picture: 'http://philipmjohnson.org/headshot.jpg',
-   *                   soundlcoud: 'http://philipj@soundcloud.com',
-   *                   youtube: 'http://philipj@youtube.com',
-   *                   spotify: 'http://philipj@spotify.com',
    * @param { Object } description Object with required key username.
    * Remaining keys are optional.
    * Username must be unique for all users. It should be the UH email account.
@@ -132,4 +124,4 @@ class FavoritesCollection extends BaseCollection {
 /**
  * Provides the singleton instance of this class to all other entities.
  */
-export const Favorites = new FavoritesCollection();
+export const Report = new ReportCollection();
