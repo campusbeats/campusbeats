@@ -6,13 +6,14 @@
         <i style="color: #8ae5f9" class="plus icon"></i>
         Create new categories for Abilities, Experiences, Goals, & Styles!
       </h1>
-      <form style="margin-bottom: 20px;" class="ui equal width form create-data-form {{ successClass }} {{ errorClass }}">
+      <form style="margin-bottom: 20px;"
+            class="ui equal width form create-data-form {{ successClass }} {{ errorClass }}">
 
         <div class="ui container">
           <!--<div style="margin: 15px 250px 20px 250px;" class="ui middle aligned relaxed animated large list">-->
           <div style="margin-left: 300px; margin-right: 300px" class="fields">
-            {{> Text_Form_Control label="Abilities" placeholder="Guitar" value=profile.abilities errorMessage=(fieldError "abilities")}}
-            {{> Text_Form_Control label="Description" placeholder="Learn guitar" value=profile.abilities errorMessage=(fieldError "description")}}
+            {{> Text_Form_Control label="Name" placeholder="Guitar" value=abilities.name errorMessage=(fieldError "ability name")}}
+            {{> Text_Form_Control label="Description" placeholder="Learn guitar" value=abilities.description errorMessage=(fieldError "ability description")}}
             <!--{{> Text_Form_Control label="Styles" placeholder="Rock" value=profile.styles errorMessage=(fieldError "styles")}}-->
           </div>
 

@@ -85,20 +85,22 @@ Template.Create_Page.helpers({
   },
 });
 
-
 Template.Create_Page.events({
   'submit .create-data-form'(event, instance) {
     event.preventDefault();
-    const username = FlowRouter.getParam('username'); // schema requires username.
-    const selectedAbilities = _.filter(event.target.Abilities.selectedOptions, (option) => option.selected);
-    const abilities = _.map(selectedAbilities, (option) => option.value);
+    const name = event.target.Name.value;
+    const description = event.target.Description.value;
+    /* const selectedAbilities = _.filter(event.target.Abilities.selectedOptions, (option) => option.selected);
+    const abilities = _.map(selectedAbilities, (option) => option.value); */
+    // const username = FlowRouter.getParam('username'); // schema requires username.
     /* const selectedStyles = _.filter(event.target.Styles.selectedOptions, (option) => option.selected);
     const styles = _.map(selectedStyles, (option) => option.value);
     const selectedGoals = _.filter(event.target.Goals.selectedOptions, (option) => option.selected);
     const goals = _.map(selectedGoals, (option) => option.value);
     const selectedExperiences = _.filter(event.target.Experiences.selectedOptions, (option) => option.selected);
     const experiences = _.map(selectedExperiences, (option) => option.value); */
-    const updatedAbilitiesData = { abilities, username };
+    // const updatedAbilitiesData = { abilities, username };
+    const updatedAbilitiesData = { name, description };
 
     // Clear out any old validation errors.
     instance.context.reset();
@@ -109,8 +111,13 @@ Template.Create_Page.events({
 
     if (instance.context.isValid()) {
       const docID = Abilities._id;
-      const id = Abilities.update(docID, { $set: cleanData });
-      instance.messageFlags.set(displaySuccessMessage, id);
+      // const id = Abilities.insert(docID, { $set: cleanData });
+      // Abilities.update(docID, { $push: updatedAbilitiesData });
+      Abilities.insert(docID, cleanData);
+      // const id = Abilities.insert({ _id: 1 }, { $push: { updatedAbilitiesData } });
+      // const id = Abilities.insert(docID, { $push: { cleanData } });
+      // Abilities.insert(cleanData);
+      // instance.messageFlags.set(displaySuccessMessage, id);
       instance.messageFlags.set(displayErrorMessages, false);
     } else {
       instance.messageFlags.set(displaySuccessMessage, false);
