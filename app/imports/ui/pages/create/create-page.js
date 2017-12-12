@@ -110,14 +110,14 @@ Template.Create_Page.events({
     instance.context.validate(cleanData);
 
     if (instance.context.isValid()) {
-      const docID = Abilities._id;
+      // const docID = Abilities._id;
       // const id = Abilities.insert(docID, { $set: cleanData });
-      // Abilities.update(docID, { $push: updatedAbilitiesData });
-      Abilities.insert(docID, cleanData);
-      // const id = Abilities.insert({ _id: 1 }, { $push: { updatedAbilitiesData } });
-      // const id = Abilities.insert(docID, { $push: { cleanData } });
+      const id = Abilities.insert(cleanData);
+      // Abilities.insert(docID, cleanData);
+      // const id = Abilities.insert(updatedAbilitiesData);
+      // const id = Abilities.insert({ createdBy: Meteor.userId(), cleanData});
       // Abilities.insert(cleanData);
-      // instance.messageFlags.set(displaySuccessMessage, id);
+      instance.messageFlags.set(displaySuccessMessage, id);
       instance.messageFlags.set(displayErrorMessages, false);
     } else {
       instance.messageFlags.set(displaySuccessMessage, false);
