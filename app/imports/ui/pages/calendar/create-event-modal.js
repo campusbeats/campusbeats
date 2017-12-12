@@ -93,5 +93,6 @@ Template.Create_Event_Modal.events({
     $('#create-event-modal')
         .modal('hide')
     ;
+    location.reload();
   },
 });
