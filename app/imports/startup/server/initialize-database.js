@@ -3,10 +3,11 @@ import { Profiles } from '/imports/api/profile/ProfileCollection';
 import { Interests } from '/imports/api/interest/InterestCollection';
 import { Abilities } from '/imports/api/ability/AbilityCollection';
 import { Styles } from '/imports/api/style/StyleCollection';
-import { Favorites } from '/imports/api/favorites/FavoritesCollection';
-import { PeopleInterested } from '/imports/api/people-interested/PeopleInterestedCollection';
 import { Goals } from '/imports/api/goal/GoalCollection';
 import { Experiences } from '/imports/api/experience/ExperienceCollection';
+import { Favorites } from '/imports/api/favorites/FavoritesCollection';
+import { PeopleInterested } from '/imports/api/people-interested/PeopleInterestedCollection';
+import { Report } from '/imports/api/report/ReportCollection';
 import { _ } from 'meteor/underscore';
 
 /* global Assets */
@@ -35,7 +36,8 @@ function restoreCollection(collection, restoreJSON) {
 
 Meteor.startup(() => {
   /** Only initialize database if it's empty. */
-  const collectionList = [Abilities, Interests, Goals, Experiences, Styles, Profiles, Favorites, PeopleInterested];
+  const collectionList = [Abilities, Interests, Goals, Experiences, Styles, Profiles, Favorites, PeopleInterested,
+    Report];
   const totalDocuments = _.reduce(collectionList, function reducer(memo, collection) {
     return memo + collection.count();
   }, 0);

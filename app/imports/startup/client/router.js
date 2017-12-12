@@ -84,7 +84,7 @@ userRoutes.route('/ban', {
   },
 });
 
-export const adminCreatePageRouteName = 'Admin_Create_Page';
+export const adminCreatePageRouteName = 'Create_Page';
 userRoutes.route('/create', {
   name: adminCreatePageRouteName,
   action() {
@@ -92,7 +92,7 @@ userRoutes.route('/create', {
   },
 });
 
-export const adminMonitorPageRouteName = 'Admin_Monitor_Page';
+export const adminMonitorPageRouteName = 'Monitor_Page';
 userRoutes.route('/monitor', {
   name: adminMonitorPageRouteName,
   action() {

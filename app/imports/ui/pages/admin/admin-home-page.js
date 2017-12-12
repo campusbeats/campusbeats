@@ -54,7 +54,7 @@ Template.Admin_Page.helpers({
           };
         });
   },
-  abilties() {
+  abilities() {
     return _.map(Abilities.findAll(),
         function makeAbilityObject(ability) {
           return {
