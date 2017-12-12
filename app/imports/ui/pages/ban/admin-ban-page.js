@@ -17,7 +17,7 @@ const selectedStylesKey = 'selectedStyles';
 const selectedGoalsKey = 'selectedGoals';
 const selectedExperiencesKey = 'selectedExperiences';
 
-Template.Admin_Page.onCreated(function onCreated() {
+Template.Admin_Ban_Page.onCreated(function onCreated() {
   this.subscribe(Interests.getPublicationName());
   this.subscribe(Profiles.getPublicationName());
   this.subscribe(Favorites.getPublicationName());
@@ -34,7 +34,7 @@ Template.Admin_Page.onCreated(function onCreated() {
   this.messageFlags.set(selectedExperiencesKey, undefined);
 });
 
-Template.Admin_Page.helpers({
+Template.Admin_Ban_Page.helpers({
   profiles() {
     // Initialize selectedAbilties to all of them if messageFlags is undefined.
     if (!Template.instance().messageFlags.get(selectedAbilitiesKey)) {
@@ -151,20 +151,10 @@ Template.Admin_Page.helpers({
   },
 });
 
-/* Template.Admin_Page.events({
+/* Template.Admin_Ban_Page.events({
   'submit .filter-data-form'(event, instance) {
     event.preventDefault();
-    const selectedOptions = _.filter(event.target.Interests.selectedOptions, (option) => option.selected);
-    instance.messageFlags.set(selectedInterestsKey, _.map(selectedOptions, (option) => option.value));
-  },
-  'click .red.button'(event) {
-    event.preventDefault();
-    FlowRouter.getParam('username');
-    FlowRouter.route('/username/admin/ban/', {
-      action: function(params, queryParams) {
-        console.log("Yeah! We are on the post:", params.postId);
-      }
-    });
-    //  FlowRouter.go('Admin_Home_Page');
+    const selectedOptions = _.filter(event.target.Abilities.selectedOptions, (option) => option.selected);
+    instance.messageFlags.set(selectedAbilitiesKey, _.map(selectedOptions, (option) => option.value));
   },
 }); */
