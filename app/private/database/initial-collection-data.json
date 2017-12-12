@@ -174,6 +174,7 @@
           "lastName": "Altenberg",
           "username": "altenber",
           "favorites": "Favorite",
+          "frownies": "Frownie",
           "email": "altenber@hawaii.edu",
           "phone": "1-808-123-4567",
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
@@ -253,6 +254,7 @@
           "firstName": "Kim",
           "lastName": "Binsted",
           "username": "binsted",
+          "frownies": "frownie",
           "email": "binsted@hawaii.edu",
           "phone": "1-999-294-2123",
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
@@ -397,6 +399,66 @@
           "firstName": "Kim",
           "lastName": "Binsted",
           "username": "binsted",
+          "email": "binsted@hawaii.edu",
+          "phone": "1-999-294-2123",
+          "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
+          "goals": [
+            "Project"
+          ],
+          "experiences": [
+            "5-10 years"
+          ],
+          "styles": [
+            "Jazz",
+            "Videogame"
+          ],
+          "abilities": [
+            "Vocals"
+          ],
+          "title": "Associate Professor, Information and Computer Sciences",
+          "picture": "/images/binsted.jpg",
+          "soundcloud": "https://soundcloud.com/binsted",
+          "youtube": "https://youtube.com/binsted",
+          "spotify": "https://spotify.com/binsted"
+        }
+      ]
+    },
+    {
+      "name": "FrowniesCollection",
+      "contents": [
+        {
+          "firstName": "Lee",
+          "lastName": "Altenberg",
+          "username": "altenber",
+          "frownies": "Frownie",
+          "email": "altenber@hawaii.edu",
+          "phone": "1-808-123-4567",
+          "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
+          "goals": [
+            "Band",
+            "Learn"
+          ],
+          "experiences": [
+            "1-6 months"
+          ],
+          "styles": [
+            "Rock",
+            "Jazz"
+          ],
+          "abilities": [
+            "Guitar",
+            "Bass"
+          ],
+          "picture": "/images/altenberg.jpg",
+          "soundcloud": "https://soundcloud.com/altenber",
+          "youtube": "https://youtube.com/altenber",
+          "spotify": "https://spotify.com/altenber"
+        },
+        {
+          "firstName": "Kim",
+          "lastName": "Binsted",
+          "username": "binsted",
+          "frownie": "frownie",
           "email": "binsted@hawaii.edu",
           "phone": "1-999-294-2123",
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
