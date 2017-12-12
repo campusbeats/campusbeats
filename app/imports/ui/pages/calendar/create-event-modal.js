@@ -80,10 +80,12 @@ Template.Create_Event_Modal.events({
       $('#create-event-modal')
           .modal('hide')
       ;
+      // console.log(instance.messageFlags);
       location.reload();
       // const user = FlowRouter.getParam('username');
       // FlowRouter.go('Calendar_Page');
     } else {
+      // console.log(instance.messageFlags);
       instance.messageFlags.set(displayErrorMessages, true);
     }
   },
