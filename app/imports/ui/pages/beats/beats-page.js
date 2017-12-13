@@ -68,13 +68,13 @@ Template.Beats_Page.helpers({
   },
 
   interests() {
-      /*  return _.map(Interests.findAll(),
-        function makeInterestObject(interest) {
-          return {
-            label: interest.name,
-            selected: _.contains(Template.instance().messageFlags.get(selectedInterestsKey), interest.name),
-          };
-        }); */
+    /*  return _.map(Interests.findAll(),
+      function makeInterestObject(interest) {
+        return {
+          label: interest.name,
+          selected: _.contains(Template.instance().messageFlags.get(selectedInterestsKey), interest.name),
+        };
+      }); */
     const profile = Profiles.findDoc(FlowRouter.getParam('username'));
     const selectedInterests = profile.interests;
     return profile && _.map(Interests.findAll(),
@@ -94,7 +94,7 @@ Template.Beats_Page.helpers({
     const selectedGoals = profile.goals;
     return profile && _.map(Goals.findAll(),
         function makeGoalObject(goal) {
-          return { label: goal.name, selected: _.contains(selectedGoals, goal.name) };
+          return { label: goal.goalName, selected: _.contains(selectedGoals, goal.goalName) };
         });
   },
   experiences() {
@@ -109,7 +109,10 @@ Template.Beats_Page.helpers({
     const selectedExperiences = profile.experiences;
     return profile && _.map(Experiences.findAll(),
         function makeExperienceObject(experience) {
-          return { label: experience.name, selected: _.contains(selectedExperiences, experience.name) };
+          return {
+            label: experience.experienceName,
+            selected: _.contains(selectedExperiences, experience.experienceName)
+          };
         });
   },
   abilities() {
@@ -124,7 +127,7 @@ Template.Beats_Page.helpers({
     const selectedAbilities = profile.abilities;
     return profile && _.map(Abilities.findAll(),
         function makeAbilityObject(ability) {
-          return { label: ability.name, selected: _.contains(selectedAbilities, ability.name) };
+          return { label: ability.abilityName, selected: _.contains(selectedAbilities, ability.abilityName) };
         });
     /* const favorite = Favorites.findDoc(FlowRouter.getParam('username'));
     const selectedAbilities = favorite.abilities;
@@ -145,7 +148,7 @@ Template.Beats_Page.helpers({
     const selectedStyles = profile.styles;
     return profile && _.map(Styles.findAll(),
         function makeStyleObject(style) {
-          return { label: style.name, selected: _.contains(selectedStyles, style.name) };
+          return { label: style.styleName, selected: _.contains(selectedStyles, style.styleName) };
         });
   },
   favorites() {
@@ -154,10 +157,12 @@ Template.Beats_Page.helpers({
         !Template.instance().messageFlags.get(selectedStylesKey) &&
         !Template.instance().messageFlags.get(selectedGoalsKey) &&
         !Template.instance().messageFlags.get(selectedExperiencesKey)) {
-      Template.instance().messageFlags.set(selectedAbilitiesKey, _.map(Abilities.findAll(), ability => ability.name));
-      Template.instance().messageFlags.set(selectedStylesKey, _.map(Styles.findAll(), style => style.name));
-      Template.instance().messageFlags.set(selectedGoalsKey, _.map(Goals.findAll(), goal => goal.name));
-      Template.instance().messageFlags.set(selectedExperiencesKey, _.map(Experiences.findAll(), exp => exp.name));
+      Template.instance().messageFlags.set(selectedAbilitiesKey, _.map(Abilities.findAll(), ability =>
+          ability.abilityName));
+      Template.instance().messageFlags.set(selectedStylesKey, _.map(Styles.findAll(), style => style.styleName));
+      Template.instance().messageFlags.set(selectedGoalsKey, _.map(Goals.findAll(), goal => goal.goalName));
+      Template.instance().messageFlags.set(selectedExperiencesKey, _.map(Experiences.findAll(), exp =>
+          exp.experienceName));
     }
     // Find all profiles with the currently selected interests.
     let allFav = Favorites.findAll();
