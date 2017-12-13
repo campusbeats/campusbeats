@@ -17,11 +17,6 @@ const createContext3 = Goals.getSchema().namedContext('Create_Page');
 const createContext4 = Experiences.getSchema().namedContext('Create_Page');
 
 Template.Create_Page.onCreated(function onCreated() {
-  /* this.subscribe(Abilities.getPublicationName());
-  this.subscribe(Styles.getPublicationName());
-  this.subscribe(Profiles.getPublicationName());
-  this.subscribe(Goals.getPublicationName());
-  this.subscribe(Experiences.getPublicationName()); */
   this.messageFlags = new ReactiveDict();
   this.messageFlags.set(displaySuccessMessage, false);
   this.messageFlags.set(displayErrorMessages, false);
@@ -48,50 +43,88 @@ Template.Create_Page.helpers({
 });
 
 Template.Create_Page.events({
-  'submit .create-data-form'(event, instance) {
+  'submit .create-ability-form'(event, instance) {
     event.preventDefault();
-    // let newAbility = Session.get('abilities');
-    const abilityName = event.target.AbilityName.value;
-    const abilityDescription = event.target.AbilityDescription.value;
-    const styleName = event.target.StyleName.value;
-    const styleDescription = event.target.StyleDescription.value;
-    const goalName = event.target.GoalName.value;
-    const goalDescription = event.target.GoalDescription.value;
-    const experienceName = event.target.ExperienceName.value;
-    const experienceDescription = event.target.ExperienceDescription.value;
-    const newAbility = { abilityName, abilityDescription };
-    const newStyle = { styleName, styleDescription };
-    const newGoal = { goalName, goalDescription };
-    const newExperience = { experienceName, experienceDescription };
+    const name = event.target.Name.value;
+    const description = event.target.Description.value;
+    const newAbility = { name, description };
 
     // Clear out any old validation errors.
     instance.context.reset();
-    instance.context2.reset();
-    instance.context3.reset();
-    instance.context4.reset();
     // Invoke clean so that updatedProfileData reflects what will be inserted.
     const cleanData = Abilities.getSchema().clean(newAbility);
-    const cleanData2 = Styles.getSchema().clean(newStyle);
-    const cleanData3 = Goals.getSchema().clean(newGoal);
-    const cleanData4 = Experiences.getSchema().clean(newExperience);
     // Determine validity.
     instance.context.validate(cleanData);
-    instance.context2.validate(cleanData2);
-    instance.context3.validate(cleanData3);
-    instance.context4.validate(cleanData4);
 
-    if (instance.context.isValid() && instance.context2.isValid()) {
-      // const docID = Abilities._id;
-      // const id = Abilities.insert(docID, { $set: cleanData });
-      // Abilities.insert(newAbility);
-      let id = Abilities.define(newAbility);
-      id = Styles.define(newStyle);
-      id = Goals.define(newGoal);
-      id = Experiences.define(newExperience);
+    if (instance.context.isValid()) {
+      const id = Abilities.define(newAbility);
       instance.messageFlags.set(displaySuccessMessage, id);
-      // instance.messageFlags.set(displaySuccessMessage, id2);
-      /* instance.messageFlags.set(displaySuccessMessage, id3);
-      instance.messageFlags.set(displaySuccessMessage, id4); */
+      instance.messageFlags.set(displayErrorMessages, false);
+    } else {
+      instance.messageFlags.set(displaySuccessMessage, false);
+      instance.messageFlags.set(displayErrorMessages, true);
+    }
+  },
+  'submit .create-style-form'(event, instance) {
+    event.preventDefault();
+    const name = event.target.Name.value;
+    const description = event.target.Description.value;
+    const newStyle = { name, description };
+
+    // Clear out any old validation errors.
+    instance.context2.reset();
+    // Invoke clean so that updatedProfileData reflects what will be inserted.
+    const cleanData = Styles.getSchema().clean(newStyle);
+    // Determine validity.
+    instance.context2.validate(cleanData);
+
+    if (instance.context2.isValid()) {
+      const id = Styles.define(newStyle);
+      instance.messageFlags.set(displaySuccessMessage, id);
+      instance.messageFlags.set(displayErrorMessages, false);
+    } else {
+      instance.messageFlags.set(displaySuccessMessage, false);
+      instance.messageFlags.set(displayErrorMessages, true);
+    }
+  },
+  'submit .create-experience-form'(event, instance) {
+    event.preventDefault();
+    const name = event.target.Name.value;
+    const description = event.target.Description.value;
+    const newExperience = { name, description };
+
+    // Clear out any old validation errors.
+    instance.context3.reset();
+    // Invoke clean so that updatedProfileData reflects what will be inserted.
+    const cleanData = Experiences.getSchema().clean(newExperience);
+    // Determine validity.
+    instance.context3.validate(cleanData);
+
+    if (instance.context2.isValid()) {
+      const id = Experiences.define(newExperience);
+      instance.messageFlags.set(displaySuccessMessage, id);
+      instance.messageFlags.set(displayErrorMessages, false);
+    } else {
+      instance.messageFlags.set(displaySuccessMessage, false);
+      instance.messageFlags.set(displayErrorMessages, true);
+    }
+  },
+  'submit .create-goal-form'(event, instance) {
+    event.preventDefault();
+    const name = event.target.Name.value;
+    const description = event.target.Description.value;
+    const newGoal = { name, description };
+
+    // Clear out any old validation errors.
+    instance.context4.reset();
+    // Invoke clean so that updatedProfileData reflects what will be inserted.
+    const cleanData = Experiences.getSchema().clean(newGoal);
+    // Determine validity.
+    instance.context4.validate(cleanData);
+
+    if (instance.context2.isValid()) {
+      const id = Experiences.define(newGoal);
+      instance.messageFlags.set(displaySuccessMessage, id);
       instance.messageFlags.set(displayErrorMessages, false);
     } else {
       instance.messageFlags.set(displaySuccessMessage, false);

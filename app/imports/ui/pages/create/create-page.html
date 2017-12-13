@@ -1,63 +1,94 @@
 <template name="Create_Page">
   {{#if Template.subscriptionsReady}}
 
-    <div style="background-color: #efefef; margin: 20px 500px 20px 500px" class="ui centered grid container">
-      <div class="ui left aligned dividing header">
-        <h1 style="color: #0a406e; text-align: center; margin-bottom: 25px" class="ui icon header">
-          <i style="color: #007897" class="plus icon"></i>
-          Create new categories for Abilities, Experiences, Goals, & Styles!
-        </h1>
+    <div style="background-color: #efefef; margin: 20px 500px 20px 500px" class="ui grid container">
+      <div class="ui centered grid container">
+        <div class="ui dividing header">
+          <h1 style="color: #0a406e; text-align: center; margin-bottom: 0px" class="ui icon header">
+            <i style="color: #007897" class="plus icon"></i>
+            Create new categories for Abilities, Experiences, Goals, & Styles!
+          </h1>
+          <h3 style="margin-bottom: 25px">Fill in all of the blanks below to make new categories</h3>
+        </div>
       </div>
 
-      <form style="margin-bottom: 20px;"
-            class="ui equal width form create-data-form {{ successClass }} {{ errorClass }}">
 
+      <form style="margin-bottom: 20px;"
+            class="ui equal width form create-ability-form {{ successClass }} {{ errorClass }}">
+        <h2 style="margin-top: 50px; margin-bottom: 0; color: #0a406e;" class="ui center aligned header">New Abilities</h2>
         <div class="ui container">
           <!--<div style="margin: 15px 250px 20px 250px;" class="ui middle aligned relaxed animated large list">-->
-          <div style="margin: 30px 300px 50px 300px;" class="fields">
-            <div class="column">
-              <h3>New Abilities</h3>
-              {{> Text_Form_Control label="AbilityName" placeholder="Guitar" value=abilities.name errorMessage=(fieldError "Ability name")}}
-              <div style="margin-top: 10px">
-                {{> Text_Form_Control label="AbilityDescription" placeholder="Learn guitar" value=abilities.description errorMessage=(fieldError "Ability description")}}
-              </div>
-            </div>
-
-            <div style="margin-left: 150px" class="column">
-              <h3>New Styles</h3>
-              {{> Text_Form_Control label="StyleName" placeholder="Rock" value=styles.name errorMessage=(fieldError "Style name")}}
-              <div style="margin-top: 10px">
-                {{> Text_Form_Control label="StyleDescription" placeholder="Play Rock genre" value=style.description errorMessage=(fieldError "Style description")}}
-              </div>
-            </div>
-          </div>
-
-          <div style="margin: 30px 300px 30px 300px;" class="fields">
-            <div class="column">
-              <h3>New Experiences</h3>
-              {{> Text_Form_Control label="ExperienceName" placeholder="1-3 months" value=experiences.name errorMessage=(fieldError "Experience name")}}
-              <div style="margin-top: 10px">
-                {{> Text_Form_Control label="ExperienceDescription" placeholder="Played for 1-3 months" value=experiences.description errorMessage=(fieldError "Experience description")}}
-              </div>
-            </div>
-
-            <div style="margin-left: 150px" class="column">
-              <h3>New Goals</h3>
-              {{> Text_Form_Control label="GoalName" placeholder="Learn" value=goals.name errorMessage=(fieldError "Goal name")}}
-              <div style="margin-top: 10px">
-                {{> Text_Form_Control label="GoalDescription" placeholder="Want to learn to play" value=goals.description errorMessage=(fieldError "Goal description")}}
-              </div>
-            </div>
+          <div style="margin: 15px 100px 20px 100px;" class="fields">
+            {{> Text_Form_Control label="Name" placeholder="Guitar" value=abilities.name errorMessage=(fieldError "Ability name")}}
+            {{> Text_Form_Control label="Description" placeholder="Learn guitar" value=abilities.description errorMessage=(fieldError "Ability description")}}
           </div>
         </div>
 
-        <button class="ui primary button" type="submit">Create</button>
+        <button style="margin-left: 500px; background-color: #1a4f78" class="ui primary button" type="submit">Create Ability</button>
         {{#if displaySuccessMessage}}
           <div class="ui success message">
-            <p>Categories successfully updated.</p>
+            <p>Ability successfully updated.</p>
           </div>
         {{/if}}
       </form>
+
+      <form style="margin-bottom: 20px;"
+            class="ui equal width form create-style-form {{ successClass }} {{ errorClass }}">
+        <h2 style="margin-top: 20px; margin-bottom: 0; color: #0a406e;" class="ui center aligned header">New Styles</h2>
+        <div class="ui container">
+          <!--<div style="margin: 15px 250px 20px 250px;" class="ui middle aligned relaxed animated large list">-->
+          <div style="margin: 15px 100px 20px 100px;" class="fields">
+            {{> Text_Form_Control label="Name" placeholder="Rock" value=styles.name errorMessage=(fieldError "Style name")}}
+            {{> Text_Form_Control label="Description" placeholder="Play Rock genre" value=style.description errorMessage=(fieldError "Style description")}}
+          </div>
+        </div>
+
+        <button style="margin-left: 510px; background-color: #1985a1" class="ui primary button" type="submit">Create Style</button>
+        {{#if displaySuccessMessage}}
+          <div class="ui success message">
+            <p>Style successfully updated.</p>
+          </div>
+        {{/if}}
+      </form>
+
+      <form style="margin-bottom: 20px;"
+            class="ui equal width form create-experience-form {{ successClass }} {{ errorClass }}">
+        <h2 style="margin-top: 20px; margin-bottom: 0; color: #0a406e;" class="ui center aligned header">New Experiences</h2>
+        <div class="ui container">
+          <!--<div style="margin: 15px 250px 20px 250px;" class="ui middle aligned relaxed animated large list">-->
+          <div style="margin: 15px 100px 20px 100px;" class="fields">
+            {{> Text_Form_Control label="Name" placeholder="1-3 months" value=experiences.name errorMessage=(fieldError "Experience name")}}
+            {{> Text_Form_Control label="Description" placeholder="Played for 1-3 months" value=experiences.description errorMessage=(fieldError "Experience description")}}
+          </div>
+        </div>
+
+        <button style="margin-left: 490px; background-color: #4db0ca" class="ui primary button" type="submit">Create Experience</button>
+        {{#if displaySuccessMessage}}
+          <div class="ui success message">
+            <p>Experience successfully updated.</p>
+          </div>
+        {{/if}}
+      </form>
+
+      <form style="margin-bottom: 20px;"
+            class="ui equal width form create-goals-form {{ successClass }} {{ errorClass }}">
+        <h2 style="margin-top: 20px; margin-bottom: 0; color: #0a406e;" class="ui center aligned header">New Goals</h2>
+        <div class="ui container">
+          <!--<div style="margin: 15px 250px 20px 250px;" class="ui middle aligned relaxed animated large list">-->
+          <div style="margin: 15px 100px 20px 100px;" class="fields">
+            {{> Text_Form_Control label="Name" placeholder="Learn" value=goals.name errorMessage=(fieldError "Goal name")}}
+            {{> Text_Form_Control label="Description" placeholder="Want to learn to play" value=goals.description errorMessage=(fieldError "Goal description")}}
+          </div>
+        </div>
+
+        <button style="margin-left: 508px; background-color: #8ad4e9" class="ui primary button" type="submit">Create Goal</button>
+        {{#if displaySuccessMessage}}
+          <div class="ui success message">
+            <p>Goal successfully updated.</p>
+          </div>
+        {{/if}}
+      </form>
+
     </div>
   {{/if}}
 </template>
