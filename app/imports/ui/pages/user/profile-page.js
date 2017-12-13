@@ -41,16 +41,16 @@ Template.Profile_Page.helpers({
     const profile = Profiles.findDoc(FlowRouter.getParam('username'));
     const selectedAbilities = profile.abilities;
     return profile && _.map(Abilities.findAll(),
-        function makeAbilityObject(ability) {
-          return { label: ability.abilityName, selected: _.contains(selectedAbilities, ability.abilityName) };
-        });
+            function makeAbilityObject(ability) {
+              return { label: ability.name, selected: _.contains(selectedAbilities, ability.name) };
+            });
   },
   styles() {
     const profile = Profiles.findDoc(FlowRouter.getParam('username'));
     const selectedStyles = profile.styles;
     return profile && _.map(Styles.findAll(),
         function makeStyleObject(style) {
-          return { label: style.styleName, selected: _.contains(selectedStyles, style.styleName) };
+          return { label: style.name, selected: _.contains(selectedStyles, style.name) };
         });
   },
   goals() {
@@ -58,7 +58,7 @@ Template.Profile_Page.helpers({
     const selectedGoals = profile.goals;
     return profile && _.map(Goals.findAll(),
         function makeGoalObject(goal) {
-          return { label: goal.goalName, selected: _.contains(selectedGoals, goal.goalName) };
+          return { label: goal.name, selected: _.contains(selectedGoals, goal.name) };
         });
   },
   experiences() {
@@ -66,10 +66,7 @@ Template.Profile_Page.helpers({
     const selectedExperiences = profile.experiences;
     return profile && _.map(Experiences.findAll(),
         function makeExperienceObject(experience) {
-          return {
-            label: experience.experienceName, selected: _.contains(selectedExperiences,
-                experience.experienceName)
-          };
+          return { label: experience.name, selected: _.contains(selectedExperiences, experience.name) };
         });
   },
 });
@@ -95,10 +92,8 @@ Template.Profile_Page.events({
     const goals = _.map(selectedGoals, (option) => option.value);
     const selectedExperiences = _.filter(event.target.Experiences.selectedOptions, (option) => option.selected);
     const experiences = _.map(selectedExperiences, (option) => option.value);
-    const updatedProfileData = {
-      firstName, lastName, phone, email, username, picture, soundcloud, youtube, spotify,
-      bio, abilities, styles, goals, experiences
-    };
+    const updatedProfileData = { firstName, lastName, phone, email, username, picture, soundcloud, youtube, spotify,
+      bio, abilities, styles, goals, experiences };
 
     // Clear out any old validation errors.
     instance.context.reset();

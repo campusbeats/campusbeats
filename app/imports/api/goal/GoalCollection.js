@@ -18,40 +18,40 @@ class GoalCollection extends BaseCollection {
    */
   constructor() {
     super('Goal', new SimpleSchema({
-      goalName: { type: String },
-      goalDescription: { type: String, optional: true },
+      name: { type: String },
+      description: { type: String, optional: true },
     }, { tracker: Tracker }));
   }
 
   /**
    * Defines a new Goal.
    * @example
-   * Goals.define({ goalName: 'Band',
-   *                    goalDescription: 'Meeting up to create a band and do live performance' });
-   * @param { Object } goalDescription Object with keys goalName and goalDescription.
+   * Goals.define({ name: 'Band',
+   *                    description: 'Meeting up to create a band and do live performance' });
+   * @param { Object } description Object with keys name and description.
    * Name must be previously undefined. Description is optional.
-   * Creates a "slug" for this goalName and stores it in the slug field.
-   * @throws {Meteor.Error} If the goal definition includes a defined goalName.
+   * Creates a "slug" for this name and stores it in the slug field.
+   * @throws {Meteor.Error} If the goal definition includes a defined name.
    * @returns The newly created docID.
    */
-  define({ goalName, goalDescription }) {
-    check(goalName, String);
-    check(goalDescription, String);
-    if (this.find({ goalName }).count() > 0) {
-      throw new Meteor.Error(`${goalName} is previously defined in another Goal`);
+  define({ name, description }) {
+    check(name, String);
+    check(description, String);
+    if (this.find({ name }).count() > 0) {
+      throw new Meteor.Error(`${name} is previously defined in another Goal`);
     }
-    return this._collection.insert({ goalName, goalDescription });
+    return this._collection.insert({ name, description });
   }
 
   /**
-   * Returns the Goal goalName corresponding to the passed goal docID.
+   * Returns the Goal name corresponding to the passed goal docID.
    * @param goalID An goal docID.
-   * @returns { String } A goal goalName.
+   * @returns { String } A goal name.
    * @throws { Meteor.Error} If the goal docID cannot be found.
    */
   findName(goalID) {
     this.assertDefined(goalID);
-    return this.findDoc(goalID).goalName;
+    return this.findDoc(goalID).name;
   }
 
   /**
@@ -65,11 +65,11 @@ class GoalCollection extends BaseCollection {
   }
 
   /**
-   * Throws an error if the passed goalName is not a defined Goal goalName.
-   * @param goalName The goalName of an goal.
+   * Throws an error if the passed name is not a defined Goal name.
+   * @param name The name of an goal.
    */
-  assertName(goalName) {
-    this.findDoc(goalName);
+  assertName(name) {
+    this.findDoc(name);
   }
 
   /**
@@ -77,25 +77,25 @@ class GoalCollection extends BaseCollection {
    * @param names An array of (hopefully) Goal names.
    */
   assertNames(names) {
-    _.each(names, goalName => this.assertName(goalName));
+    _.each(names, name => this.assertName(name));
   }
 
   /**
-   * Returns the docID associated with the passed Goal goalName, or throws an error if it cannot be found.
-   * @param { String } goalName An goal goalName.
-   * @returns { String } The docID associated with the goalName.
-   * @throws { Meteor.Error } If goalName is not associated with an Goal.
+   * Returns the docID associated with the passed Goal name, or throws an error if it cannot be found.
+   * @param { String } name An goal name.
+   * @returns { String } The docID associated with the name.
+   * @throws { Meteor.Error } If name is not associated with an Goal.
    */
-  findID(goalName) {
-    return (this.findDoc(goalName)._id);
+  findID(name) {
+    return (this.findDoc(name)._id);
   }
 
   /**
-   * Returns the docIDs associated with the array of Goal names, or throws an error if any goalName cannot be found.
+   * Returns the docIDs associated with the array of Goal names, or throws an error if any name cannot be found.
    * If nothing is passed, then an empty array is returned.
    * @param { String[] } names An array of goal names.
    * @returns { String[] } The docIDs associated with the names.
-   * @throws { Meteor.Error } If any instance is not a Goal goalName.
+   * @throws { Meteor.Error } If any instance is not a Goal name.
    */
   findIDs(names) {
     return (names) ? names.map((instance) => this.findID(instance)) : [];
@@ -108,9 +108,9 @@ class GoalCollection extends BaseCollection {
    */
   dumpOne(docID) {
     const doc = this.findDoc(docID);
-    const goalName = doc.goalName;
-    const goalDescription = doc.goalDescription;
-    return { goalName, goalDescription };
+    const name = doc.name;
+    const description = doc.description;
+    return { name, description };
   }
 }
 

@@ -18,40 +18,40 @@ class StyleCollection extends BaseCollection {
    */
   constructor() {
     super('Style', new SimpleSchema({
-      styleName: { type: String },
-      styleDescription: { type: String, optional: true },
+      name: { type: String },
+      description: { type: String, optional: true },
     }, { tracker: Tracker }));
   }
 
   /**
    * Defines a new Style.
    * @example
-   * Style.define({ styleName: 'Jazz',
-   *                    styleDescription: 'Style of music defined by swing/blues, polyrhythms, and improvisation' });
-   * @param { Object } styleDescription Object with keys styleName and styleDescription.
+   * Style.define({ name: 'Jazz',
+   *                    description: 'Style of music defined by swing/blues, polyrhythms, and improvisation' });
+   * @param { Object } description Object with keys name and description.
    * Name must be previously undefined. Description is optional.
-   * Creates a "slug" for this styleName and stores it in the slug field.
-   * @throws {Meteor.Error} If the interest definition includes a defined styleName.
+   * Creates a "slug" for this name and stores it in the slug field.
+   * @throws {Meteor.Error} If the interest definition includes a defined name.
    * @returns The newly created docID.
    */
-  define({ styleName, styleDescription }) {
-    check(styleName, String);
-    check(styleDescription, String);
-    if (this.find({ styleName }).count() > 0) {
-      throw new Meteor.Error(`${styleName} is previously defined in another Style`);
+  define({ name, description }) {
+    check(name, String);
+    check(description, String);
+    if (this.find({ name }).count() > 0) {
+      throw new Meteor.Error(`${name} is previously defined in another Style`);
     }
-    return this._collection.insert({ styleName, styleDescription });
+    return this._collection.insert({ name, description });
   }
 
   /**
-   * Returns the Interest styleName corresponding to the passed style docID.
+   * Returns the Interest name corresponding to the passed style docID.
    * @param interestID An style docID.
-   * @returns { String } An style styleName.
+   * @returns { String } An style name.
    * @throws { Meteor.Error} If the style docID cannot be found.
    */
   findName(styleID) {
     this.assertDefined(styleID);
-    return this.findDoc(styleID).styleName;
+    return this.findDoc(styleID).name;
   }
 
   /**
@@ -65,11 +65,11 @@ class StyleCollection extends BaseCollection {
   }
 
   /**
-   * Throws an error if the passed styleName is not a defined Style styleName.
-   * @param styleName The styleName of an ability.
+   * Throws an error if the passed name is not a defined Style name.
+   * @param name The name of an ability.
    */
-  assertName(styleName) {
-    this.findDoc(styleName);
+  assertName(name) {
+    this.findDoc(name);
   }
 
   /**
@@ -77,25 +77,25 @@ class StyleCollection extends BaseCollection {
    * @param names An array of (hopefully) Style names.
    */
   assertNames(names) {
-    _.each(names, styleName => this.assertName(styleName));
+    _.each(names, name => this.assertName(name));
   }
 
   /**
-   * Returns the docID associated with the passed Style styleName, or throws an error if it cannot be found.
-   * @param { String } styleName An style styleName.
-   * @returns { String } The docID associated with the styleName.
-   * @throws { Meteor.Error } If styleName is not associated with an Style.
+   * Returns the docID associated with the passed Style name, or throws an error if it cannot be found.
+   * @param { String } name An style name.
+   * @returns { String } The docID associated with the name.
+   * @throws { Meteor.Error } If name is not associated with an Style.
    */
-  findID(styleName) {
-    return (this.findDoc(styleName)._id);
+  findID(name) {
+    return (this.findDoc(name)._id);
   }
 
   /**
-   * Returns the docIDs associated with the array of Style names, or throws an error if any styleName cannot be found.
+   * Returns the docIDs associated with the array of Style names, or throws an error if any name cannot be found.
    * If nothing is passed, then an empty array is returned.
    * @param { String[] } names An array of style names.
    * @returns { String[] } The docIDs associated with the names.
-   * @throws { Meteor.Error } If any instance is not an Style styleName.
+   * @throws { Meteor.Error } If any instance is not an Style name.
    */
   findIDs(names) {
     return (names) ? names.map((instance) => this.findID(instance)) : [];
@@ -108,9 +108,9 @@ class StyleCollection extends BaseCollection {
    */
   dumpOne(docID) {
     const doc = this.findDoc(docID);
-    const styleName = doc.styleName;
-    const styleDescription = doc.styleDescription;
-    return { styleName, styleDescription };
+    const name = doc.name;
+    const description = doc.description;
+    return { name, description };
   }
 }
 

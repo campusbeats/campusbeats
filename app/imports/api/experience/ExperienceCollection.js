@@ -18,40 +18,40 @@ class ExperienceCollection extends BaseCollection {
    */
   constructor() {
     super('Experience', new SimpleSchema({
-      experienceName: { type: String },
-      experienceDescription: { type: String, optional: true },
+      name: { type: String },
+      description: { type: String, optional: true },
     }, { tracker: Tracker }));
   }
 
   /**
    * Defines a new Experience.
    * @example
-   * Experiences.define({ experienceName: 'Band',
-   *                    experienceDescription: 'Meeting up to create a band and do live performance' });
-   * @param { Object } experienceDescription Object with keys experienceName and experienceDescription.
+   * Experiences.define({ name: 'Band',
+   *                    description: 'Meeting up to create a band and do live performance' });
+   * @param { Object } description Object with keys name and description.
    * Name must be previously undefined. Description is optional.
-   * Creates a "slug" for this experienceName and stores it in the slug field.
-   * @throws {Meteor.Error} If the experience definition includes a defined experienceName.
+   * Creates a "slug" for this name and stores it in the slug field.
+   * @throws {Meteor.Error} If the experience definition includes a defined name.
    * @returns The newly created docID.
    */
-  define({ experienceName, experienceDescription }) {
-    check(experienceName, String);
-    check(experienceDescription, String);
-    if (this.find({ experienceName }).count() > 0) {
-      throw new Meteor.Error(`${experienceName} is previously defined in another Experience`);
+  define({ name, description }) {
+    check(name, String);
+    check(description, String);
+    if (this.find({ name }).count() > 0) {
+      throw new Meteor.Error(`${name} is previously defined in another Experience`);
     }
-    return this._collection.insert({ experienceName, experienceDescription });
+    return this._collection.insert({ name, description });
   }
 
   /**
-   * Returns the Experience experienceName corresponding to the passed experience docID.
+   * Returns the Experience name corresponding to the passed experience docID.
    * @param experienceID An experience docID.
-   * @returns { String } A experience experienceName.
+   * @returns { String } A experience name.
    * @throws { Meteor.Error} If the experience docID cannot be found.
    */
   findName(experienceID) {
     this.assertDefined(experienceID);
-    return this.findDoc(experienceID).experienceName;
+    return this.findDoc(experienceID).name;
   }
 
   /**
@@ -65,11 +65,11 @@ class ExperienceCollection extends BaseCollection {
   }
 
   /**
-   * Throws an error if the passed experienceName is not a defined Experience experienceName.
-   * @param experienceName The experienceName of an experience.
+   * Throws an error if the passed name is not a defined Experience name.
+   * @param name The name of an experience.
    */
-  assertName(experienceName) {
-    this.findDoc(experienceName);
+  assertName(name) {
+    this.findDoc(name);
   }
 
   /**
@@ -77,26 +77,26 @@ class ExperienceCollection extends BaseCollection {
    * @param names An array of (hopefully) Experience names.
    */
   assertNames(names) {
-    _.each(names, experienceName => this.assertName(experienceName));
+    _.each(names, name => this.assertName(name));
   }
 
   /**
-   * Returns the docID associated with the passed Experience experienceName, or throws an error if it cannot be found.
-   * @param { String } experienceName An experience experienceName.
-   * @returns { String } The docID associated with the experienceName.
-   * @throws { Meteor.Error } If experienceName is not associated with an Experience.
+   * Returns the docID associated with the passed Experience name, or throws an error if it cannot be found.
+   * @param { String } name An experience name.
+   * @returns { String } The docID associated with the name.
+   * @throws { Meteor.Error } If name is not associated with an Experience.
    */
-  findID(experienceName) {
-    return (this.findDoc(experienceName)._id);
+  findID(name) {
+    return (this.findDoc(name)._id);
   }
 
   /**
-   * Returns the docIDs associated with the array of Experience names, or throws an error if any experienceName cannot
+   * Returns the docIDs associated with the array of Experience names, or throws an error if any name cannot
    * be found.
    * If nothing is passed, then an empty array is returned.
    * @param { String[] } names An array of experience names.
    * @returns { String[] } The docIDs associated with the names.
-   * @throws { Meteor.Error } If any instance is not a Experience experienceName.
+   * @throws { Meteor.Error } If any instance is not a Experience name.
    */
   findIDs(names) {
     return (names) ? names.map((instance) => this.findID(instance)) : [];
@@ -109,9 +109,9 @@ class ExperienceCollection extends BaseCollection {
    */
   dumpOne(docID) {
     const doc = this.findDoc(docID);
-    const experienceName = doc.experienceName;
-    const experienceDescription = doc.experienceDescription;
-    return { experienceName, experienceDescription };
+    const name = doc.name;
+    const description = doc.description;
+    return { name, description };
   }
 }
 
