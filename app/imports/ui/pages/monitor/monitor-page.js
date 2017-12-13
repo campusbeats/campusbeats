@@ -213,15 +213,14 @@ Template.Monitor_Page.helpers({
     allReport = _.filter(allReport, report => _.intersection(report.experiences, selectedExperiences).length > 0);
     return allReport;
   },
-  /* report() {
+  reportProfiles() {
     const profile = Profiles.findDoc(FlowRouter.getParam('username'));
-    // const selectedAbilities = profile.abilities;
+    const selectedProfiles = profile.name;
     return profile && _.map(Profiles.findAll(),
-    // return profile;
-        function makeReportObject(profiles) {
-          return { label: profiles.name, selected: _.contains(profiles, profiles.name) };
+        function makeProfileObject(prof) {
+          return { label: prof.name, selected: _.contains(selectedProfiles, prof.name) };
         });
-  }, */
+  },
 });
 
 Template.Monitor_Page.events({
