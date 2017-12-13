@@ -18,8 +18,8 @@ class AbilityCollection extends BaseCollection {
    */
   constructor() {
     super('Ability', new SimpleSchema({
-      name: { type: String },
-      description: { type: String, optional: true },
+      abilityName: { type: String },
+      abilityDescription: { type: String, optional: true },
     }, { tracker: Tracker }));
   }
 
@@ -27,31 +27,31 @@ class AbilityCollection extends BaseCollection {
    * Defines a new Ability.
    * @example
    * Ability.define({ name: 'Composition',
-   *                    description: 'Methods for composing songs of ' });
-   * @param { Object } description Object with keys name and description.
+   *                    abilityDescription: 'Methods for composing songs of ' });
+   * @param { Object } abilityDescription Object with keys name and abilityDescription.
    * Name must be previously undefined. Description is optional.
    * Creates a "slug" for this name and stores it in the slug field.
    * @throws {Meteor.Error} If the interest definition includes a defined name.
    * @returns The newly created docID.
    */
-  define({ name, description }) {
-    check(name, String);
-    check(description, String);
-    if (this.find({ name }).count() > 0) {
-      throw new Meteor.Error(`${name} is previously defined in another Ability`);
+  define({ abilityName, abilityDescription }) {
+    check(abilityName, String);
+    check(abilityDescription, String);
+    if (this.find({ abilityName }).count() > 0) {
+      throw new Meteor.Error(`${abilityName} is previously defined in another Ability`);
     }
-    return this._collection.insert({ name, description });
+    return this._collection.insert({ abilityName, abilityDescription });
   }
 
   /**
-   * Returns the Interest name corresponding to the passed ability docID.
+   * Returns the Interest abilityName corresponding to the passed ability docID.
    * @param interestID An ability docID.
-   * @returns { String } An ability name.
+   * @returns { String } An ability abilityName.
    * @throws { Meteor.Error} If the ability docID cannot be found.
    */
   findName(abilityID) {
     this.assertDefined(abilityID);
-    return this.findDoc(abilityID).name;
+    return this.findDoc(abilityID).abilityName;
   }
 
   /**
@@ -65,11 +65,11 @@ class AbilityCollection extends BaseCollection {
   }
 
   /**
-   * Throws an error if the passed name is not a defined Ability name.
-   * @param name The name of an ability.
+   * Throws an error if the passed abilityName is not a defined Ability abilityName.
+   * @param abilityName The abilityName of an ability.
    */
-  assertName(name) {
-    this.findDoc(name);
+  assertName(abilityName) {
+    this.findDoc(abilityName);
   }
 
   /**
@@ -77,25 +77,25 @@ class AbilityCollection extends BaseCollection {
    * @param names An array of (hopefully) Ability names.
    */
   assertNames(names) {
-    _.each(names, name => this.assertName(name));
+    _.each(names, abilityName => this.assertName(abilityName));
   }
 
   /**
-   * Returns the docID associated with the passed Ability name, or throws an error if it cannot be found.
-   * @param { String } name An ability name.
-   * @returns { String } The docID associated with the name.
-   * @throws { Meteor.Error } If name is not associated with an Ability.
+   * Returns the docID associated with the passed Ability abilityName, or throws an error if it cannot be found.
+   * @param { String } abilityName An ability abilityName.
+   * @returns { String } The docID associated with the abilityName.
+   * @throws { Meteor.Error } If abilityName is not associated with an Ability.
    */
-  findID(name) {
-    return (this.findDoc(name)._id);
+  findID(abilityName) {
+    return (this.findDoc(abilityName)._id);
   }
 
   /**
-   * Returns the docIDs associated with the array of Ability names, or throws an error if any name cannot be found.
+   * Returns the docIDs associated with the array of Ability names, or throws an error if any abilityName cannot be found.
    * If nothing is passed, then an empty array is returned.
    * @param { String[] } names An array of interest names.
    * @returns { String[] } The docIDs associated with the names.
-   * @throws { Meteor.Error } If any instance is not an Ability name.
+   * @throws { Meteor.Error } If any instance is not an Ability abilityName.
    */
   findIDs(names) {
     return (names) ? names.map((instance) => this.findID(instance)) : [];
@@ -108,9 +108,9 @@ class AbilityCollection extends BaseCollection {
    */
   dumpOne(docID) {
     const doc = this.findDoc(docID);
-    const name = doc.name;
-    const description = doc.description;
-    return { name, description };
+    const abilityName = doc.abilityName;
+    const abilityDescription = doc.abilityDescription;
+    return { abilityName, abilityDescription };
   }
 }
 

@@ -17,15 +17,15 @@
           <div style="margin: 30px 300px 50px 300px;" class="fields">
             <div class="column">
               <h3>Abilities</h3>
-              {{> Text_Form_Control label="Name" placeholder="Guitar" value=abilities.name errorMessage=(fieldError "Ability name")}}
-              {{> Text_Form_Control label="Description" placeholder="Learn guitar" value=abilities.description errorMessage=(fieldError "Ability description")}}
+              {{> Text_Form_Control label="AbilityName" placeholder="Guitar" value=abilities.abilityName errorMessage=(fieldError "Ability name")}}
+              {{> Text_Form_Control label="AbilityDescription" placeholder="Learn guitar" value=abilities.abilityDescription errorMessage=(fieldError "Ability description")}}
             </div>
 
-            <!--<div style="margin-left: 200px" class="column">
+            <div style="margin-left: 200px" class="column">
               <h3>Styles</h3>
-              {{> Text_Form_Control label="Name" placeholder="Rock" value=styles.name errorMessage=(fieldError "Style name")}}
-              {{> Text_Form_Control label="Description" placeholder="Play Rock genre" value=style.description errorMessage=(fieldError "Style description")}}
-            </div>-->
+              {{> Text_Form_Control label="StyleName" placeholder="Rock" value=styles.styleName errorMessage=(fieldError "Style name")}}
+              {{> Text_Form_Control label="StyleDescription" placeholder="Play Rock genre" value=style.styleDescription errorMessage=(fieldError "Style description")}}
+            </div>
           </div>
 
           <!--<div style="margin: 30px 300px 30px 300px;" class="fields">
