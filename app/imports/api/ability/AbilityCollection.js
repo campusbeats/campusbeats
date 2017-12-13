@@ -91,7 +91,8 @@ class AbilityCollection extends BaseCollection {
   }
 
   /**
-   * Returns the docIDs associated with the array of Ability names, or throws an error if any abilityName cannot be found.
+   * Returns the docIDs associated with the array of Ability names, or throws an error if any abilityName cannot be
+   * found.
    * If nothing is passed, then an empty array is returned.
    * @param { String[] } names An array of interest names.
    * @returns { String[] } The docIDs associated with the names.

@@ -2,19 +2,19 @@ import { Template } from 'meteor/templating';
 import { ReactiveDict } from 'meteor/reactive-dict';
 import { Abilities } from '/imports/api/ability/AbilityCollection';
 import { Styles } from '/imports/api/style/StyleCollection';
-// import { Goals } from '/imports/api/goal/GoalCollection';
-// import { Experiences } from '/imports/api/experience/ExperienceCollection';
+import { Goals } from '/imports/api/goal/GoalCollection';
+import { Experiences } from '/imports/api/experience/ExperienceCollection';
 
 const displaySuccessMessage = 'displaySuccessMessage';
 const displayErrorMessages = 'displayErrorMessages';
 const selectedAbilitiesKey = 'selectedAbilities';
 const selectedStylesKey = 'selectedStyles';
-/* const selectedGoalsKey = 'selectedGoals';
-const selectedExperiencesKey = 'selectedExperience'; */
+const selectedGoalsKey = 'selectedGoals';
+const selectedExperiencesKey = 'selectedExperience';
 const createContext = Abilities.getSchema().namedContext('Create_Page');
 const createContext2 = Styles.getSchema().namedContext('Create_Page');
-/* const createContext3 = Goals.getSchema().namedContext('Create_Page');
-const createContext4 = Experiences.getSchema().namedContext('Create_Page'); */
+const createContext3 = Goals.getSchema().namedContext('Create_Page');
+const createContext4 = Experiences.getSchema().namedContext('Create_Page');
 
 Template.Create_Page.onCreated(function onCreated() {
   /* this.subscribe(Abilities.getPublicationName());
@@ -27,12 +27,12 @@ Template.Create_Page.onCreated(function onCreated() {
   this.messageFlags.set(displayErrorMessages, false);
   this.messageFlags.set(selectedAbilitiesKey, undefined);
   this.messageFlags.set(selectedStylesKey, undefined);
-  /* this.messageFlags.set(selectedGoalsKey, undefined);
-  this.messageFlags.set(selectedExperiencesKey, undefined); */
+  this.messageFlags.set(selectedGoalsKey, undefined);
+  this.messageFlags.set(selectedExperiencesKey, undefined);
   this.context = createContext;
   this.context2 = createContext2;
-  /* this.context3 = createContext3;
-  this.context4 = createContext4; */
+  this.context3 = createContext3;
+  this.context4 = createContext4;
 });
 
 Template.Create_Page.helpers({
@@ -55,26 +55,30 @@ Template.Create_Page.events({
     const abilityDescription = event.target.AbilityDescription.value;
     const styleName = event.target.StyleName.value;
     const styleDescription = event.target.StyleDescription.value;
+    const goalName = event.target.GoalName.value;
+    const goalDescription = event.target.GoalDescription.value;
+    const experienceName = event.target.ExperienceName.value;
+    const experienceDescription = event.target.ExperienceDescription.value;
     const newAbility = { abilityName, abilityDescription };
     const newStyle = { styleName, styleDescription };
-    /* const newGoal = { name, description };
-    const newExperience = { name, description }; */
+    const newGoal = { goalName, goalDescription };
+    const newExperience = { experienceName, experienceDescription };
 
     // Clear out any old validation errors.
     instance.context.reset();
     instance.context2.reset();
-    /* instance.context3.reset();
-    instance.context4.reset(); */
+    instance.context3.reset();
+    instance.context4.reset();
     // Invoke clean so that updatedProfileData reflects what will be inserted.
     const cleanData = Abilities.getSchema().clean(newAbility);
     const cleanData2 = Styles.getSchema().clean(newStyle);
-    /* const cleanData3 = Goals.getSchema().clean(newGoal);
-    const cleanData4 = Experiences.getSchema().clean(newExperience); */
+    const cleanData3 = Goals.getSchema().clean(newGoal);
+    const cleanData4 = Experiences.getSchema().clean(newExperience);
     // Determine validity.
     instance.context.validate(cleanData);
     instance.context2.validate(cleanData2);
-    /* instance.context3.validate(cleanData3);
-    instance.context4.validate(cleanData4); */
+    instance.context3.validate(cleanData3);
+    instance.context4.validate(cleanData4);
 
     if (instance.context.isValid() && instance.context2.isValid()) {
       // const docID = Abilities._id;
@@ -82,8 +86,8 @@ Template.Create_Page.events({
       // Abilities.insert(newAbility);
       let id = Abilities.define(newAbility);
       id = Styles.define(newStyle);
-      /* const id3 = Goals.define(newGoal);
-      const id4 = Experiences.define(newExperience); */
+      id = Goals.define(newGoal);
+      id = Experiences.define(newExperience);
       instance.messageFlags.set(displaySuccessMessage, id);
       // instance.messageFlags.set(displaySuccessMessage, id2);
       /* instance.messageFlags.set(displaySuccessMessage, id3);
