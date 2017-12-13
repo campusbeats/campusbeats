@@ -91,7 +91,8 @@ class ExperienceCollection extends BaseCollection {
   }
 
   /**
-   * Returns the docIDs associated with the array of Experience names, or throws an error if any name cannot be found.
+   * Returns the docIDs associated with the array of Experience names, or throws an error if any name cannot
+   * be found.
    * If nothing is passed, then an empty array is returned.
    * @param { String[] } names An array of experience names.
    * @returns { String[] } The docIDs associated with the names.
