@@ -1,5 +1,6 @@
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
+import { Tracker } from 'meteor/tracker';
 // import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
 /* eslint-disable object-shorthand */
@@ -53,6 +54,7 @@ export const EventDataSchema = new SimpleSchema({
     type: String,
     optional: false,
   },
+}, { tracker: Tracker,
 });
 
 EventData.attachSchema(EventDataSchema);
