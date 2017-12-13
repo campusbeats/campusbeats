@@ -87,28 +87,6 @@ Template.Create_Page.events({
       instance.messageFlags.set(displayErrorMessages, true);
     }
   },
-  'submit .create-experience-form'(event, instance) {
-    event.preventDefault();
-    const name = event.target.Name.value;
-    const description = event.target.Description.value;
-    const newExperience = { name, description };
-
-    // Clear out any old validation errors.
-    instance.context3.reset();
-    // Invoke clean so that updatedProfileData reflects what will be inserted.
-    const cleanData = Experiences.getSchema().clean(newExperience);
-    // Determine validity.
-    instance.context3.validate(cleanData);
-
-    if (instance.context2.isValid()) {
-      const id = Experiences.define(newExperience);
-      instance.messageFlags.set(displaySuccessMessage, id);
-      instance.messageFlags.set(displayErrorMessages, false);
-    } else {
-      instance.messageFlags.set(displaySuccessMessage, false);
-      instance.messageFlags.set(displayErrorMessages, true);
-    }
-  },
   'submit .create-goal-form'(event, instance) {
     event.preventDefault();
     const name = event.target.Name.value;
@@ -116,14 +94,36 @@ Template.Create_Page.events({
     const newGoal = { name, description };
 
     // Clear out any old validation errors.
+    instance.context3.reset();
+    // Invoke clean so that updatedProfileData reflects what will be inserted.
+    const cleanData = Goals.getSchema().clean(newGoal);
+    // Determine validity.
+    instance.context3.validate(cleanData);
+
+    if (instance.context3.isValid()) {
+      const id = Goals.define(newGoal);
+      instance.messageFlags.set(displaySuccessMessage, id);
+      instance.messageFlags.set(displayErrorMessages, false);
+    } else {
+      instance.messageFlags.set(displaySuccessMessage, false);
+      instance.messageFlags.set(displayErrorMessages, true);
+    }
+  },
+  'submit .create-experience-form'(event, instance) {
+    event.preventDefault();
+    const name = event.target.Name.value;
+    const description = event.target.Description.value;
+    const newExperience = { name, description };
+
+    // Clear out any old validation errors.
     instance.context4.reset();
     // Invoke clean so that updatedProfileData reflects what will be inserted.
-    const cleanData = Experiences.getSchema().clean(newGoal);
+    const cleanData = Experiences.getSchema().clean(newExperience);
     // Determine validity.
     instance.context4.validate(cleanData);
 
-    if (instance.context2.isValid()) {
-      const id = Experiences.define(newGoal);
+    if (instance.context4.isValid()) {
+      const id = Experiences.define(newExperience);
       instance.messageFlags.set(displaySuccessMessage, id);
       instance.messageFlags.set(displayErrorMessages, false);
     } else {

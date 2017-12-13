@@ -52,6 +52,25 @@
       </form>
 
       <form style="margin-bottom: 20px;"
+            class="ui equal width form create-goal-form {{ successClass }} {{ errorClass }}">
+        <h2 style="margin-top: 20px; margin-bottom: 0; color: #0a406e;" class="ui center aligned header">New Goals</h2>
+        <div class="ui container">
+          <!--<div style="margin: 15px 250px 20px 250px;" class="ui middle aligned relaxed animated large list">-->
+          <div style="margin: 15px 100px 20px 100px;" class="fields">
+            {{> Text_Form_Control label="Name" placeholder="Learn" value=goals.name errorMessage=(fieldError "Goal name")}}
+            {{> Text_Form_Control label="Description" placeholder="Want to learn to play" value=goals.description errorMessage=(fieldError "Goal description")}}
+          </div>
+        </div>
+
+        <button style="margin-left: 508px; background-color: #4db0ca" class="ui primary button" type="submit">Create Goal</button>
+        {{#if displaySuccessMessage}}
+          <div class="ui success message">
+            <p>Goal successfully updated.</p>
+          </div>
+        {{/if}}
+      </form>
+
+      <form style="margin-bottom: 20px;"
             class="ui equal width form create-experience-form {{ successClass }} {{ errorClass }}">
         <h2 style="margin-top: 20px; margin-bottom: 0; color: #0a406e;" class="ui center aligned header">New Experiences</h2>
         <div class="ui container">
@@ -62,29 +81,10 @@
           </div>
         </div>
 
-        <button style="margin-left: 490px; background-color: #4db0ca" class="ui primary button" type="submit">Create Experience</button>
+        <button style="margin-left: 490px; background-color: #8ad4e9" class="ui primary button" type="submit">Create Experience</button>
         {{#if displaySuccessMessage}}
           <div class="ui success message">
             <p>Experience successfully updated.</p>
-          </div>
-        {{/if}}
-      </form>
-
-      <form style="margin-bottom: 20px;"
-            class="ui equal width form create-goals-form {{ successClass }} {{ errorClass }}">
-        <h2 style="margin-top: 20px; margin-bottom: 0; color: #0a406e;" class="ui center aligned header">New Goals</h2>
-        <div class="ui container">
-          <!--<div style="margin: 15px 250px 20px 250px;" class="ui middle aligned relaxed animated large list">-->
-          <div style="margin: 15px 100px 20px 100px;" class="fields">
-            {{> Text_Form_Control label="Name" placeholder="Learn" value=goals.name errorMessage=(fieldError "Goal name")}}
-            {{> Text_Form_Control label="Description" placeholder="Want to learn to play" value=goals.description errorMessage=(fieldError "Goal description")}}
-          </div>
-        </div>
-
-        <button style="margin-left: 508px; background-color: #8ad4e9" class="ui primary button" type="submit">Create Goal</button>
-        {{#if displaySuccessMessage}}
-          <div class="ui success message">
-            <p>Goal successfully updated.</p>
           </div>
         {{/if}}
       </form>
