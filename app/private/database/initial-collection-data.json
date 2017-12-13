@@ -86,20 +86,20 @@
       "name": "GoalCollection",
       "contents": [
         {
-          "name": "Band ",
-          "description": "Meet with people to play music together in a band"
+          "goalName": "Band ",
+          "goalDescription": "Meet with people to play music together in a band"
         },
         {
-          "name": "Learn",
-          "description": "Meet with people to learn how to play an instrument"
+          "goalName": "Learn",
+          "goalDescription": "Meet with people to learn how to play an instrument"
         },
         {
-          "name": "Project",
-          "description": "can create music or needs help creating music"
+          "goalName": "Project",
+          "goalDescription": "can create music or needs help creating music"
         },
         {
-          "name": "Compose",
-          "description": "Creates music"
+          "goalName": "Compose",
+          "goalDescription": "Creates music"
         }
       ]
     },
@@ -107,20 +107,20 @@
       "name": "AbilityCollection",
       "contents": [
         {
-          "name": "Guitar ",
-          "description": "Can play guitar"
+          "abilityName": "Guitar ",
+          "abilityDescription": "Can play guitar"
         },
         {
-          "name": "Bass",
-          "description": "Can play the bass"
+          "abilityName": "Bass",
+          "abilityDescription": "Can play the bass"
         },
         {
-          "name": "Drums",
-          "description": "can play drums"
+          "abilityName": "Drums",
+          "abilityDescription": "can play drums"
         },
         {
-          "name": "Vocals",
-          "description": "Can sing"
+          "abilityName": "Vocals",
+          "abilityDescription": "Can sing"
         }
       ]
     },
@@ -128,20 +128,20 @@
       "name": "ExperienceCollection",
       "contents": [
         {
-          "name": "1-6 months",
-          "description": "Can play guitar"
+          "experienceName": "1-6 months",
+          "experienceDescription": "Can play guitar"
         },
         {
-          "name": "7-12 months",
-          "description": "Can play the bass"
+          "experienceName": "7-12 months",
+          "experienceDescription": "Can play the bass"
         },
         {
-          "name": "1-3 years",
-          "description": "can play drums"
+          "experienceName": "1-3 years",
+          "experienceDescription": "can play drums"
         },
         {
-          "name": "5-10 years",
-          "description": "Can sing"
+          "experienceName": "5-10 years",
+          "experienceDescription": "Can sing"
         }
       ]
     },
@@ -149,20 +149,20 @@
       "name": "StyleCollection",
       "contents": [
         {
-          "name": "Rock",
-          "description": "Can play guitar"
+          "styleName": "Rock",
+          "styleDescription": "Can play guitar"
         },
         {
-          "name": "Jazz",
-          "description": "Can play the bass"
+          "styleName": "Jazz",
+          "styleDescription": "Can play the bass"
         },
         {
-          "name": "Rap",
-          "description": "can rap"
+          "styleName": "Rap",
+          "styleDescription": "can rap"
         },
         {
-          "name": "Videogame",
-          "description": "Can sing"
+          "styleName": "Videogame",
+          "styleDescription": "Can sing"
         }
       ]
     },
