@@ -122,6 +122,11 @@ class ProfileCollection extends BaseCollection {
     return { firstName, lastName, username, bio, phone, email, abilities, styles, picture,
       experiences, goals, soundcloud, youtube, spotify };
   }
+
+  ban(docID) {
+    const doc = this.findDoc(docID);
+    return this._collection.remove({ doc });
+  }
 }
 
 /**
