@@ -2,36 +2,18 @@
   {{#if Template.subscriptionsReady}}
 
     <div class="ui container">
-      <div style="margin-bottom: 20px" class="ui two column grid">
-        <div style="background-color: #ffffff; height: 565px; margin-top: 45px" class="four wide column">
-          <div class="ui dividing header">
-            People to Ban
-          </div>
-          <form class="ui equal width form beats-data-form">
-
-            <div class="field">
-              {{> Select_Form_Control label="Users" options=reportProfiles multiple=true }}
-            </div>
-
-            <button class="ui primary button" type="submit">Search</button>
-          </form>
-        </div>
-
-        <div style="margin-left: 0" class="twelve wide column">
-          <div
-              style="margin: 20px 50px 30px 50px; background: linear-gradient(45deg, #ade4e6, #22537c); border: none; box-shadow: none;"
-              class="ui segment">
-            <h2 style="border-left: 20px solid #007897; background-color: #f4f4f4; color: #0a406e; font-size: 2em; font-weight: bold; padding-bottom: 10px; padding-top: 10px"
-                class="ui center aligned icon header">
-              <i class="red minus circle icon"></i>
-              Be Able to Monitor Campus Beats
-            </h2>
-            {{> Monitor_Page_Directory reports=reports }}
-          </div>
-        </div>
+      <div
+          style="margin: 20px 50px 30px 50px; background: linear-gradient(45deg, #ade4e6, #22537c); border: none; box-shadow: none;"
+          class="ui segment">
+        <h2 style="border-left: 20px solid #007897; background-color: #f4f4f4; color: #0a406e; font-size: 2em; font-weight: bold; padding-bottom: 10px; padding-top: 10px"
+            class="ui center aligned icon header">
+          <i class="red minus circle icon"></i>
+          Be Able to Monitor Campus Beats
+        </h2>
+        {{> Monitor_Page_Directory reports=reports }}
       </div>
-
     </div>
+
 
     <!--<div style="background-color: #ffffff; margin: 20px 150px 20px 150px" class="ui centered grid container">
       <h1 style="border-left: 20px solid #007897; background-color: #f4f4f4; color: #0a406e; font-size: 2em; font-weight: bold; margin-left: 20px;" class="ui icon header">
