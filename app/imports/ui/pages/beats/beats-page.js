@@ -11,6 +11,7 @@ import { Experiences } from '/imports/api/experience/ExperienceCollection';
 import { Favorites } from '/imports/api/favorites/FavoritesCollection';
 // import { Report } from '/imports/api/report/ReportCollection';
 
+const displayErrorMessages = 'displayErrorMessages';
 const selectedInterestsKey = 'selectedInterests';
 const selectedGoalsKey = 'selectedGoals';
 const selectedExperiencesKey = 'selectedExperiences';
@@ -25,6 +26,7 @@ Template.Beats_Page.onCreated(function onCreated() {
   this.subscribe(Experiences.getPublicationName());
   this.subscribe(Abilities.getPublicationName());
   this.subscribe(Styles.getPublicationName());
+  this.messageFlags.set(displayErrorMessages, false);
   this.messageFlags = new ReactiveDict();
   this.messageFlags.set(selectedInterestsKey, undefined);
   this.messageFlags.set(selectedGoalsKey, undefined);
@@ -172,6 +174,9 @@ Template.Beats_Page.helpers({
     allFav = _.filter(allFav, favorites => _.intersection(favorites.experiences, selectedExperiences).length > 0);
     return allFav;
   },
+  errorClass() {
+    return Template.instance().messageFlags.get(displayErrorMessages) ? 'error' : '';
+  },
 });
 
 Template.Beats_Page.events({
@@ -185,5 +190,41 @@ Template.Beats_Page.events({
     instance.messageFlags.set(selectedStylesKey, _.map(selectedStyleOptions, (option) => option.value));
     instance.messageFlags.set(selectedGoalsKey, _.map(selectedGoalOptions, (option) => option.value));
     instance.messageFlags.set(selectedExperiencesKey, _.map(selectedExperienceOptions, (option) => option.value));
+  },
+  'submit .favorites'(event, instance) {
+    const firstName = event.target.First.value;
+    const lastName = event.target.Last.value;
+    const phone = event.target.Phone.value;
+    const email = event.target.Email.value;
+    const username = FlowRouter.getParam('username'); // schema requires username.
+    const picture = event.target.Picture.value;
+    const soundcloud = event.target.Soundcloud.value;
+    const youtube = event.target.Youtube.value;
+    const spotify = event.target.Spotify.value;
+    const bio = event.target.Bio.value;
+    const selectedAbilities = _.filter(event.target.Abilities.selectedOptions, (option) => option.selected);
+    const abilities = _.map(selectedAbilities, (option) => option.value);
+    const selectedStyles = _.filter(event.target.Styles.selectedOptions, (option) => option.selected);
+    const styles = _.map(selectedStyles, (option) => option.value);
+    const selectedGoals = _.filter(event.target.Goals.selectedOptions, (option) => option.selected);
+    const goals = _.map(selectedGoals, (option) => option.value);
+    const selectedExperiences = _.filter(event.target.Experiences.selectedOptions, (option) => option.selected);
+    const experiences = _.map(selectedExperiences, (option) => option.value);
+    const insertProfile = { firstName, lastName, phone, email, username, picture, soundcloud, youtube, spotify,
+      bio, abilities, styles, goals, experiences };
+
+    // Clear out any old validation errors.
+    instance.context.reset();
+    // Invoke clean so that updatedProfileData reflects what will be inserted.
+    const cleanData = Profiles.getSchema().clean(insertProfile);
+    // Determine validity.
+    instance.context.validate(cleanData);
+
+    if (instance.context.isValid()) {
+      Profiles.define(insertProfile);
+      instance.messageFlags.set(displayErrorMessages, false);
+    } else {
+      instance.messageFlags.set(displayErrorMessages, true);
+    }
   },
 });
