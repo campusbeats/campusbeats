@@ -188,7 +188,7 @@ Template.Beats_Page.events({
   },
   'click .ban'(event) {
     event.preventDefault();
-    const docID = Profiles.findDoc(FlowRouter.getParam('username'))._id;
+    const docID = Profiles.findDoc(FlowRouter.getParam('_id'));
 
     // Remove profile
     Profiles.ban(docID);

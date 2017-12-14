@@ -124,8 +124,11 @@ class ProfileCollection extends BaseCollection {
   }
 
   ban(docID) {
-    const doc = this.findDoc(docID);
-    return this._collection.remove({ doc });
+    /* return this._collection.find({ docID, function(doc) {
+      this._collection.remove({ _id: doc._id });
+    } }); */
+    // const doc = this.findDoc(docID);
+    return this._collection.remove({ docID });
   }
 }
 
