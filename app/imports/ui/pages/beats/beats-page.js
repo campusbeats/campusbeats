@@ -9,6 +9,7 @@ import { Abilities } from '/imports/api/ability/AbilityCollection';
 import { Styles } from '/imports/api/style/StyleCollection';
 import { Experiences } from '/imports/api/experience/ExperienceCollection';
 import { Favorites } from '/imports/api/favorites/FavoritesCollection';
+// import { Report } from '/imports/api/report/ReportCollection';
 
 const selectedInterestsKey = 'selectedInterests';
 const selectedGoalsKey = 'selectedGoals';
@@ -30,7 +31,7 @@ Template.Beats_Page.onCreated(function onCreated() {
   this.messageFlags.set(selectedExperiencesKey, undefined);
   this.messageFlags.set(selectedAbilitiesKey, undefined);
   this.messageFlags.set(selectedStylesKey, undefined);
-  //  this.context = Profiles.getSchema().namedContext('Beats_Page');
+  this.context = Profiles.getSchema().namedContext('Beats_Page');
   //  this.context = Favorites.getSchema().namedContext('Beats_Page');
 });
 
@@ -173,7 +174,6 @@ Template.Beats_Page.helpers({
   },
 });
 
-/* I feel like I might need to change this if I want to have it register the filtering. */
 Template.Beats_Page.events({
   'submit .beats-data-form'(event, instance) {
     event.preventDefault();

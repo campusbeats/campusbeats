@@ -14,22 +14,26 @@
       </div>
       <div style="margin-top: 10px">
         {{#each abilities in report.abilities}}
-          <a style="margin-bottom: 2px; background-color: #1a4f78 ; color: #ffffff;" class="ui tag small label">{{abilities}}</a>
+          <a style="margin-bottom: 2px; background-color: #1a4f78 ; color: #ffffff;"
+             class="ui tag small label">{{abilities}}</a>
         {{/each}}
       </div>
       <div style="margin-top: 10px">
         {{#each styles in report.styles}}
-          <a style="margin-bottom: 2px; background-color: #1985a1; color: #ffffff;" class="ui tag small label">{{styles}}</a>
+          <a style="margin-bottom: 2px; background-color: #1985a1; color: #ffffff;"
+             class="ui tag small label">{{styles}}</a>
         {{/each}}
       </div>
       <div style="margin-top: 10px">
         {{#each experiences in report.experiences}}
-          <a style="margin-bottom: 2px; background-color: #4db0ca; color: #ffffff;" class="ui tag small label">{{experiences}}</a>
+          <a style="margin-bottom: 2px; background-color: #4db0ca; color: #ffffff;"
+             class="ui tag small label">{{experiences}}</a>
         {{/each}}
       </div>
       <div style="margin-top: 10px">
         {{#each goals in report.goals}}
-          <a style="margin-bottom: 2px; background-color: #9ae9fe; color: #ffffff;" class="ui tag small label">{{goals}}</a>
+          <a style="margin-bottom: 2px; background-color: #9ae9fe; color: #ffffff;"
+             class="ui tag small label">{{goals}}</a>
         {{/each}}
       </div>
 
@@ -38,7 +42,8 @@
       <div class="ui equal width center aligned grid">
         <div class="column"><a href="mailto:{{ report.username}}@hawaii.edu"><i class="big mail icon"></i></a></div>
         {{#if report.soundcloud }}
-          <div class="column"><a href="https://soundcloud.com/{{ report.soundcloud}}"><i class="big soundcloud icon"></i></a>
+          <div class="column"><a href="https://soundcloud.com/{{ report.soundcloud}}"><i
+              class="big soundcloud icon"></i></a>
           </div>
         {{/if}}
         {{#if report.youtube }}
@@ -51,6 +56,8 @@
         {{/if}}
       </div>
     </div>
+
+    <div class="ui red bottom attached button ban" tabindex="0">BAN</div>
   </div>
 
 </template>
