@@ -237,4 +237,11 @@ Template.Monitor_Page.events({
     const selectedProfileOptions = _.filter(event.target.Profile.selectedOptions, (option) => option.selected);
     instance.messageFlags.set(selectedProfileKey, _.map(selectedProfileOptions, (option) => option.value));
   },
+  'click .ban'(event) {
+    event.preventDefault();
+    const docID = Report.findDoc(FlowRouter.getParam('_id'));
+
+    // Remove profile
+    Report.ban(docID);
+  },
 });
