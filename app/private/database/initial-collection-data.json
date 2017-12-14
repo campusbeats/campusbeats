@@ -2,87 +2,6 @@
   "comment": "Initial contents for the BowFolios database. For development purposes only.",
   "collections": [
     {
-      "name": "InterestCollection",
-      "contents": [
-        {
-          "name": "Software Engineering",
-          "description": "Techniques for development of high quality systems"
-        },
-        {
-          "name": "Algorithms",
-          "description": "A set of rules to be followed in computation"
-        },
-        {
-          "name": "Mobile Networks",
-          "description": "Networks created using mobile devices."
-        },
-        {
-          "name": "Sailing",
-          "description": ""
-        },
-        {
-          "name": "Mars",
-          "description": ""
-        },
-        {
-          "name": "Imu Cooking",
-          "description": "Hawaiian practice of cooking in a pit."
-        },
-        {
-          "name": "Scuba",
-          "description": ""
-        },
-        {
-          "name": "Photography",
-          "description": ""
-        },
-        {
-          "name": "Wind surfing",
-          "description": ""
-        },
-        {
-          "name": "Psychology",
-          "description": ""
-        },
-        {
-          "name": "Motorcycling",
-          "description": ""
-        },
-        {
-          "name": "Accreditation",
-          "description": ""
-        },
-        {
-          "name": "Paddling",
-          "description": ""
-        },
-        {
-          "name": "Crossfit",
-          "description": ""
-        },
-        {
-          "name": "Cybersecurity",
-          "description": ""
-        },
-        {
-          "name": "Surfing",
-          "description": ""
-        },
-        {
-          "name": "Computer Vision",
-          "description": ""
-        },
-        {
-          "name": "Martial Arts",
-          "description": ""
-        },
-        {
-          "name": "Evolutionary Computation",
-          "description": ""
-        }
-      ]
-    },
-    {
       "name": "GoalCollection",
       "contents": [
         {
@@ -191,7 +110,7 @@
             "Vocals",
             "Guitar"
           ],
-          "picture": "/images/altenberg.jpg",
+          "picture": "/images/Ashley Tonai.JPG",
           "soundcloud": "https://soundcloud.com/ashxketchup",
           "youtube": "https://youtube.com/ashxketchup",
           "spotify": "https://spotify.com/ashxketchup"
@@ -216,7 +135,7 @@
             "Drums",
             "Guitar"
           ],
-          "picture": "/images/baek.jpg",
+          "picture": "/images/Lindsay.jpg",
           "soundcloud": "https://soundcloud.com/baek",
           "youtube": "https://youtube.com/lres",
           "spotify": "https://spotify.com/lres"
@@ -241,7 +160,7 @@
           "abilities": [
             "Drums"
           ],
-          "picture": "/images/biagioni.jpg",
+          "picture": "/images/Devan Lau.png",
           "soundcloud": "https://soundcloud.com/whatever",
           "youtube": "https://youtube.com/whatever",
           "spotify": "https://spotify.com/whatever"
@@ -329,7 +248,7 @@
             "Vocals",
             "Guitar"
           ],
-          "picture": "/images/altenberg.jpg",
+          "picture": "/images/Ashley Tonai.JPG",
           "soundcloud": "https://soundcloud.com/ashxketchup",
           "youtube": "https://youtube.com/ashxketchup",
           "spotify": "https://spotify.com/ashxketchup"
@@ -354,7 +273,7 @@
           "abilities": [
             "Drums"
           ],
-          "picture": "/images/biagioni.jpg",
+          "picture": "/images/Devan Lau.png",
           "soundcloud": "https://soundcloud.com/whatever",
           "youtube": "https://youtube.com/whatever",
           "spotify": "https://spotify.com/whatever"
@@ -386,7 +305,7 @@
             "Vocals",
             "Guitar"
           ],
-          "picture": "/images/altenberg.jpg",
+          "picture": "/images/Ashley Tonai.JPG",
           "soundcloud": "https://soundcloud.com/ashxketchup",
           "youtube": "https://youtube.com/ashxketchup",
           "spotify": "https://spotify.com/ashxketchup"
@@ -414,7 +333,7 @@
           "abilities": [
             "Vocals"
           ],
-          "picture": "/images/binsted.jpg",
+          "picture": "/images/Jerrie Siu.png",
           "soundcloud": "https://soundcloud.com/razzie",
           "youtube": "https://youtube.com/razzie",
           "spotify": "https://spotify.com/jerrie"
@@ -439,7 +358,7 @@
             "Drums",
             "Guitar"
           ],
-          "picture": "/images/baek.jpg",
+          "picture": "/images/Lindsay.jpg",
           "soundcloud": "https://soundcloud.com/baek",
           "youtube": "https://youtube.com/lres",
           "spotify": "https://spotify.com/lres"
@@ -500,7 +419,7 @@
           "abilities": [
             "Vocals"
           ],
-          "picture": "/images/binsted.jpg",
+          "picture": "/images/Jerrie Siu.png",
           "soundcloud": "https://soundcloud.com/razzie",
           "youtube": "https://youtube.com/razzie",
           "spotify": "https://spotify.com/jerrie"
