@@ -191,6 +191,6 @@ Template.Beats_Page.events({
     const docID = Profiles.findDoc(FlowRouter.getParam('username'))._id;
 
     // Remove profile
-    Profiles.remove(docID);
+    Profiles.ban(docID);
   },
 });
