@@ -4,7 +4,7 @@
     <div class="content">
       <img class="right floated mini ui image" src="{{ report.picture }}">
       <div class="header">
-        {{ report.firstName }} {{ report.lastName }}
+        {{ report.firstName }} {{ report.lastName }} <i class="red ban icon"></i>
       </div>
       <div class="meta">
         {{ report.phone }}
@@ -32,10 +32,11 @@
       </div>
       <div style="margin-top: 10px">
         {{#each goals in report.goals}}
-          <a style="margin-bottom: 2px; background-color: #8ad4e9; color: #ffffff;"
+          <a style="margin-bottom: 2px; background-color: #9ae9fe; color: #ffffff;"
              class="ui tag small label">{{goals}}</a>
         {{/each}}
       </div>
+
     </div>
     <div class="extra content">
       <div class="ui equal width center aligned grid">
@@ -55,9 +56,6 @@
         {{/if}}
       </div>
     </div>
-    <div class="ui red bottom attached button ban" tabindex="0">BAN</div>
-      <!--<button class="ui button ban" tabindex="0" type="submit">BAN</button>-->
-    <!--</div>-->
   </div>
 
 </template>

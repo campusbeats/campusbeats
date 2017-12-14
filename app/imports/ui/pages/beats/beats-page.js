@@ -186,4 +186,11 @@ Template.Beats_Page.events({
     instance.messageFlags.set(selectedGoalsKey, _.map(selectedGoalOptions, (option) => option.value));
     instance.messageFlags.set(selectedExperiencesKey, _.map(selectedExperienceOptions, (option) => option.value));
   },
+  'click .ban'(event) {
+    event.preventDefault();
+    const docID = Profiles.findDoc(FlowRouter.getParam('_id'));
+
+    // Remove profile
+    Profiles.ban(docID);
+  },
 });
