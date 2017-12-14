@@ -2,87 +2,6 @@
   "comment": "Initial contents for the BowFolios database. For development purposes only.",
   "collections": [
     {
-      "name": "InterestCollection",
-      "contents": [
-        {
-          "name": "Software Engineering",
-          "description": "Techniques for development of high quality systems"
-        },
-        {
-          "name": "Algorithms",
-          "description": "A set of rules to be followed in computation"
-        },
-        {
-          "name": "Mobile Networks",
-          "description": "Networks created using mobile devices."
-        },
-        {
-          "name": "Sailing",
-          "description": ""
-        },
-        {
-          "name": "Mars",
-          "description": ""
-        },
-        {
-          "name": "Imu Cooking",
-          "description": "Hawaiian practice of cooking in a pit."
-        },
-        {
-          "name": "Scuba",
-          "description": ""
-        },
-        {
-          "name": "Photography",
-          "description": ""
-        },
-        {
-          "name": "Wind surfing",
-          "description": ""
-        },
-        {
-          "name": "Psychology",
-          "description": ""
-        },
-        {
-          "name": "Motorcycling",
-          "description": ""
-        },
-        {
-          "name": "Accreditation",
-          "description": ""
-        },
-        {
-          "name": "Paddling",
-          "description": ""
-        },
-        {
-          "name": "Crossfit",
-          "description": ""
-        },
-        {
-          "name": "Cybersecurity",
-          "description": ""
-        },
-        {
-          "name": "Surfing",
-          "description": ""
-        },
-        {
-          "name": "Computer Vision",
-          "description": ""
-        },
-        {
-          "name": "Martial Arts",
-          "description": ""
-        },
-        {
-          "name": "Evolutionary Computation",
-          "description": ""
-        }
-      ]
-    },
-    {
       "name": "GoalCollection",
       "contents": [
         {
@@ -129,19 +48,19 @@
       "contents": [
         {
           "name": "1-6 months",
-          "description": "Can play guitar"
+          "description": "Just starting out"
         },
         {
           "name": "7-12 months",
-          "description": "Can play the bass"
+          "description": "Novice"
         },
         {
           "name": "1-3 years",
-          "description": "can play drums"
+          "description": "Intermediate"
         },
         {
           "name": "5-10 years",
-          "description": "Can sing"
+          "description": "Veteran"
         }
       ]
     },
@@ -150,19 +69,19 @@
       "contents": [
         {
           "name": "Rock",
-          "description": "Can play guitar"
+          "description": "Heavy, riff-based style"
         },
         {
           "name": "Jazz",
-          "description": "Can play the bass"
+          "description": "Swingy, blues-based style"
         },
         {
           "name": "Rap",
-          "description": "can rap"
+          "description": "Lyrical, rhythm-based style"
         },
         {
           "name": "Videogame",
-          "description": "Can sing"
+          "description": "Music created for videogames"
         }
       ]
     },

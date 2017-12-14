@@ -1,4 +1,4 @@
-import { Interests } from '/imports/api/interest/InterestCollection';
+import { Styles } from '/imports/api/style/StyleCollection';
 import { Meteor } from 'meteor/meteor';
 import { expect } from 'chai';
 import { removeAllEntities } from '/imports/api/base/BaseUtilities';
@@ -7,9 +7,9 @@ import { removeAllEntities } from '/imports/api/base/BaseUtilities';
 /* eslint-env mocha */
 
 if (Meteor.isServer) {
-  describe('InterestCollection', function testSuite() {
-    const name = 'Software Engineering';
-    const description = 'Tools and techniques for team-based development of high quality software systems';
+  describe('StyleCollection', function testSuite() {
+    const name = 'Rock';
+    const description = 'Heavy, riff-based style';
     const defineObject = { name, description };
 
     before(function setup() {
@@ -21,30 +21,31 @@ if (Meteor.isServer) {
     });
 
     it('#define, #isDefined, #removeIt, #dumpOne, #restoreOne', function test() {
-      let docID = Interests.define(defineObject);
-      expect(Interests.isDefined(docID)).to.be.true;
+      let docID = Styles.define(defineObject);
+      expect(Styles.isDefined(docID)).to.be.true;
       // Check that fields are available
-      const doc = Interests.findDoc(docID);
+      const doc = Styles.findDoc(docID);
       expect(doc.name).to.equal(name);
       expect(doc.description).to.equal(description);
       // Check that multiple definitions with the same name fail
-      expect(function foo() { Interests.define(defineObject); }).to.throw(Error);
-      // Check that we can dump and restore a Interest.
-      const dumpObject = Interests.dumpOne(docID);
-      Interests.removeIt(docID);
-      expect(Interests.isDefined(docID)).to.be.false;
-      docID = Interests.restoreOne(dumpObject);
-      expect(Interests.isDefined(docID)).to.be.true;
-      Interests.removeIt(docID);
+      expect(function foo() { Styles.define(defineObject); }).to.throw(Error);
+      // Check that we can dump and restore a Style.
+      const dumpObject = Styles.dumpOne(docID);
+      Styles.removeIt(docID);
+      expect(Styles.isDefined(docID)).to.be.false;
+      docID = Styles.restoreOne(dumpObject);
+      expect(Styles.isDefined(docID)).to.be.true;
+      Styles.removeIt(docID);
     });
 
     it('#findID, #findIDs', function test() {
-      const docID = Interests.define(defineObject);
-      expect(Interests.isDefined(docID)).to.be.true;
-      const docID2 = Interests.findID(name);
+      const docID = Styles.define(defineObject);
+      expect(Styles.isDefined(docID)).to.be.true;
+      const docID2 = Styles.findID(name);
       expect(docID).to.equal(docID2);
-      Interests.findIDs([name, name]);
-      Interests.removeIt(docID);
+      Styles.findIDs([name, name]);
+      Styles.removeIt(docID);
     });
   });
 }
+

@@ -1,4 +1,4 @@
-import { Interests } from '/imports/api/interest/InterestCollection';
+import { Experiences } from '/imports/api/experience/ExperienceCollection';
 import { Meteor } from 'meteor/meteor';
 import { expect } from 'chai';
 import { removeAllEntities } from '/imports/api/base/BaseUtilities';
@@ -7,9 +7,9 @@ import { removeAllEntities } from '/imports/api/base/BaseUtilities';
 /* eslint-env mocha */
 
 if (Meteor.isServer) {
-  describe('InterestCollection', function testSuite() {
-    const name = 'Software Engineering';
-    const description = 'Tools and techniques for team-based development of high quality software systems';
+  describe('ExperienceCollection', function testSuite() {
+    const name = '1-6 months';
+    const description = 'Just starting out';
     const defineObject = { name, description };
 
     before(function setup() {
@@ -21,30 +21,30 @@ if (Meteor.isServer) {
     });
 
     it('#define, #isDefined, #removeIt, #dumpOne, #restoreOne', function test() {
-      let docID = Interests.define(defineObject);
-      expect(Interests.isDefined(docID)).to.be.true;
+      let docID = Experiences.define(defineObject);
+      expect(Experiences.isDefined(docID)).to.be.true;
       // Check that fields are available
-      const doc = Interests.findDoc(docID);
+      const doc = Experiences.findDoc(docID);
       expect(doc.name).to.equal(name);
       expect(doc.description).to.equal(description);
       // Check that multiple definitions with the same name fail
-      expect(function foo() { Interests.define(defineObject); }).to.throw(Error);
-      // Check that we can dump and restore a Interest.
-      const dumpObject = Interests.dumpOne(docID);
-      Interests.removeIt(docID);
-      expect(Interests.isDefined(docID)).to.be.false;
-      docID = Interests.restoreOne(dumpObject);
-      expect(Interests.isDefined(docID)).to.be.true;
-      Interests.removeIt(docID);
+      expect(function foo() { Experiences.define(defineObject); }).to.throw(Error);
+      // Check that we can dump and restore a Experience.
+      const dumpObject = Experiences.dumpOne(docID);
+      Experiences.removeIt(docID);
+      expect(Experiences.isDefined(docID)).to.be.false;
+      docID = Experiences.restoreOne(dumpObject);
+      expect(Experiences.isDefined(docID)).to.be.true;
+      Experiences.removeIt(docID);
     });
 
     it('#findID, #findIDs', function test() {
-      const docID = Interests.define(defineObject);
-      expect(Interests.isDefined(docID)).to.be.true;
-      const docID2 = Interests.findID(name);
+      const docID = Experiences.define(defineObject);
+      expect(Experiences.isDefined(docID)).to.be.true;
+      const docID2 = Experiences.findID(name);
       expect(docID).to.equal(docID2);
-      Interests.findIDs([name, name]);
-      Interests.removeIt(docID);
+      Experiences.findIDs([name, name]);
+      Experiences.removeIt(docID);
     });
   });
 }
