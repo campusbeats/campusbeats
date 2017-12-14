@@ -170,13 +170,117 @@
       "name": "ProfileCollection",
       "contents": [
         {
-          "firstName": "Lee",
-          "lastName": "Altenberg",
-          "username": "altenber",
+          "firstName": "Ashley",
+          "lastName": "Tonai",
+          "username": "Ashtonai",
           "favorites": "Favorite",
-          "email": "altenber@hawaii.edu",
-          "phone": "1-808-123-4567",
+          "email": "atonai@hawaii.edu",
+          "phone": "808-393-6434",
+          "bio": "I have been singing for 4 years and playing guitar for 7 years.",
+          "goals": [
+            "Learn",
+            "Compose"
+          ],
+          "experiences": [
+            "5-10 years"
+          ],
+          "styles": [
+            "Videogame"
+          ],
+          "abilities": [
+            "Vocals",
+            "Guitar"
+          ],
+          "picture": "/images/altenberg.jpg",
+          "soundcloud": "https://soundcloud.com/ashxketchup",
+          "youtube": "https://youtube.com/ashxketchup",
+          "spotify": "https://spotify.com/ashxketchup"
+        },
+        {
+          "firstName": "Lindsay",
+          "lastName": "Rees",
+          "username": "LinRees",
+          "email": "lrees@hawaii.edu",
+          "phone": "808-392-0076",
+          "bio": "I am a novice of music.",
+          "goals": [
+            "Compose"
+          ],
+          "experiences": [
+            "1-6 months"
+          ],
+          "styles": [
+            "Videogame"
+          ],
+          "abilities": [
+            "Drums",
+            "Guitar"
+          ],
+          "picture": "/images/baek.jpg",
+          "soundcloud": "https://soundcloud.com/baek",
+          "youtube": "https://youtube.com/lres",
+          "spotify": "https://spotify.com/lres"
+        },
+        {
+          "firstName": "Devan",
+          "lastName": "Lau",
+          "username": "DLau",
+          "favorites": "Favorite",
+          "email": "dlau707@hawaii.edu",
+          "phone": "1-800-987-6543",
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
+          "goals": [
+            "Learn"
+          ],
+          "experiences": [
+            "1-6 months"
+          ],
+          "styles": [
+            "Videogame"
+          ],
+          "abilities": [
+            "Drums"
+          ],
+          "picture": "/images/biagioni.jpg",
+          "soundcloud": "https://soundcloud.com/whatever",
+          "youtube": "https://youtube.com/whatever",
+          "spotify": "https://spotify.com/whatever"
+        },
+        {
+          "firstName": "Jerrie",
+          "lastName": "Siu",
+          "username": "Jersiu",
+          "email": "jerrie@hawaii.edu",
+          "phone": "1-808-322-0956",
+          "bio": "YOLO",
+          "goals": [
+            "Learn",
+            "Compose"
+          ],
+          "experiences": [
+            "5-10 years"
+          ],
+          "styles": [
+            "Rock",
+            "Jazz",
+            "Rap",
+            "Videogame"
+          ],
+          "abilities": [
+            "Vocals"
+          ],
+          "picture": "/images/binsted.jpg",
+          "soundcloud": "https://soundcloud.com/razzie",
+          "youtube": "https://youtube.com/razzie",
+          "spotify": "https://spotify.com/jerrie"
+        },
+        {
+          "firstName": "Rie",
+          "lastName": "Kanemitsu",
+          "username": "kanecrab",
+          "email": "rie.kanemitsu@hawaii.edu",
+          "phone": "808-542-9198",
+          "bio": "I like to watch hula and listen to lady gaga",
           "goals": [
             "Band",
             "Learn"
@@ -186,94 +290,17 @@
           ],
           "styles": [
             "Rock",
-            "Jazz"
-          ],
-          "abilities": [
-            "Guitar",
-            "Bass"
-          ],
-          "picture": "/images/altenberg.jpg",
-          "soundcloud": "https://soundcloud.com/altenber",
-          "youtube": "https://youtube.com/altenber",
-          "spotify": "https://spotify.com/altenber"
-        },
-        {
-          "firstName": "Kyungim",
-          "lastName": "Baek",
-          "username": "baek",
-          "email": "baek@hawaii.edu",
-          "phone": "1-179-748-5947",
-          "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
-          "goals": [
-            "Learn"
-          ],
-          "experiences": [
-            "7-12 months"
-          ],
-          "styles": [
-            "Rap"
-          ],
-          "abilities": [
-            "Drums"
-          ],
-          "title": "Associate Professor, Information and Computer Sciences",
-          "picture": "/images/baek.jpg",
-          "soundcloud": "https://soundcloud.com/baek",
-          "youtube": "https://youtube.com/baek",
-          "spotify": "https://spotify.com/baek"
-        },
-        {
-          "firstName": "Edo",
-          "lastName": "Biagioni",
-          "username": "esb",
-          "favorites": "Favorite",
-          "email": "esb@hawaii.edu",
-          "phone": "1-800-987-6543",
-          "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
-          "goals": [
-            "Compose"
-          ],
-          "experiences": [
-            "1-3 years"
-          ],
-          "styles": [
-            "Rap",
-            "Videogame"
-          ],
-          "abilities": [
-            "Drums"
-          ],
-          "title": "Associate Professor, Information and Computer Sciences",
-          "picture": "/images/biagioni.jpg",
-          "soundcloud": "https://soundcloud.com/esb",
-          "youtube": "https://youtube.com/esb",
-          "spotify": "https://spotify.com/esb"
-        },
-        {
-          "firstName": "Kim",
-          "lastName": "Binsted",
-          "username": "binsted",
-          "email": "binsted@hawaii.edu",
-          "phone": "1-999-294-2123",
-          "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
-          "goals": [
-            "Project"
-          ],
-          "experiences": [
-            "5-10 years"
-          ],
-          "styles": [
             "Jazz",
+            "Rap",
             "Videogame"
           ],
           "abilities": [
             "Vocals"
           ],
-          "title": "Associate Professor, Information and Computer Sciences",
           "picture": "/images/binsted.jpg",
-          "soundcloud": "https://soundcloud.com/binsted",
-          "youtube": "https://youtube.com/binsted",
-          "spotify": "https://spotify.com/binsted"
+          "soundcloud": "https://soundcloud.com/crab",
+          "youtube": "https://youtube.com/crab",
+          "spotify": "https://spotify.com/crab"
         }
       ]
     },
@@ -281,59 +308,56 @@
       "name": "FavoritesCollection",
       "contents": [
         {
-          "firstName": "Lee",
-          "lastName": "Altenberg",
-          "username": "altenber",
+          "firstName": "Ashley",
+          "lastName": "Tonai",
+          "username": "Ashtonai",
           "favorites": "Favorite",
-          "email": "altenber@hawaii.edu",
-          "phone": "1-808-123-4567",
+          "email": "atonai@hawaii.edu",
+          "phone": "808-393-6434",
+          "bio": "I have been singing for 4 years and playing guitar for 7 years.",
+          "goals": [
+            "Learn",
+            "Compose"
+          ],
+          "experiences": [
+            "5-10 years"
+          ],
+          "styles": [
+            "Videogame"
+          ],
+          "abilities": [
+            "Vocals",
+            "Guitar"
+          ],
+          "picture": "/images/altenberg.jpg",
+          "soundcloud": "https://soundcloud.com/ashxketchup",
+          "youtube": "https://youtube.com/ashxketchup",
+          "spotify": "https://spotify.com/ashxketchup"
+        },
+        {
+          "firstName": "Devan",
+          "lastName": "Lau",
+          "username": "DLau",
+          "favorites": "Favorite",
+          "email": "dlau707@hawaii.edu",
+          "phone": "1-800-987-6543",
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
           "goals": [
-            "Band",
             "Learn"
           ],
           "experiences": [
             "1-6 months"
           ],
           "styles": [
-            "Rock",
-            "Jazz"
-          ],
-          "abilities": [
-            "Guitar",
-            "Bass"
-          ],
-          "picture": "/images/altenberg.jpg",
-          "soundcloud": "https://soundcloud.com/altenber",
-          "youtube": "https://youtube.com/altenber",
-          "spotify": "https://spotify.com/altenber"
-        },
-        {
-          "firstName": "Edo",
-          "lastName": "Biagioni",
-          "username": "esb",
-          "favorites": "Favorite",
-          "email": "esb@hawaii.edu",
-          "phone": "1-800-987-6543",
-          "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
-          "goals": [
-            "Compose"
-          ],
-          "experiences": [
-            "1-3 years"
-          ],
-          "styles": [
-            "Rap",
             "Videogame"
           ],
           "abilities": [
             "Drums"
           ],
-          "title": "Associate Professor, Information and Computer Sciences",
           "picture": "/images/biagioni.jpg",
-          "soundcloud": "https://soundcloud.com/esb",
-          "youtube": "https://youtube.com/esb",
-          "spotify": "https://spotify.com/esb"
+          "soundcloud": "https://soundcloud.com/whatever",
+          "youtube": "https://youtube.com/whatever",
+          "spotify": "https://spotify.com/whatever"
         }
       ]
     },
@@ -341,12 +365,97 @@
       "name": "PeopleInterestedCollection",
       "contents": [
         {
-          "firstName": "Lee",
-          "lastName": "Altenberg",
-          "username": "altenber",
-          "email": "altenber@hawaii.edu",
-          "phone": "1-808-123-4567",
-          "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
+          "firstName": "Ashley",
+          "lastName": "Tonai",
+          "username": "Ashtonai",
+          "favorites": "Favorite",
+          "email": "atonai@hawaii.edu",
+          "phone": "808-393-6434",
+          "bio": "I have been singing for 4 years and playing guitar for 7 years.",
+          "goals": [
+            "Learn",
+            "Compose"
+          ],
+          "experiences": [
+            "5-10 years"
+          ],
+          "styles": [
+            "Videogame"
+          ],
+          "abilities": [
+            "Vocals",
+            "Guitar"
+          ],
+          "picture": "/images/altenberg.jpg",
+          "soundcloud": "https://soundcloud.com/ashxketchup",
+          "youtube": "https://youtube.com/ashxketchup",
+          "spotify": "https://spotify.com/ashxketchup"
+        },
+        {
+          "firstName": "Jerrie",
+          "lastName": "Siu",
+          "username": "Jersiu",
+          "email": "jerrie@hawaii.edu",
+          "phone": "1-808-322-0956",
+          "bio": "YOLO",
+          "goals": [
+            "Learn",
+            "Compose"
+          ],
+          "experiences": [
+            "5-10 years"
+          ],
+          "styles": [
+            "Rock",
+            "Jazz",
+            "Rap",
+            "Videogame"
+          ],
+          "abilities": [
+            "Vocals"
+          ],
+          "picture": "/images/binsted.jpg",
+          "soundcloud": "https://soundcloud.com/razzie",
+          "youtube": "https://youtube.com/razzie",
+          "spotify": "https://spotify.com/jerrie"
+        },
+        {
+          "firstName": "Lindsay",
+          "lastName": "Rees",
+          "username": "LinRees",
+          "email": "lrees@hawaii.edu",
+          "phone": "808-392-0076",
+          "bio": "I am a novice of music.",
+          "goals": [
+            "Compose"
+          ],
+          "experiences": [
+            "1-6 months"
+          ],
+          "styles": [
+            "Videogame"
+          ],
+          "abilities": [
+            "Drums",
+            "Guitar"
+          ],
+          "picture": "/images/baek.jpg",
+          "soundcloud": "https://soundcloud.com/baek",
+          "youtube": "https://youtube.com/lres",
+          "spotify": "https://spotify.com/lres"
+        }
+      ]
+    },
+    {
+      "name": "ReportCollection",
+      "contents": [
+        {
+          "firstName": "Rie",
+          "lastName": "Kanemitsu",
+          "username": "kanecrab",
+          "email": "rie.kanemitsu@hawaii.edu",
+          "phone": "808-542-9198",
+          "bio": "I like to watch hula and listen to lady gaga",
           "goals": [
             "Band",
             "Learn"
@@ -356,124 +465,45 @@
           ],
           "styles": [
             "Rock",
-            "Jazz"
-          ],
-          "abilities": [
-            "Guitar",
-            "Bass"
-          ],
-          "title": "Associate Professor, Information and Computer Sciences",
-          "picture": "/images/altenberg.jpg",
-          "soundcloud": "https://soundcloud.com/altenber",
-          "youtube": "https://youtube.com/altenber",
-          "spotify": "https://spotify.com/altenber"
-        },
-        {
-          "firstName": "Kyungim",
-          "lastName": "Baek",
-          "username": "baek",
-          "email": "baek@hawaii.edu",
-          "phone": "1-179-748-5947",
-          "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
-          "goals": [
-            "Learn"
-          ],
-          "experiences": [
-            "7-12 months"
-          ],
-          "styles": [
-            "Rap"
-          ],
-          "abilities": [
-            "Drums"
-          ],
-          "title": "Associate Professor, Information and Computer Sciences",
-          "picture": "/images/baek.jpg",
-          "soundcloud": "https://soundcloud.com/baek",
-          "youtube": "https://youtube.com/baek",
-          "spotify": "https://spotify.com/baek"
-        },
-        {
-          "firstName": "Kim",
-          "lastName": "Binsted",
-          "username": "binsted",
-          "email": "binsted@hawaii.edu",
-          "phone": "1-999-294-2123",
-          "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
-          "goals": [
-            "Project"
-          ],
-          "experiences": [
-            "5-10 years"
-          ],
-          "styles": [
             "Jazz",
+            "Rap",
             "Videogame"
           ],
           "abilities": [
             "Vocals"
           ],
-          "title": "Associate Professor, Information and Computer Sciences",
           "picture": "/images/binsted.jpg",
-          "soundcloud": "https://soundcloud.com/binsted",
-          "youtube": "https://youtube.com/binsted",
-          "spotify": "https://spotify.com/binsted"
-        }
-      ]
-    },
-    {
-      "name": "ReportCollection",
-      "contents": [
+          "soundcloud": "https://soundcloud.com/crab",
+          "youtube": "https://youtube.com/crab",
+          "spotify": "https://spotify.com/crab"
+        },
         {
-          "firstName": "Kim",
-          "lastName": "Binsted",
-          "username": "binsted",
-          "email": "binsted@hawaii.edu",
-          "phone": "1-999-294-2123",
-          "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
+          "firstName": "Jerrie",
+          "lastName": "Siu",
+          "username": "Jersiu",
+          "email": "jerrie@hawaii.edu",
+          "phone": "1-808-322-0956",
+          "bio": "YOLO",
           "goals": [
-            "Project"
+            "Learn",
+            "Compose"
           ],
           "experiences": [
             "5-10 years"
           ],
           "styles": [
+            "Rock",
             "Jazz",
+            "Rap",
             "Videogame"
           ],
           "abilities": [
             "Vocals"
           ],
-          "title": "Associate Professor, Information and Computer Sciences",
           "picture": "/images/binsted.jpg",
-          "soundcloud": "https://soundcloud.com/binsted",
-          "youtube": "https://youtube.com/binsted",
-          "spotify": "https://spotify.com/binsted"
-        },
-        {
-          "firstName": "Kyungim",
-          "lastName": "Baek",
-          "username": "baek",
-          "email": "baek@hawaii.edu",
-          "phone": "1-179-748-5947",
-          "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
-          "goals": [
-            "Learn"
-          ],
-          "experiences": [
-            "7-12 months"
-          ],
-          "styles": [
-            "Rap"
-          ],
-          "abilities": [
-            "Drums"
-          ],
-          "title": "Associate Professor, Information and Computer Sciences",
-          "picture": "/images/baek.jpg",
-          "soundcloud": "https://soundcloud.com/baek",
-          "youtube": "https://youtube.com/baek",
-          "spotify": "https://spotify.com/baek"
+          "soundcloud": "https://soundcloud.com/razzie",
+          "youtube": "https://youtube.com/razzie",
+          "spotify": "https://spotify.com/jerrie"
         }
       ]
     }
